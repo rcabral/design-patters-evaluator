@@ -45,10 +45,10 @@ GOOGLE_API_KEY=your_google_key_here
 Edit `models_config.yaml` to define which models to use.
 ```yaml
 models:
-  - name: "gpt-4o"
+  - name: "gpt-5o"
     provider: "openai"
     api_key_env: "OPENAI_API_KEY"
-    model_id: "gpt-4o"
+    model_id: "gpt-5o"
   
   - name: "llama-3.1-local"
     provider: "ollama"
@@ -67,7 +67,7 @@ To use local models like Llama 3.1 or Gemma 2, you need [Ollama](https://ollama.
 2. **Pull Models**: Open your terminal and run:
    ```bash
    ollama pull llama3.1
-   ollama pull gemma2
+   ollama pull gemma-3-4b-pt
    ```
 3. **Start Server**: Ensure Ollama is running (usually runs in the background or via `ollama serve`).
 
