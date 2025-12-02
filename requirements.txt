@@ -1,0 +1,6 @@
+openai
+google-generativeai
+pyyaml
+python-dotenv
+requests
+pandas
