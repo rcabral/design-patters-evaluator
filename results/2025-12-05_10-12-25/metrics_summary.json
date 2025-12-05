@@ -1,0 +1,71 @@
+[
+  {
+    "model": "gpt-4o-mini",
+    "precision": 0.8387096774193549,
+    "recall": 0.65,
+    "f1": 0.7323943661971831,
+    "total_tp": 52,
+    "total_fp": 10,
+    "total_fn": 28,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 16,
+        "fp": 4,
+        "fn": 4,
+        "precision": 0.8,
+        "recall": 0.8,
+        "f1": 0.8000000000000002
+      },
+      {
+        "pattern": "factory",
+        "tp": 8,
+        "fp": 0,
+        "fn": 12,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285715
+      },
+      {
+        "pattern": "observer",
+        "tp": 19,
+        "fp": 6,
+        "fn": 1,
+        "precision": 0.76,
+        "recall": 0.95,
+        "f1": 0.8444444444444444
+      },
+      {
+        "pattern": "decorator",
+        "tp": 9,
+        "fp": 0,
+        "fn": 11,
+        "precision": 1.0,
+        "recall": 0.45,
+        "f1": 0.6206896551724138
+      }
+    ],
+    "ignored_detections": {
+      "Dependency Injection": 1,
+      "Mediator": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 25,
+        "total": 40,
+        "accuracy": 0.625
+      },
+      "PMART": {
+        "correct": 27,
+        "total": 40,
+        "accuracy": 0.675
+      }
+    },
+    "debug_info": {
+      "files_processed": 80,
+      "correct_count": 52,
+      "missed_count": 28,
+      "fp_count": 10
+    }
+  }
+]

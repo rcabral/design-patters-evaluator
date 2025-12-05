@@ -1,0 +1,145 @@
+# .gitignore for Python project
+# Generated to ignore common Python artifacts, virtualenvs, editor/IDE files, and OS metadata.
+# Assumptions:
+# - This is a standard Python project; we should ignore virtual environments, caches, build artifacts, and IDE files.
+# - Large datasets or results may be stored elsewhere; adjust/remove entries below if you want those directories tracked.
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+develop-eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+coverage.xml
+nosetests.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582; used by e.g. pythonbrew
+__pypackages__/
+
+# virtualenv
+venv/
+ENV/
+env/
+.venv/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs (PyCharm, IntelliJ)
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# dotenv
+.env
+.env.local
+
+# AWS credentials
+.aws/
+
+# local sqlite DB
+*.db
+*.sqlite3
+
+# Logs and temp files
+*.log
+tmp/
+temp/
+
+# MyPy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Node / front-end (if present)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Optional: data and results directories (uncomment if you want to ignore them)
+# datasets/
+# results/
+
+# If you need to keep a file that matches an ignore pattern, add it explicitly to the index:
+#   git add -f path/to/file
+datasets-raw/Java-DPD-dataset
+datasets-raw/ptidej-P-MARt
+# End of .gitignore

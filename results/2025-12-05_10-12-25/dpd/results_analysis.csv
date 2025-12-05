@@ -1,0 +1,419 @@
+filename,ground_truth_label,model_name,detected_pattern,confidence,adherence,reasoning,raw_response,duration_seconds
+DPD-AllBinary-Platform-ImageComparisonResultCacheSingleton.java,singleton,gpt-4o-mini,Singleton,90,85,The class 'ImageComparisonResultCacheSingleton' implements the Singleton pattern by having a private static instance of itself and a private constructor to prevent instantiation from outside the class. It provides a public static method 'getInstance()' to access the single instance.,"```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Singleton"",
+    ""confidence"": 90,
+    ""adherence"": 85,
+    ""reason"": ""The class 'ImageComparisonResultCacheSingleton' implements the Singleton pattern by having a private static instance of itself and a private constructor to prevent instantiation from outside the class. It provides a public static method 'getInstance()' to access the single instance.""
+  }]
+}
+```",3.342587
+DPD-CIDE-ScreenSingleton.java,singleton,gpt-4o-mini,Singleton,90,85,"The ScreenSingleton class implements the Singleton design pattern by providing a private constructor and a static method to get the single instance of the class. The instance is created only when it is needed, ensuring that only one instance exists throughout the application.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The ScreenSingleton class implements the Singleton design pattern by providing a private constructor and a static method to get the single instance of the class. The instance is created only when it is needed, ensuring that only one instance exists throughout the application.""
+	}]
+}
+```",2.31188
+DPD-AllBinary-Platform-GameConfigurationPersistanceSingleton.java,singleton,gpt-4o-mini,Singleton,90,85,"The class GameConfigurationPersistanceSingleton implements the Singleton pattern by providing a private static instance of itself and a public static method to access that instance. The constructor is private, ensuring that no other instances can be created.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Singleton"",
+    ""confidence"": 90,
+    ""adherence"": 85,
+    ""reason"": ""The class GameConfigurationPersistanceSingleton implements the Singleton pattern by providing a private static instance of itself and a public static method to access that instance. The constructor is private, ensuring that no other instances can be created.""
+  }]
+}
+```",2.153604
+DPD-AllBinary-Platform-UploadMediaSingleton.java,singleton,gpt-4o-mini,Singleton,90,85,"The class UploadMediaSingleton is implemented as a singleton, as evidenced by the private constructor and the static method getInstance() that controls the instantiation of the class.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class UploadMediaSingleton is implemented as a singleton, as evidenced by the private constructor and the static method getInstance() that controls the instantiation of the class.""
+    }
+  ]
+}
+```",2.692627
+DPD-alfresco-TransactionAwareSingleton.java,singleton,gpt-4o-mini,Observer,80,75,"The class extends TransactionListenerAdapter and uses transaction listeners to manage state changes, indicating a publisher-subscriber relationship where the TransactionAwareSingleton class notifies listeners (in this case, transaction listeners) about changes in its state.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 80,
+      ""adherence"": 75,
+      ""reason"": ""The class extends TransactionListenerAdapter and uses transaction listeners to manage state changes, indicating a publisher-subscriber relationship where the TransactionAwareSingleton class notifies listeners (in this case, transaction listeners) about changes in its state.""
+    }
+  ]
+}
+```",4.168373
+DPD-AllBinary-Platform-ConstrainedMotionRectanglesResultsCacheSingleton.java,singleton,gpt-4o-mini,Singleton,90,85,"The class 'ConstrainedMotionRectanglesResultsCacheSingleton' follows the Singleton pattern by having a private constructor and a static method 'getInstance()' that returns a single instance of 'CacheInterface'. The static block initializes the instance, ensuring that only one instance exists.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Singleton"",
+    ""confidence"": 90,
+    ""adherence"": 85,
+    ""reason"": ""The class 'ConstrainedMotionRectanglesResultsCacheSingleton' follows the Singleton pattern by having a private constructor and a static method 'getInstance()' that returns a single instance of 'CacheInterface'. The static block initializes the instance, ensuring that only one instance exists.""
+  }]
+}
+```",3.159055
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gpt-4o-mini,Singleton,90,85,"The class TestingInputSingleton has a private static final instance and a public static method to get that instance, which is characteristic of the Singleton pattern.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class TestingInputSingleton has a private static final instance and a public static method to get that instance, which is characteristic of the Singleton pattern.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 75,
+      ""adherence"": 70,
+      ""reason"": ""The class uses a GameInputProcessor that processes input events based on the state of the TestInputInterface, suggesting a publisher-subscriber relationship where the input processors act as observers to the input events.""
+    }
+  ]
+}
+```",4.60467
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gpt-4o-mini,Observer,75,70,"The class uses a GameInputProcessor that processes input events based on the state of the TestInputInterface, suggesting a publisher-subscriber relationship where the input processors act as observers to the input events.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class TestingInputSingleton has a private static final instance and a public static method to get that instance, which is characteristic of the Singleton pattern.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 75,
+      ""adherence"": 70,
+      ""reason"": ""The class uses a GameInputProcessor that processes input events based on the state of the TestInputInterface, suggesting a publisher-subscriber relationship where the input processors act as observers to the input events.""
+    }
+  ]
+}
+```",4.60467
+DPD-openejb-SingletonEjbObjectHandler.java,singleton,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",1.017193
+DPD-AllBinary-Platform-PrimitiveLongSingleton.java,singleton,gpt-4o-mini,Singleton,90,95,"The class PrimitiveLongSingleton implements the Singleton design pattern by providing a private static instance of itself and a public static method to access that instance, ensuring that only one instance of the class can exist.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Singleton"",
+    ""confidence"": 90,
+    ""adherence"": 95,
+    ""reason"": ""The class PrimitiveLongSingleton implements the Singleton design pattern by providing a private static instance of itself and a public static method to access that instance, ensuring that only one instance of the class can exist.""
+  }]
+}
+```",2.361387
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gpt-4o-mini,Singleton,90,85,"The class DisplayInfoSingleton implements the Singleton pattern by providing a private static instance of itself and a public static method to access that instance, ensuring that only one instance of the class can exist.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class DisplayInfoSingleton implements the Singleton pattern by providing a private static instance of itself and a public static method to access that instance, ensuring that only one instance of the class can exist.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 80,
+      ""adherence"": 75,
+      ""reason"": ""The class uses a list to keep track of changes and fires a DisplayChangeEvent to a DisplayChangeEventHandler, which suggests an implementation of the Observer pattern where the DisplayInfoSingleton notifies observers about changes in its state.""
+    }
+  ]
+}
+```",4.935176
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gpt-4o-mini,Observer,80,75,"The class uses a list to keep track of changes and fires a DisplayChangeEvent to a DisplayChangeEventHandler, which suggests an implementation of the Observer pattern where the DisplayInfoSingleton notifies observers about changes in its state.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class DisplayInfoSingleton implements the Singleton pattern by providing a private static instance of itself and a public static method to access that instance, ensuring that only one instance of the class can exist.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 80,
+      ""adherence"": 75,
+      ""reason"": ""The class uses a list to keep track of changes and fires a DisplayChangeEvent to a DisplayChangeEventHandler, which suggests an implementation of the Observer pattern where the DisplayInfoSingleton notifies observers about changes in its state.""
+    }
+  ]
+}
+```",4.935176
+DPD-dozer-BaseSampleBeanFactory.java,factory,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",1.195514
+DPD-swing-mvc-demo-EnvironmentBindingFactory.java,factory,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",0.671086
+DPD-pcgen-svn-CampaignInfoFactory.java,factory,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",1.076842
+DPD-jbehave-core-PicoStepsFactory.java,factory,gpt-4o-mini,Factory Method,80,70,The PicoStepsFactory class extends AbstractStepsFactory and overrides the createInstanceOfType method to instantiate objects based on the provided type. This indicates a Factory Method pattern where the class is responsible for creating instances of a specific type.,"```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Factory Method"",
+    ""confidence"": 80,
+    ""adherence"": 70,
+    ""reason"": ""The PicoStepsFactory class extends AbstractStepsFactory and overrides the createInstanceOfType method to instantiate objects based on the provided type. This indicates a Factory Method pattern where the class is responsible for creating instances of a specific type.""
+  }, {
+    ""pattern"": ""Dependency Injection"",
+    ""confidence"": 85,
+    ""adherence"": 75,
+    ""reason"": ""The use of PicoContainer for managing component instantiation and dependencies suggests a Dependency Injection pattern, as it allows for the injection of dependencies into the PicoStepsFactory.""
+  }]
+}
+```",4.631458
+DPD-jbehave-core-PicoStepsFactory.java,factory,gpt-4o-mini,Dependency Injection,85,75,"The use of PicoContainer for managing component instantiation and dependencies suggests a Dependency Injection pattern, as it allows for the injection of dependencies into the PicoStepsFactory.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Factory Method"",
+    ""confidence"": 80,
+    ""adherence"": 70,
+    ""reason"": ""The PicoStepsFactory class extends AbstractStepsFactory and overrides the createInstanceOfType method to instantiate objects based on the provided type. This indicates a Factory Method pattern where the class is responsible for creating instances of a specific type.""
+  }, {
+    ""pattern"": ""Dependency Injection"",
+    ""confidence"": 85,
+    ""adherence"": 75,
+    ""reason"": ""The use of PicoContainer for managing component instantiation and dependencies suggests a Dependency Injection pattern, as it allows for the injection of dependencies into the PicoStepsFactory.""
+  }]
+}
+```",4.631458
+DPD-AllBinary-Platform-InputAutomationModuleConfigurationsSingletonFactory.java,factory,gpt-4o-mini,Singleton,90,85,"The class 'InputAutomationModuleConfigurationsSingletonFactory' implements the Singleton pattern by having a private static instance and a private constructor, ensuring that only one instance of 'InputAutomationModuleConfigurations' can be created and accessed globally through the 'getInstance' method.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Singleton"",
+    ""confidence"": 90,
+    ""adherence"": 85,
+    ""reason"": ""The class 'InputAutomationModuleConfigurationsSingletonFactory' implements the Singleton pattern by having a private static instance and a private constructor, ensuring that only one instance of 'InputAutomationModuleConfigurations' can be created and accessed globally through the 'getInstance' method.""
+  }]
+}
+```",2.963352
+DPD-dozer-UserBeanFactory.java,factory,gpt-4o-mini,Factory Method,85,80,"The UserBeanFactory class implements the BeanFactory interface and provides a method to create instances of various user-related classes based on the input parameters. This aligns with the Factory Method pattern, which defines an interface for creating an object but allows subclasses to alter the type of objects that will be created.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Factory Method"",
+		""confidence"": 85,
+		""adherence"": 80,
+		""reason"": ""The UserBeanFactory class implements the BeanFactory interface and provides a method to create instances of various user-related classes based on the input parameters. This aligns with the Factory Method pattern, which defines an interface for creating an object but allows subclasses to alter the type of objects that will be created.""
+	}]
+}
+```",3.443076
+DPD-dozer-JAXBBeanFactory.java,factory,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",0.916298
+DPD-magic-config-DecoratorFactory.java,factory,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",0.796792
+DPD-orion.server-ResourceShapeFactory.java,factory,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",0.971892
+DPD-SamyGo-Android-Remote-CSeriesKeyCodeSenderFactory.java,factory,gpt-4o-mini,Factory Method,85,90,"The class CSeriesKeyCodeSenderFactory extends SenderFactory and overrides the create method to instantiate CSeriesSender objects. This is a clear implementation of the Factory Method pattern, where a method is used to create objects without specifying the exact class of the object that will be created.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Factory Method"",
+		""confidence"": 85,
+		""adherence"": 90,
+		""reason"": ""The class CSeriesKeyCodeSenderFactory extends SenderFactory and overrides the create method to instantiate CSeriesSender objects. This is a clear implementation of the Factory Method pattern, where a method is used to create objects without specifying the exact class of the object that will be created.""
+	}]
+}
+```",3.434863
+DPD-JavaDesignPatternExercises-ISubject.java,observer,gpt-4o-mini,Observer,90,80,"The interface ISubject defines methods for adding, removing, and notifying observers, which are key components of the Observer design pattern. However, without the implementation of the IObserver interface and the concrete classes that implement these interfaces, the adherence is not complete.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 90,
+		""adherence"": 80,
+		""reason"": ""The interface ISubject defines methods for adding, removing, and notifying observers, which are key components of the Observer design pattern. However, without the implementation of the IObserver interface and the concrete classes that implement these interfaces, the adherence is not complete.""
+	}]
+}
+```",2.860468
+DPD-UK-Ejemplos-Observer.java,observer,gpt-4o-mini,Observer,80,70,"The presence of the Observer interface suggests the implementation of the Observer design pattern, as it defines a method for updating observers. However, without additional context such as concrete implementations or a subject class, the adherence is not fully confirmed.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 80,
+		""adherence"": 70,
+		""reason"": ""The presence of the Observer interface suggests the implementation of the Observer design pattern, as it defines a method for updating observers. However, without additional context such as concrete implementations or a subject class, the adherence is not fully confirmed.""
+	}]
+}
+```",2.606804
+DPD-brightroom-AppHistoryObserver.java,observer,gpt-4o-mini,Observer,85,90,"The AppHistoryObserver class implements the HistoryObserver interface and registers multiple event handlers with an EventBus, which is indicative of the Observer pattern. The class listens for changes in history and responds to events like RoomListEntrySelectedEvent and GauthEvent, demonstrating a clear publisher-subscriber relationship.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 85,
+		""adherence"": 90,
+		""reason"": ""The AppHistoryObserver class implements the HistoryObserver interface and registers multiple event handlers with an EventBus, which is indicative of the Observer pattern. The class listens for changes in history and responds to events like RoomListEntrySelectedEvent and GauthEvent, demonstrating a clear publisher-subscriber relationship.""
+	}]
+}
+```",2.860809
+DPD-jge3d-Observer.java,observer,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",0.866755
+DPD-pcgen-svn-ShowMessageGuiObserver.java,observer,gpt-4o-mini,Observer,90,85,"The class implements the Observer interface and overrides the update method, indicating it is designed to observe changes in an Observable object. The use of MessageWrapper as an argument in the update method further supports the observer pattern, as it suggests that this class is reacting to changes in the state of the observable.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The class implements the Observer interface and overrides the update method, indicating it is designed to observe changes in an Observable object. The use of MessageWrapper as an argument in the update method further supports the observer pattern, as it suggests that this class is reacting to changes in the state of the observable.""
+	}]
+}
+```",2.808042
+DPD-arquillian_deprecated-ObserverImpl.java,observer,gpt-4o-mini,Observer,90,85,"The ObserverImpl class implements the ObserverMethod interface and contains methods for observing events, invoking methods based on those events, and managing dependencies through method parameters. The use of the Observes annotation indicates a clear implementation of the Observer design pattern, where observers are notified of changes or events.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Observer"",
+    ""confidence"": 90,
+    ""adherence"": 85,
+    ""reason"": ""The ObserverImpl class implements the ObserverMethod interface and contains methods for observing events, invoking methods based on those events, and managing dependencies through method parameters. The use of the Observes annotation indicates a clear implementation of the Observer design pattern, where observers are notified of changes or events.""
+  }]
+}
+```",3.404936
+DPD-JavaDesignPatternExercises-IObserver.java,observer,gpt-4o-mini,Observer,80,70,"The presence of the IObserver interface suggests that this code is part of an implementation of the Observer design pattern, where observers are expected to update based on changes in a subject. However, without the corresponding subject implementation or additional context, the adherence is not complete.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 80,
+		""adherence"": 70,
+		""reason"": ""The presence of the IObserver interface suggests that this code is part of an implementation of the Observer design pattern, where observers are expected to update based on changes in a subject. However, without the corresponding subject implementation or additional context, the adherence is not complete.""
+	}]
+}
+```",2.97212
+DPD-cxf-AbstractFaultChainInitiatorObserver.java,observer,gpt-4o-mini,Observer,85,90,"The class AbstractFaultChainInitiatorObserver implements the MessageObserver interface, indicating that it is part of a publisher-subscriber mechanism where it observes messages and reacts to them. The presence of methods like onMessage and the handling of message exchanges further supports this pattern.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The class AbstractFaultChainInitiatorObserver implements the MessageObserver interface, indicating that it is part of a publisher-subscriber mechanism where it observes messages and reacts to them. The presence of methods like onMessage and the handling of message exchanges further supports this pattern.""
+    }
+  ]
+}
+```",2.685481
+DPD-smsc-server-StatisticsObserver.java,observer,gpt-4o-mini,Observer,90,85,"The interface 'StatisticsObserver' defines methods for various notifications related to user actions and connection states, which indicates that it is intended to be implemented by classes that will observe these events. This aligns with the Observer design pattern where observers are notified of changes in state.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Observer"",
+    ""confidence"": 90,
+    ""adherence"": 85,
+    ""reason"": ""The interface 'StatisticsObserver' defines methods for various notifications related to user actions and connection states, which indicates that it is intended to be implemented by classes that will observe these events. This aligns with the Observer design pattern where observers are notified of changes in state.""
+  }]
+}
+```",2.627246
+DPD-cream-LoggingObserver.java,observer,gpt-4o-mini,Observer,90,85,"The LoggingObserver class implements the EventListener interface and listens for events, which is characteristic of the Observer design pattern. It reacts to changes (events) in the system, indicating a publisher-subscriber relationship.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The LoggingObserver class implements the EventListener interface and listens for events, which is characteristic of the Observer design pattern. It reacts to changes (events) in the system, indicating a publisher-subscriber relationship.""
+	}]
+}
+```",1.899991
+DPD-Get-Another-Label-Decorator.java,decorator,gpt-4o-mini,Decorator,90,85,The class 'DatumDecorator' extends a 'Decorator' class and adds additional functionality to the 'Datum' object without modifying its structure. This is a clear implementation of the Decorator design pattern.,"```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The class 'DatumDecorator' extends a 'Decorator' class and adds additional functionality to the 'Datum' object without modifying its structure. This is a clear implementation of the Decorator design pattern.""
+	}]
+}
+```",2.168994
+DPD-freemind-ConditionNotSatisfiedDecorator.java,decorator,gpt-4o-mini,Decorator,90,85,"The class 'ConditionNotSatisfiedDecorator' wraps an instance of 'Condition' and modifies its behavior by negating the result of the 'checkNode' method. This is a classic use of the Decorator pattern, where functionality is added to an object dynamically.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The class 'ConditionNotSatisfiedDecorator' wraps an instance of 'Condition' and modifies its behavior by negating the result of the 'checkNode' method. This is a classic use of the Decorator pattern, where functionality is added to an object dynamically.""
+	}]
+}
+```",1.946929
+DPD-junit5-RunnerDecorator.java,decorator,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",1.104728
+DPD-molgenis_apps-legacy-TaskDecorator.java,decorator,gpt-4o-mini,Decorator,90,85,"The TaskDecorator class extends MapperDecorator, which is a typical implementation of the Decorator pattern. It adds additional functionality (copying tasks to history) to the existing Mapper functionality without modifying the original Mapper class.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The TaskDecorator class extends MapperDecorator, which is a typical implementation of the Decorator pattern. It adds additional functionality (copying tasks to history) to the existing Mapper functionality without modifying the original Mapper class.""
+	}]
+}
+```",2.336286
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",1.652089
+DPD-wayback-ReplayRendererDecorator.java,decorator,gpt-4o-mini,Decorator,90,85,The class 'ReplayRendererDecorator' implements a decorator pattern by holding a reference to a 'ReplayRenderer' object and providing additional functionality through its methods. The presence of the constructor that takes a 'ReplayRenderer' and the method to set the decorated object indicates adherence to the decorator pattern.,"```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The class 'ReplayRendererDecorator' implements a decorator pattern by holding a reference to a 'ReplayRenderer' object and providing additional functionality through its methods. The presence of the constructor that takes a 'ReplayRenderer' and the method to set the decorated object indicates adherence to the decorator pattern.""
+	}]
+}
+```",3.321833
+DPD-cdt-CNavigatorProblemsLabelDecorator.java,decorator,gpt-4o-mini,Observer,80,70,"The class CNavigatorProblemsLabelDecorator extends ProblemsLabelDecorator and overrides the fireProblemsChanged method, which suggests it is part of an observer pattern where it reacts to changes in resources.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 80,
+		""adherence"": 70,
+		""reason"": ""The class CNavigatorProblemsLabelDecorator extends ProblemsLabelDecorator and overrides the fireProblemsChanged method, which suggests it is part of an observer pattern where it reacts to changes in resources.""
+	}]
+}
+```",2.040809
+DPD-fuzzydb-AgeDecorator.java,decorator,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",0.69325
+DPD-fuzzydb-IDecorator.java,decorator,gpt-4o-mini,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",0.847566
+DPD-wayback-MementoReplayRendererDecorator.java,decorator,gpt-4o-mini,Decorator,90,85,"The class 'MementoReplayRendererDecorator' extends 'ReplayRendererDecorator' and adds additional functionality to the 'renderResource' method, which is characteristic of the Decorator pattern. It allows for dynamic addition of behavior to the 'ReplayRenderer' class.","```json
+{
+  ""design_patterns"": [{
+    ""pattern"": ""Decorator"",
+    ""confidence"": 90,
+    ""adherence"": 85,
+    ""reason"": ""The class 'MementoReplayRendererDecorator' extends 'ReplayRendererDecorator' and adds additional functionality to the 'renderResource' method, which is characteristic of the Decorator pattern. It allows for dynamic addition of behavior to the 'ReplayRenderer' class.""
+  }]
+}
+```",3.427238

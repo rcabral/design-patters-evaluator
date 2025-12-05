@@ -5,6 +5,8 @@ import pandas as pd
 import logging
 from typing import List, Dict, Any
 from datetime import datetime
+from pathlib import Path
+import shutil
 
 from config_loader import load_config, load_prompt
 from llm_adapters import get_adapter
@@ -20,8 +22,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-RESULTS_FILE = "results_analysis.csv"
 SOURCE_DIR = "design-patterns"
+
+def get_results_dir() -> Path:
+    """Creates timestamped results directory."""
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    results_dir = Path("results") / timestamp
+    results_dir.mkdir(parents=True, exist_ok=True)
+    return results_dir
+
+RESULTS_FILE = "results_analysis.csv"
 
 def extract_json(text: str) -> Dict[str, Any]:
     """Extracts JSON object from a string using regex."""
@@ -61,7 +71,7 @@ def scan_files(root_dir: str) -> List[Dict[str, str]]:
 
     for root, dirs, files in os.walk(root_dir):
         for file in files:
-            if file.endswith(('.java', '.py', '.cpp', '.cs', '.js', '.ts')): # Add extensions as needed
+            if file.endswith(('.java', '.py', '.cpp', '.cs', '.js', '.ts')):
                 full_path = os.path.join(root, file)
                 # Ground truth is the name of the immediate parent folder
                 ground_truth = os.path.basename(root)
@@ -73,8 +83,13 @@ def scan_files(root_dir: str) -> List[Dict[str, str]]:
     
     return files_to_process
 
-def main():
-    logger.info("Starting Design Pattern Evaluator...")
+def run_evaluation() -> bool:
+    """Runs the LLM evaluation pipeline."""
+    results_dir = get_results_dir()
+    
+    logger.info(f"Starting Design Pattern Evaluator...")
+    logger.info(f"Source: {SOURCE_DIR}")
+    logger.info(f"Results: {results_dir}")
     
     # 1. Load Configuration
     try:
@@ -82,7 +97,7 @@ def main():
         system_prompt = load_prompt()
     except Exception as e:
         logger.critical(f"Configuration error: {e}")
-        return
+        return False
 
     # 2. Initialize Adapters
     adapters = []
@@ -96,19 +111,15 @@ def main():
 
     if not adapters:
         logger.critical("No valid adapters loaded. Exiting.")
-        return
+        return False
 
     # 3. Scan Files
     files = scan_files(SOURCE_DIR)
     logger.info(f"Found {len(files)} files to process.")
     
     if not files:
-        logger.warning(f"No files found in {SOURCE_DIR}. Please ensure the directory exists and contains code.")
-        # Create the directory if it doesn't exist to help the user
-        if not os.path.exists(SOURCE_DIR):
-            os.makedirs(SOURCE_DIR)
-            logger.info(f"Created empty directory '{SOURCE_DIR}'. Please populate it with source code.")
-        return
+        logger.warning(f"No files found in {SOURCE_DIR}.")
+        return False
 
     results = []
 
@@ -133,12 +144,8 @@ def main():
             
             # Parse Response
             parsed_json = extract_json(raw_response)
-            
-            # Extract fields (handling potential list inside the JSON as per prompt instruction)
-            # The prompt asks for: "design_patterns": [{ ... }]
             patterns_found = parsed_json.get("design_patterns", [])
             
-            # If list is empty or not found, we record a "None" detection
             if not patterns_found:
                 results.append({
                     "filename": file_info['filename'],
@@ -161,17 +168,75 @@ def main():
                         "confidence": p.get("confidence", 0),
                         "adherence": p.get("adherence", 0),
                         "reasoning": p.get("reason", ""),
-                        "raw_response": raw_response, # Storing raw response for debug
+                        "raw_response": raw_response,
                         "duration_seconds": duration
                     })
 
     # 5. Save Results
-    if results:
-        df = pd.DataFrame(results)
-        df.to_csv(RESULTS_FILE, index=False)
-        logger.info(f"Analysis complete. Results saved to {RESULTS_FILE}")
-    else:
-        logger.info("No results generated.")
+    if not results:
+        return False
+    
+    df = pd.DataFrame(results)
+    
+    # Save combined results
+    combined_file = results_dir / "results_analysis.csv"
+    df.to_csv(combined_file, index=False)
+    logger.info(f"Combined results saved to {combined_file}")
+    
+    # 6. Separate by source (DPD / PMART)
+    for source in ["DPD", "PMART"]:
+        source_df = df[df['filename'].str.startswith(source + "-")]
+        if len(source_df) > 0:
+            source_dir = results_dir / source.lower()
+            source_dir.mkdir(exist_ok=True)
+            
+            source_file = source_dir / "results_analysis.csv"
+            source_df.to_csv(source_file, index=False)
+            logger.info(f"{source} results saved to {source_file}")
+    
+    # 7. Save metadata
+    metadata = {
+        "source_dir": SOURCE_DIR,
+        "timestamp": datetime.now().isoformat(),
+        "files_processed": len(files),
+        "models_used": [a.name for a in adapters],
+        "total_results": len(results),
+        "dpd_files": len(df[df['filename'].str.startswith("DPD-")]['filename'].unique()),
+        "pmart_files": len(df[df['filename'].str.startswith("PMART-")]['filename'].unique())
+    }
+    with open(results_dir / "metadata.json", 'w') as f:
+        json.dump(metadata, f, indent=2)
+    
+    # 8. Run metrics for each
+    print("\n" + "="*70)
+    print("CALCULATING METRICS...")
+    print("="*70)
+    
+    from metrics import run_metrics
+    
+    # Combined metrics
+    print("\n>> COMBINED RESULTS:")
+    run_metrics(str(combined_file))
+    
+    # Per-source metrics
+    for source in ["dpd", "pmart"]:
+        source_file = results_dir / source / "results_analysis.csv"
+        if source_file.exists():
+            print(f"\n>> {source.upper()} RESULTS:")
+            run_metrics(str(source_file))
+    
+    return True
+
+
+def main():
+    """Simple entry point."""
+    if not Path(SOURCE_DIR).exists():
+        print(f"Source directory '{SOURCE_DIR}' not found.")
+        print(f"Run: python datasets-raw/generate_datasets.py")
+        return
+    
+    run_evaluation()
+
 
 if __name__ == "__main__":
     main()

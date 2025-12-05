@@ -36,6 +36,7 @@ class LLMAdapter(ABC):
         """Generates a response from the LLM."""
         pass
 
+
 class OpenAIAdapter(LLMAdapter):
     def __init__(self, config: Dict[str, Any]):
         super().__init__(config)
@@ -66,6 +67,47 @@ class OpenAIAdapter(LLMAdapter):
         except Exception as e:
             logger.error(f"Error calling OpenAI {self.name}: {e}")
             return f"Error: {str(e)}"
+
+
+class GroqAdapter(LLMAdapter):
+    """Adapter for Groq Cloud API (OpenAI-compatible)."""
+    
+    def __init__(self, config: Dict[str, Any]):
+        super().__init__(config)
+        api_key = get_api_key(config.get("api_key_env", "GROQ_API_KEY"))
+        
+        if not api_key:
+            logger.warning(f"API Key for {self.name} not found.")
+            self.client = None
+        elif OpenAI:
+            # Groq usa API compatível com OpenAI, só muda o base_url
+            self.client = OpenAI(
+                api_key=api_key,
+                base_url="https://api.groq.com/openai/v1"
+            )
+        else:
+            logger.error("OpenAI library not installed (required for Groq).")
+            self.client = None
+
+    def generate(self, system_prompt: str, user_content: str) -> str:
+        if not self.client:
+            return "Error: Client not initialized."
+        
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model_id,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_content}
+                ],
+                temperature=0.2,
+                max_tokens=1024,
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            logger.error(f"Error calling Groq {self.name}: {e}")
+            return f"Error: {str(e)}"
+
 
 class GoogleGenAIAdapter(LLMAdapter):
     def __init__(self, config: Dict[str, Any]):
@@ -143,5 +185,7 @@ def get_adapter(config: Dict[str, Any]) -> LLMAdapter:
         return GoogleGenAIAdapter(config)
     elif provider == "ollama":
         return OllamaAdapter(config)
+    elif provider == "groq":
+        return GroqAdapter(config)
     else:
         raise ValueError(f"Unknown provider: {provider}")
