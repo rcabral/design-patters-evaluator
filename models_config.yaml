@@ -1,14 +1,24 @@
 models:
   # ========== LOCAL MODELS (Ollama) ==========
-  - name: "llama4-scout"
+  - name: "llama3.1-8b"
     provider: "ollama"
     endpoint_url: "http://localhost:11434/api/generate"
-    model_id: "llama4:16x17b"
+    model_id: "llamma3.1:8b"
 
   - name: "gemma3-27b"
     provider: "ollama"
     endpoint_url: "http://localhost:11434/api/generate"
     model_id: "gemma3:27b"
+
+  - name: "qwen3-14b"
+    provider: "ollama"
+    endpoint_url: "http://localhost:11434/api/generate"
+    model_id: "qwen3:14b"
+
+  - name: "deepseek-r1-14b"
+    provider: "ollama"
+    endpoint_url: "http://localhost:11434/api/generate"
+    model_id: "deepseek-r1:14b"
 
   # ========== CLOUD MODELS ==========
   #- name: "gpt-5.1
