@@ -1,25 +1,27 @@
 models:
-  - name: "gpt-5"
-    provider: "openai"
-    api_key_env: "OPENAI_API_KEY"
-    model_id: "gpt-5"
+  # ========== LOCAL MODELS (Ollama) ==========
+  - name: "llama4-scout"
+    provider: "ollama"
+    endpoint_url: "http://localhost:11434/api/generate"
+    model_id: "llama4:16x17b"
 
-#  - name: "llama-3.1-8b-groq"
-#    provider: "groq"
-#    api_key_env: "GROQ_API_KEY"
-#    model_id: "llama-3.1-8b-instant"
+  - name: "gemma3-27b"
+    provider: "ollama"
+    endpoint_url: "http://localhost:11434/api/generate"
+    model_id: "gemma3:27b"
 
-#  - name: "gemini-3-pro-preview"
-#    provider: "google"
-#    api_key_env: "GOOGLE_API_KEY"
-#    model_id: "gemini-3-pro-preview"
+  # ========== CLOUD MODELS ==========
+  #- name: "gpt-5.1
+  #  provider: "openai"
+  #  api_key_env: "OPENAI_API_KEY"
+  #  model_id: "gpt-4o-mini"
 
-  #- name: "llama-3.1-8b"
-  #  provider: "ollama"
-  #  endpoint_url: "http://localhost:11434/api/generate"
-  #  model_id: "llama3.1"
+  #- name: "llama-3.3-70b-groq"
+  #  provider: "groq"
+  #  api_key_env: "GROQ_API_KEY"
+  #  model_id: "llama-3.3-70b-versatile"
 
-  #- name: "gemma-3-4b-pt"
-  #  provider: "ollama"
-  #  endpoint_url: "http://localhost:11434/api/generate"
-  #  model_id: "gemma-3-4b-pt"
+  #- name: "gemini-2.0-flash"
+  #  provider: "google"
+  #  api_key_env: "GOOGLE_API_KEY"
+  #  model_id: "gemini-2.0-flash"
