@@ -1,0 +1,302 @@
+[
+  {
+    "model": "llama3.1-8b",
+    "precision": 0.6,
+    "recall": 0.1125,
+    "f1": 0.18947368421052632,
+    "total_tp": 9,
+    "total_fp": 6,
+    "total_fn": 71,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 4,
+        "fp": 1,
+        "fn": 16,
+        "precision": 0.8,
+        "recall": 0.2,
+        "f1": 0.32000000000000006
+      },
+      {
+        "pattern": "factory",
+        "tp": 0,
+        "fp": 2,
+        "fn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "pattern": "observer",
+        "tp": 5,
+        "fp": 3,
+        "fn": 15,
+        "precision": 0.625,
+        "recall": 0.25,
+        "f1": 0.35714285714285715
+      },
+      {
+        "pattern": "decorator",
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "ignored_detections": {
+      "Observer Design Pattern": 1,
+      "Builder": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 4,
+        "total": 40,
+        "accuracy": 0.1
+      },
+      "PMART": {
+        "correct": 5,
+        "total": 40,
+        "accuracy": 0.125
+      }
+    },
+    "debug_info": {
+      "files_processed": 80,
+      "correct_count": 9,
+      "missed_count": 71,
+      "fp_count": 6
+    }
+  },
+  {
+    "model": "gemma3-27b",
+    "precision": 0.8461538461538461,
+    "recall": 0.825,
+    "f1": 0.8354430379746836,
+    "total_tp": 66,
+    "total_fp": 12,
+    "total_fn": 14,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 16,
+        "fp": 5,
+        "fn": 4,
+        "precision": 0.7619047619047619,
+        "recall": 0.8,
+        "f1": 0.7804878048780488
+      },
+      {
+        "pattern": "factory",
+        "tp": 18,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.9473684210526315,
+        "recall": 0.9,
+        "f1": 0.9230769230769231
+      },
+      {
+        "pattern": "observer",
+        "tp": 19,
+        "fp": 6,
+        "fn": 1,
+        "precision": 0.76,
+        "recall": 0.95,
+        "f1": 0.8444444444444444
+      },
+      {
+        "pattern": "decorator",
+        "tp": 13,
+        "fp": 0,
+        "fn": 7,
+        "precision": 1.0,
+        "recall": 0.65,
+        "f1": 0.787878787878788
+      }
+    ],
+    "ignored_detections": {
+      "Strategy": 10,
+      "Singleton (Potential)": 1,
+      "Thread Pool": 1,
+      "Command": 1,
+      "Chain of Responsibility": 1,
+      "Dependency Injection": 3,
+      "Proxy": 1,
+      "Front Controller": 1,
+      "Template Method": 3,
+      "Memento": 1,
+      "Immutable Object": 1,
+      "Facade": 1,
+      "Registry": 1,
+      "Adapter": 3,
+      "Iterator": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 35,
+        "total": 40,
+        "accuracy": 0.875
+      },
+      "PMART": {
+        "correct": 31,
+        "total": 40,
+        "accuracy": 0.775
+      }
+    },
+    "debug_info": {
+      "files_processed": 80,
+      "correct_count": 66,
+      "missed_count": 14,
+      "fp_count": 12
+    }
+  },
+  {
+    "model": "qwen3-14b",
+    "precision": 0.8833333333333333,
+    "recall": 0.6625,
+    "f1": 0.7571428571428571,
+    "total_tp": 53,
+    "total_fp": 7,
+    "total_fn": 27,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 12,
+        "fp": 3,
+        "fn": 8,
+        "precision": 0.8,
+        "recall": 0.6,
+        "f1": 0.6857142857142857
+      },
+      {
+        "pattern": "factory",
+        "tp": 10,
+        "fp": 1,
+        "fn": 10,
+        "precision": 0.9090909090909091,
+        "recall": 0.5,
+        "f1": 0.6451612903225806
+      },
+      {
+        "pattern": "observer",
+        "tp": 19,
+        "fp": 3,
+        "fn": 1,
+        "precision": 0.8636363636363636,
+        "recall": 0.95,
+        "f1": 0.9047619047619048
+      },
+      {
+        "pattern": "decorator",
+        "tp": 12,
+        "fp": 0,
+        "fn": 8,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.7499999999999999
+      }
+    ],
+    "ignored_detections": {
+      "Strategy": 4,
+      "Template Method": 2,
+      "Proxy": 1,
+      "Adapter": 3,
+      "Visitor": 1,
+      "Facade": 1,
+      "Iterator": 1,
+      "Registry": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 29,
+        "total": 40,
+        "accuracy": 0.725
+      },
+      "PMART": {
+        "correct": 24,
+        "total": 40,
+        "accuracy": 0.6
+      }
+    },
+    "debug_info": {
+      "files_processed": 80,
+      "correct_count": 53,
+      "missed_count": 27,
+      "fp_count": 7
+    }
+  },
+  {
+    "model": "deepseek-r1-14b",
+    "precision": 0.9117647058823529,
+    "recall": 0.775,
+    "f1": 0.8378378378378379,
+    "total_tp": 62,
+    "total_fp": 6,
+    "total_fn": 18,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 15,
+        "fp": 3,
+        "fn": 5,
+        "precision": 0.8333333333333334,
+        "recall": 0.75,
+        "f1": 0.7894736842105262
+      },
+      {
+        "pattern": "factory",
+        "tp": 15,
+        "fp": 1,
+        "fn": 5,
+        "precision": 0.9375,
+        "recall": 0.75,
+        "f1": 0.8333333333333334
+      },
+      {
+        "pattern": "observer",
+        "tp": 20,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.9090909090909091,
+        "recall": 1.0,
+        "f1": 0.9523809523809523
+      },
+      {
+        "pattern": "decorator",
+        "tp": 12,
+        "fp": 0,
+        "fn": 8,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.7499999999999999
+      }
+    ],
+    "ignored_detections": {
+      "Unit of Work": 1,
+      "Service Locator": 1,
+      "Proxy": 2,
+      "Dependency Injection": 1,
+      "Flyweight": 1,
+      "Registry": 1,
+      "Adapter": 3
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 35,
+        "total": 40,
+        "accuracy": 0.875
+      },
+      "PMART": {
+        "correct": 27,
+        "total": 40,
+        "accuracy": 0.675
+      }
+    },
+    "debug_info": {
+      "files_processed": 80,
+      "correct_count": 62,
+      "missed_count": 18,
+      "fp_count": 6
+    }
+  }
+]

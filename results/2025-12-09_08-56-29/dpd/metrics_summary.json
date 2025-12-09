@@ -1,0 +1,265 @@
+[
+  {
+    "model": "llama3.1-8b",
+    "precision": 0.5714285714285714,
+    "recall": 0.1,
+    "f1": 0.1702127659574468,
+    "total_tp": 4,
+    "total_fp": 3,
+    "total_fn": 36,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 1,
+        "fp": 1,
+        "fn": 9,
+        "precision": 0.5,
+        "recall": 0.1,
+        "f1": 0.16666666666666669
+      },
+      {
+        "pattern": "factory",
+        "tp": 0,
+        "fp": 1,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "pattern": "observer",
+        "tp": 3,
+        "fp": 1,
+        "fn": 7,
+        "precision": 0.75,
+        "recall": 0.3,
+        "f1": 0.4285714285714285
+      },
+      {
+        "pattern": "decorator",
+        "tp": 0,
+        "fp": 0,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "ignored_detections": {},
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 4,
+        "total": 40,
+        "accuracy": 0.1
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 4,
+      "missed_count": 36,
+      "fp_count": 3
+    }
+  },
+  {
+    "model": "gemma3-27b",
+    "precision": 0.875,
+    "recall": 0.875,
+    "f1": 0.875,
+    "total_tp": 35,
+    "total_fp": 5,
+    "total_fn": 5,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 8,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.8888888888888888,
+        "recall": 0.8,
+        "f1": 0.8421052631578948
+      },
+      {
+        "pattern": "factory",
+        "tp": 9,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526316
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.7142857142857143,
+        "recall": 1.0,
+        "f1": 0.8333333333333333
+      },
+      {
+        "pattern": "decorator",
+        "tp": 8,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.888888888888889
+      }
+    ],
+    "ignored_detections": {
+      "Strategy": 3,
+      "Singleton (Potential)": 1,
+      "Thread Pool": 1,
+      "Command": 1,
+      "Chain of Responsibility": 1,
+      "Dependency Injection": 3,
+      "Proxy": 1,
+      "Front Controller": 1,
+      "Template Method": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 35,
+        "total": 40,
+        "accuracy": 0.875
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 35,
+      "missed_count": 5,
+      "fp_count": 5
+    }
+  },
+  {
+    "model": "qwen3-14b",
+    "precision": 0.8787878787878788,
+    "recall": 0.725,
+    "f1": 0.7945205479452054,
+    "total_tp": 29,
+    "total_fp": 4,
+    "total_fn": 11,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 8,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.8888888888888888,
+        "recall": 0.8,
+        "f1": 0.8421052631578948
+      },
+      {
+        "pattern": "factory",
+        "tp": 4,
+        "fp": 1,
+        "fn": 6,
+        "precision": 0.8,
+        "recall": 0.4,
+        "f1": 0.5333333333333333
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.8333333333333334,
+        "recall": 1.0,
+        "f1": 0.9090909090909091
+      },
+      {
+        "pattern": "decorator",
+        "tp": 7,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.7,
+        "f1": 0.8235294117647058
+      }
+    ],
+    "ignored_detections": {
+      "Strategy": 2,
+      "Template Method": 1,
+      "Proxy": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 29,
+        "total": 40,
+        "accuracy": 0.725
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 29,
+      "missed_count": 11,
+      "fp_count": 4
+    }
+  },
+  {
+    "model": "deepseek-r1-14b",
+    "precision": 0.9210526315789473,
+    "recall": 0.875,
+    "f1": 0.8974358974358975,
+    "total_tp": 35,
+    "total_fp": 3,
+    "total_fn": 5,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 10,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.9090909090909091,
+        "recall": 1.0,
+        "f1": 0.9523809523809523
+      },
+      {
+        "pattern": "factory",
+        "tp": 7,
+        "fp": 1,
+        "fn": 3,
+        "precision": 0.875,
+        "recall": 0.7,
+        "f1": 0.7777777777777777
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.9090909090909091,
+        "recall": 1.0,
+        "f1": 0.9523809523809523
+      },
+      {
+        "pattern": "decorator",
+        "tp": 8,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.888888888888889
+      }
+    ],
+    "ignored_detections": {
+      "Unit of Work": 1,
+      "Service Locator": 1,
+      "Proxy": 1,
+      "Dependency Injection": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 35,
+        "total": 40,
+        "accuracy": 0.875
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 35,
+      "missed_count": 5,
+      "fp_count": 3
+    }
+  }
+]

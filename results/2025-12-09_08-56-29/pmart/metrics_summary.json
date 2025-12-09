@@ -1,0 +1,271 @@
+[
+  {
+    "model": "llama3.1-8b",
+    "precision": 0.625,
+    "recall": 0.125,
+    "f1": 0.20833333333333334,
+    "total_tp": 5,
+    "total_fp": 3,
+    "total_fn": 35,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 3,
+        "fp": 0,
+        "fn": 7,
+        "precision": 1.0,
+        "recall": 0.3,
+        "f1": 0.4615384615384615
+      },
+      {
+        "pattern": "factory",
+        "tp": 0,
+        "fp": 1,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "pattern": "observer",
+        "tp": 2,
+        "fp": 2,
+        "fn": 8,
+        "precision": 0.5,
+        "recall": 0.2,
+        "f1": 0.28571428571428575
+      },
+      {
+        "pattern": "decorator",
+        "tp": 0,
+        "fp": 0,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "ignored_detections": {
+      "Observer Design Pattern": 1,
+      "Builder": 1
+    },
+    "breakdown_by_source": {
+      "PMART": {
+        "correct": 5,
+        "total": 40,
+        "accuracy": 0.125
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 5,
+      "missed_count": 35,
+      "fp_count": 3
+    }
+  },
+  {
+    "model": "gemma3-27b",
+    "precision": 0.8157894736842105,
+    "recall": 0.775,
+    "f1": 0.7948717948717949,
+    "total_tp": 31,
+    "total_fp": 7,
+    "total_fn": 9,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 8,
+        "fp": 4,
+        "fn": 2,
+        "precision": 0.6666666666666666,
+        "recall": 0.8,
+        "f1": 0.7272727272727272
+      },
+      {
+        "pattern": "factory",
+        "tp": 9,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.9,
+        "recall": 0.9,
+        "f1": 0.9
+      },
+      {
+        "pattern": "observer",
+        "tp": 9,
+        "fp": 2,
+        "fn": 1,
+        "precision": 0.8181818181818182,
+        "recall": 0.9,
+        "f1": 0.8571428571428572
+      },
+      {
+        "pattern": "decorator",
+        "tp": 5,
+        "fp": 0,
+        "fn": 5,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      }
+    ],
+    "ignored_detections": {
+      "Memento": 1,
+      "Strategy": 7,
+      "Immutable Object": 1,
+      "Template Method": 2,
+      "Facade": 1,
+      "Registry": 1,
+      "Adapter": 3,
+      "Iterator": 1
+    },
+    "breakdown_by_source": {
+      "PMART": {
+        "correct": 31,
+        "total": 40,
+        "accuracy": 0.775
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 31,
+      "missed_count": 9,
+      "fp_count": 7
+    }
+  },
+  {
+    "model": "qwen3-14b",
+    "precision": 0.8888888888888888,
+    "recall": 0.6,
+    "f1": 0.7164179104477612,
+    "total_tp": 24,
+    "total_fp": 3,
+    "total_fn": 16,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 4,
+        "fp": 2,
+        "fn": 6,
+        "precision": 0.6666666666666666,
+        "recall": 0.4,
+        "f1": 0.5
+      },
+      {
+        "pattern": "factory",
+        "tp": 6,
+        "fp": 0,
+        "fn": 4,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.7499999999999999
+      },
+      {
+        "pattern": "observer",
+        "tp": 9,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.9,
+        "recall": 0.9,
+        "f1": 0.9
+      },
+      {
+        "pattern": "decorator",
+        "tp": 5,
+        "fp": 0,
+        "fn": 5,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      }
+    ],
+    "ignored_detections": {
+      "Strategy": 2,
+      "Template Method": 1,
+      "Adapter": 3,
+      "Visitor": 1,
+      "Facade": 1,
+      "Iterator": 1,
+      "Registry": 1
+    },
+    "breakdown_by_source": {
+      "PMART": {
+        "correct": 24,
+        "total": 40,
+        "accuracy": 0.6
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 24,
+      "missed_count": 16,
+      "fp_count": 3
+    }
+  },
+  {
+    "model": "deepseek-r1-14b",
+    "precision": 0.9,
+    "recall": 0.675,
+    "f1": 0.7714285714285714,
+    "total_tp": 27,
+    "total_fp": 3,
+    "total_fn": 13,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 5,
+        "fp": 2,
+        "fn": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.5,
+        "f1": 0.588235294117647
+      },
+      {
+        "pattern": "factory",
+        "tp": 8,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.888888888888889
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.9090909090909091,
+        "recall": 1.0,
+        "f1": 0.9523809523809523
+      },
+      {
+        "pattern": "decorator",
+        "tp": 4,
+        "fp": 0,
+        "fn": 6,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285715
+      }
+    ],
+    "ignored_detections": {
+      "Flyweight": 1,
+      "Registry": 1,
+      "Adapter": 3,
+      "Proxy": 1
+    },
+    "breakdown_by_source": {
+      "PMART": {
+        "correct": 27,
+        "total": 40,
+        "accuracy": 0.675
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 27,
+      "missed_count": 13,
+      "fp_count": 3
+    }
+  }
+]

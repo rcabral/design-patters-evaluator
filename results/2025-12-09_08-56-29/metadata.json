@@ -1,0 +1,14 @@
+{
+  "source_dir": "design-patterns",
+  "timestamp": "2025-12-09T10:39:04.797943",
+  "files_processed": 80,
+  "models_used": [
+    "llama3.1-8b",
+    "gemma3-27b",
+    "qwen3-14b",
+    "deepseek-r1-14b"
+  ],
+  "total_results": 370,
+  "dpd_files": 40,
+  "pmart_files": 40
+}
