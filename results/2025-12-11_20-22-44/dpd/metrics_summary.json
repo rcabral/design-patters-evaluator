@@ -1,0 +1,148 @@
+[
+  {
+    "model": "gpt-5",
+    "precision": 0.7674418604651163,
+    "recall": 0.825,
+    "f1": 0.7951807228915662,
+    "total_tp": 33,
+    "total_fp": 10,
+    "total_fn": 7,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 8,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.8888888888888888,
+        "recall": 0.8,
+        "f1": 0.8421052631578948
+      },
+      {
+        "pattern": "factory",
+        "tp": 7,
+        "fp": 6,
+        "fn": 3,
+        "precision": 0.5384615384615384,
+        "recall": 0.7,
+        "f1": 0.608695652173913
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.7692307692307693,
+        "recall": 1.0,
+        "f1": 0.8695652173913044
+      },
+      {
+        "pattern": "decorator",
+        "tp": 8,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.888888888888889
+      }
+    ],
+    "ignored_detections": {
+      "Strategy": 10,
+      "Command": 1,
+      "Null Object": 1,
+      "Read-Write Lock": 1,
+      "Lazy Initialization": 1,
+      "Adapter": 2,
+      "Service Locator": 3,
+      "Template Method": 6,
+      "Iterator": 1,
+      "Chain of Responsibility": 1,
+      "Proxy": 1,
+      "Front Controller": 1,
+      "Dependency Injection": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 33,
+        "total": 40,
+        "accuracy": 0.825
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 33,
+      "missed_count": 7,
+      "fp_count": 10
+    }
+  },
+  {
+    "model": "gemini-3.0-pro",
+    "precision": 0.8571428571428571,
+    "recall": 0.75,
+    "f1": 0.7999999999999999,
+    "total_tp": 30,
+    "total_fp": 5,
+    "total_fn": 10,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 8,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.8888888888888888,
+        "recall": 0.8,
+        "f1": 0.8421052631578948
+      },
+      {
+        "pattern": "factory",
+        "tp": 6,
+        "fp": 1,
+        "fn": 4,
+        "precision": 0.8571428571428571,
+        "recall": 0.6,
+        "f1": 0.7058823529411764
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.7692307692307693,
+        "recall": 1.0,
+        "f1": 0.8695652173913044
+      },
+      {
+        "pattern": "decorator",
+        "tp": 6,
+        "fp": 0,
+        "fn": 4,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.7499999999999999
+      }
+    ],
+    "ignored_detections": {
+      "Command": 1,
+      "Null Object": 1,
+      "Proxy": 2,
+      "Adapter": 2,
+      "Static Factory Method": 1,
+      "Template Method": 3,
+      "Strategy": 2,
+      "Lazy Initialization": 1,
+      "Simple Factory": 1
+    },
+    "breakdown_by_source": {
+      "DPD": {
+        "correct": 30,
+        "total": 40,
+        "accuracy": 0.75
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 30,
+      "missed_count": 10,
+      "fp_count": 5
+    }
+  }
+]

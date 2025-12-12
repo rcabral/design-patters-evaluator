@@ -1,0 +1,154 @@
+[
+  {
+    "model": "gpt-5",
+    "precision": 0.8181818181818182,
+    "recall": 0.675,
+    "f1": 0.7397260273972603,
+    "total_tp": 27,
+    "total_fp": 6,
+    "total_fn": 13,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 4,
+        "fp": 2,
+        "fn": 6,
+        "precision": 0.6666666666666666,
+        "recall": 0.4,
+        "f1": 0.5
+      },
+      {
+        "pattern": "factory",
+        "tp": 9,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526316
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.7692307692307693,
+        "recall": 1.0,
+        "f1": 0.8695652173913044
+      },
+      {
+        "pattern": "decorator",
+        "tp": 4,
+        "fp": 1,
+        "fn": 6,
+        "precision": 0.8,
+        "recall": 0.4,
+        "f1": 0.5333333333333333
+      }
+    ],
+    "ignored_detections": {
+      "Template Method": 4,
+      "Strategy": 8,
+      "Facade": 4,
+      "Memento": 1,
+      "Command": 1,
+      "Adapter": 7,
+      "Iterator": 3,
+      "Lazy Initialization": 1,
+      "Chain of Responsibility": 1,
+      "Bridge": 1,
+      "Service Locator": 1,
+      "Visitor": 1,
+      "Composite": 1,
+      "Flyweight": 1
+    },
+    "breakdown_by_source": {
+      "PMART": {
+        "correct": 27,
+        "total": 40,
+        "accuracy": 0.675
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 27,
+      "missed_count": 13,
+      "fp_count": 6
+    }
+  },
+  {
+    "model": "gemini-3.0-pro",
+    "precision": 0.8846153846153846,
+    "recall": 0.575,
+    "f1": 0.696969696969697,
+    "total_tp": 23,
+    "total_fp": 3,
+    "total_fn": 17,
+    "pattern_scores": [
+      {
+        "pattern": "singleton",
+        "tp": 5,
+        "fp": 1,
+        "fn": 5,
+        "precision": 0.8333333333333334,
+        "recall": 0.5,
+        "f1": 0.625
+      },
+      {
+        "pattern": "factory",
+        "tp": 4,
+        "fp": 0,
+        "fn": 6,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285715
+      },
+      {
+        "pattern": "observer",
+        "tp": 10,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.8333333333333334,
+        "recall": 1.0,
+        "f1": 0.9090909090909091
+      },
+      {
+        "pattern": "decorator",
+        "tp": 4,
+        "fp": 0,
+        "fn": 6,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285715
+      }
+    ],
+    "ignored_detections": {
+      "Strategy": 1,
+      "Template Method": 2,
+      "Memento": 1,
+      "Command": 1,
+      "Simple Factory": 5,
+      "Immutable Object": 1,
+      "Adapter": 5,
+      "Iterator": 3,
+      "Lazy Initialization": 1,
+      "Prototype": 2,
+      "Facade": 2,
+      "Delegation": 1,
+      "Visitor": 1,
+      "Monitor Object": 1
+    },
+    "breakdown_by_source": {
+      "PMART": {
+        "correct": 23,
+        "total": 40,
+        "accuracy": 0.575
+      }
+    },
+    "debug_info": {
+      "files_processed": 40,
+      "correct_count": 23,
+      "missed_count": 17,
+      "fp_count": 3
+    }
+  }
+]

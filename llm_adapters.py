@@ -55,13 +55,16 @@ class OpenAIAdapter(LLMAdapter):
             return "Error: Client not initialized (missing key or lib)."
         
         try:
+            # GPT-5 only accepts temperature=1 (default)
+            temp = 1 if "gpt-5" in self.model_id.lower() else 0.2
+            
             response = self.client.chat.completions.create(
                 model=self.model_id,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_content}
                 ],
-                temperature=0.2, # Low temperature for more deterministic analysis
+                temperature=temp,
             )
             return response.choices[0].message.content
         except Exception as e:

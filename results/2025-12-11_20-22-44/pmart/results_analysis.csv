@@ -1,0 +1,2177 @@
+filename,ground_truth_label,model_name,detected_pattern,confidence,adherence,reasoning,raw_response,duration_seconds
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gpt-5,Decorator,95,90,"The class wraps a CoreHelper component (passed via constructor), extends an abstract decorator, and delegates to getComponent().setX methods while adding extra behavior (memento creation). It preserves the original interface and composes the component, matching the Decorator intent.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class wraps a CoreHelper component (passed via constructor), extends an abstract decorator, and delegates to getComponent().setX methods while adding extra behavior (memento creation). It preserves the original interface and composes the component, matching the Decorator intent.""
+    },
+    {
+      ""pattern"": ""Memento"",
+      ""confidence"": 85,
+      ""adherence"": 80,
+      ""reason"": ""createMemento constructs anonymous ModelMemento objects that capture old/new values and provide undo/redo to restore state without exposing internals. These mementos are handed to a caretaker via Model.notifyMementoCreationObserver, enabling undo history.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each ModelMemento encapsulates a reversible action with redo (execute) and undo (unexecute). The BooleanSetter/ObjectSetter/StringSetter interfaces encapsulate the concrete setter invocation, making each change a command-like object with inverse behavior.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 55,
+      ""reason"": ""The call Model.notifyMementoCreationObserver(memento) indicates an observable subject notifying observers about memento creation (publisher-subscriber). Registration and observer classes are not shown here, so only partial evidence is present.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The code repeatedly accesses Model.getFacade() to retrieve and interact with model properties through a unified interface, suggesting use of a Facade over a complex subsystem. Only usage is visible in this snippet, not the facade's implementation.""
+    }
+  ]
+}",46.114702
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gpt-5,Memento,85,80,"createMemento constructs anonymous ModelMemento objects that capture old/new values and provide undo/redo to restore state without exposing internals. These mementos are handed to a caretaker via Model.notifyMementoCreationObserver, enabling undo history.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class wraps a CoreHelper component (passed via constructor), extends an abstract decorator, and delegates to getComponent().setX methods while adding extra behavior (memento creation). It preserves the original interface and composes the component, matching the Decorator intent.""
+    },
+    {
+      ""pattern"": ""Memento"",
+      ""confidence"": 85,
+      ""adherence"": 80,
+      ""reason"": ""createMemento constructs anonymous ModelMemento objects that capture old/new values and provide undo/redo to restore state without exposing internals. These mementos are handed to a caretaker via Model.notifyMementoCreationObserver, enabling undo history.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each ModelMemento encapsulates a reversible action with redo (execute) and undo (unexecute). The BooleanSetter/ObjectSetter/StringSetter interfaces encapsulate the concrete setter invocation, making each change a command-like object with inverse behavior.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 55,
+      ""reason"": ""The call Model.notifyMementoCreationObserver(memento) indicates an observable subject notifying observers about memento creation (publisher-subscriber). Registration and observer classes are not shown here, so only partial evidence is present.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The code repeatedly accesses Model.getFacade() to retrieve and interact with model properties through a unified interface, suggesting use of a Facade over a complex subsystem. Only usage is visible in this snippet, not the facade's implementation.""
+    }
+  ]
+}",46.114702
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gpt-5,Command,70,65,"Each ModelMemento encapsulates a reversible action with redo (execute) and undo (unexecute). The BooleanSetter/ObjectSetter/StringSetter interfaces encapsulate the concrete setter invocation, making each change a command-like object with inverse behavior.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class wraps a CoreHelper component (passed via constructor), extends an abstract decorator, and delegates to getComponent().setX methods while adding extra behavior (memento creation). It preserves the original interface and composes the component, matching the Decorator intent.""
+    },
+    {
+      ""pattern"": ""Memento"",
+      ""confidence"": 85,
+      ""adherence"": 80,
+      ""reason"": ""createMemento constructs anonymous ModelMemento objects that capture old/new values and provide undo/redo to restore state without exposing internals. These mementos are handed to a caretaker via Model.notifyMementoCreationObserver, enabling undo history.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each ModelMemento encapsulates a reversible action with redo (execute) and undo (unexecute). The BooleanSetter/ObjectSetter/StringSetter interfaces encapsulate the concrete setter invocation, making each change a command-like object with inverse behavior.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 55,
+      ""reason"": ""The call Model.notifyMementoCreationObserver(memento) indicates an observable subject notifying observers about memento creation (publisher-subscriber). Registration and observer classes are not shown here, so only partial evidence is present.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The code repeatedly accesses Model.getFacade() to retrieve and interact with model properties through a unified interface, suggesting use of a Facade over a complex subsystem. Only usage is visible in this snippet, not the facade's implementation.""
+    }
+  ]
+}",46.114702
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gpt-5,Observer,65,55,"The call Model.notifyMementoCreationObserver(memento) indicates an observable subject notifying observers about memento creation (publisher-subscriber). Registration and observer classes are not shown here, so only partial evidence is present.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class wraps a CoreHelper component (passed via constructor), extends an abstract decorator, and delegates to getComponent().setX methods while adding extra behavior (memento creation). It preserves the original interface and composes the component, matching the Decorator intent.""
+    },
+    {
+      ""pattern"": ""Memento"",
+      ""confidence"": 85,
+      ""adherence"": 80,
+      ""reason"": ""createMemento constructs anonymous ModelMemento objects that capture old/new values and provide undo/redo to restore state without exposing internals. These mementos are handed to a caretaker via Model.notifyMementoCreationObserver, enabling undo history.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each ModelMemento encapsulates a reversible action with redo (execute) and undo (unexecute). The BooleanSetter/ObjectSetter/StringSetter interfaces encapsulate the concrete setter invocation, making each change a command-like object with inverse behavior.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 55,
+      ""reason"": ""The call Model.notifyMementoCreationObserver(memento) indicates an observable subject notifying observers about memento creation (publisher-subscriber). Registration and observer classes are not shown here, so only partial evidence is present.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The code repeatedly accesses Model.getFacade() to retrieve and interact with model properties through a unified interface, suggesting use of a Facade over a complex subsystem. Only usage is visible in this snippet, not the facade's implementation.""
+    }
+  ]
+}",46.114702
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gpt-5,Facade,55,45,"The code repeatedly accesses Model.getFacade() to retrieve and interact with model properties through a unified interface, suggesting use of a Facade over a complex subsystem. Only usage is visible in this snippet, not the facade's implementation.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class wraps a CoreHelper component (passed via constructor), extends an abstract decorator, and delegates to getComponent().setX methods while adding extra behavior (memento creation). It preserves the original interface and composes the component, matching the Decorator intent.""
+    },
+    {
+      ""pattern"": ""Memento"",
+      ""confidence"": 85,
+      ""adherence"": 80,
+      ""reason"": ""createMemento constructs anonymous ModelMemento objects that capture old/new values and provide undo/redo to restore state without exposing internals. These mementos are handed to a caretaker via Model.notifyMementoCreationObserver, enabling undo history.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each ModelMemento encapsulates a reversible action with redo (execute) and undo (unexecute). The BooleanSetter/ObjectSetter/StringSetter interfaces encapsulate the concrete setter invocation, making each change a command-like object with inverse behavior.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 55,
+      ""reason"": ""The call Model.notifyMementoCreationObserver(memento) indicates an observable subject notifying observers about memento creation (publisher-subscriber). Registration and observer classes are not shown here, so only partial evidence is present.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The code repeatedly accesses Model.getFacade() to retrieve and interact with model properties through a unified interface, suggesting use of a Facade over a complex subsystem. Only usage is visible in this snippet, not the facade's implementation.""
+    }
+  ]
+}",46.114702
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gemini-3.0-pro,Decorator,100,100,"The class `UndoCoreHelperDecorator` extends `AbstractCoreHelperDecorator` and wraps a `CoreHelper` component (passed in the constructor). It overrides methods (like `setAbstract`, `setName`) to add specific functionality (creating mementos) before delegating the actual operation to the wrapped object via `getComponent().methodName()`. This is the textbook definition of the Decorator pattern.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Decorator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class `UndoCoreHelperDecorator` extends `AbstractCoreHelperDecorator` and wraps a `CoreHelper` component (passed in the constructor). It overrides methods (like `setAbstract`, `setName`) to add specific functionality (creating mementos) before delegating the actual operation to the wrapped object via `getComponent().methodName()`. This is the textbook definition of the Decorator pattern.""
+		},
+		{
+			""pattern"": ""Memento"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class contains specific logic to save the state of an object before it is modified. The `createMemento` methods instantiate `ModelMemento` objects that capture the `oldValue` and provide logic to restore the object to that state. This is used to implement the Undo/Redo mechanism.""
+		},
+		{
+			""pattern"": ""Command"",
+			""confidence"": 90,
+			""adherence"": 90,
+			""reason"": ""The `ModelMemento` anonymous inner classes implement `undo()` and `redo()` methods, encapsulating the request to modify the model as an object. Additionally, the internal interfaces `BooleanSetter`, `ObjectSetter`, and `StringSetter` are used to encapsulate the specific action of setting a property into an object, effectively parameterizing the method call to be executed later or within the memento.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 80,
+			""reason"": ""The method call `Model.notifyMementoCreationObserver(memento)` indicates that the system is notifying registered listeners (subscribers) that a memento has been created. While the registration logic isn't shown here, this class acts as the Publisher/Subject trigger in the Observer pattern.""
+		}
+	]
+}
+```",30.06216
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gemini-3.0-pro,Memento,100,100,The class contains specific logic to save the state of an object before it is modified. The `createMemento` methods instantiate `ModelMemento` objects that capture the `oldValue` and provide logic to restore the object to that state. This is used to implement the Undo/Redo mechanism.,"```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Decorator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class `UndoCoreHelperDecorator` extends `AbstractCoreHelperDecorator` and wraps a `CoreHelper` component (passed in the constructor). It overrides methods (like `setAbstract`, `setName`) to add specific functionality (creating mementos) before delegating the actual operation to the wrapped object via `getComponent().methodName()`. This is the textbook definition of the Decorator pattern.""
+		},
+		{
+			""pattern"": ""Memento"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class contains specific logic to save the state of an object before it is modified. The `createMemento` methods instantiate `ModelMemento` objects that capture the `oldValue` and provide logic to restore the object to that state. This is used to implement the Undo/Redo mechanism.""
+		},
+		{
+			""pattern"": ""Command"",
+			""confidence"": 90,
+			""adherence"": 90,
+			""reason"": ""The `ModelMemento` anonymous inner classes implement `undo()` and `redo()` methods, encapsulating the request to modify the model as an object. Additionally, the internal interfaces `BooleanSetter`, `ObjectSetter`, and `StringSetter` are used to encapsulate the specific action of setting a property into an object, effectively parameterizing the method call to be executed later or within the memento.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 80,
+			""reason"": ""The method call `Model.notifyMementoCreationObserver(memento)` indicates that the system is notifying registered listeners (subscribers) that a memento has been created. While the registration logic isn't shown here, this class acts as the Publisher/Subject trigger in the Observer pattern.""
+		}
+	]
+}
+```",30.06216
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gemini-3.0-pro,Command,90,90,"The `ModelMemento` anonymous inner classes implement `undo()` and `redo()` methods, encapsulating the request to modify the model as an object. Additionally, the internal interfaces `BooleanSetter`, `ObjectSetter`, and `StringSetter` are used to encapsulate the specific action of setting a property into an object, effectively parameterizing the method call to be executed later or within the memento.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Decorator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class `UndoCoreHelperDecorator` extends `AbstractCoreHelperDecorator` and wraps a `CoreHelper` component (passed in the constructor). It overrides methods (like `setAbstract`, `setName`) to add specific functionality (creating mementos) before delegating the actual operation to the wrapped object via `getComponent().methodName()`. This is the textbook definition of the Decorator pattern.""
+		},
+		{
+			""pattern"": ""Memento"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class contains specific logic to save the state of an object before it is modified. The `createMemento` methods instantiate `ModelMemento` objects that capture the `oldValue` and provide logic to restore the object to that state. This is used to implement the Undo/Redo mechanism.""
+		},
+		{
+			""pattern"": ""Command"",
+			""confidence"": 90,
+			""adherence"": 90,
+			""reason"": ""The `ModelMemento` anonymous inner classes implement `undo()` and `redo()` methods, encapsulating the request to modify the model as an object. Additionally, the internal interfaces `BooleanSetter`, `ObjectSetter`, and `StringSetter` are used to encapsulate the specific action of setting a property into an object, effectively parameterizing the method call to be executed later or within the memento.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 80,
+			""reason"": ""The method call `Model.notifyMementoCreationObserver(memento)` indicates that the system is notifying registered listeners (subscribers) that a memento has been created. While the registration logic isn't shown here, this class acts as the Publisher/Subject trigger in the Observer pattern.""
+		}
+	]
+}
+```",30.06216
+PMART-ArgoUML-UndoCoreHelperDecorator.java,decorator,gemini-3.0-pro,Observer,95,80,"The method call `Model.notifyMementoCreationObserver(memento)` indicates that the system is notifying registered listeners (subscribers) that a memento has been created. While the registration logic isn't shown here, this class acts as the Publisher/Subject trigger in the Observer pattern.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Decorator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class `UndoCoreHelperDecorator` extends `AbstractCoreHelperDecorator` and wraps a `CoreHelper` component (passed in the constructor). It overrides methods (like `setAbstract`, `setName`) to add specific functionality (creating mementos) before delegating the actual operation to the wrapped object via `getComponent().methodName()`. This is the textbook definition of the Decorator pattern.""
+		},
+		{
+			""pattern"": ""Memento"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class contains specific logic to save the state of an object before it is modified. The `createMemento` methods instantiate `ModelMemento` objects that capture the `oldValue` and provide logic to restore the object to that state. This is used to implement the Undo/Redo mechanism.""
+		},
+		{
+			""pattern"": ""Command"",
+			""confidence"": 90,
+			""adherence"": 90,
+			""reason"": ""The `ModelMemento` anonymous inner classes implement `undo()` and `redo()` methods, encapsulating the request to modify the model as an object. Additionally, the internal interfaces `BooleanSetter`, `ObjectSetter`, and `StringSetter` are used to encapsulate the specific action of setting a property into an object, effectively parameterizing the method call to be executed later or within the memento.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 80,
+			""reason"": ""The method call `Model.notifyMementoCreationObserver(memento)` indicates that the system is notifying registered listeners (subscribers) that a memento has been created. While the registration logic isn't shown here, this class acts as the Publisher/Subject trigger in the Observer pattern.""
+		}
+	]
+}
+```",30.06216
+PMART-ArgoUML-UndoUmlHelperDecorator.java,decorator,gpt-5,Decorator,90,80,"UndoUmlHelperDecorator extends AbstractUmlHelperDecorator and accepts a UmlHelper 'component' in its constructor, passing it to the superclass. This matches the Decorator structure: a component interface (UmlHelper), a base decorator (AbstractUmlHelperDecorator) that holds a component, and a concrete decorator (UndoUmlHelperDecorator) that can add behavior. While this class doesn’t override methods in the snippet, the composition and inheritance structure clearly indicate the Decorator pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 90,
+      ""adherence"": 80,
+      ""reason"": ""UndoUmlHelperDecorator extends AbstractUmlHelperDecorator and accepts a UmlHelper 'component' in its constructor, passing it to the superclass. This matches the Decorator structure: a component interface (UmlHelper), a base decorator (AbstractUmlHelperDecorator) that holds a component, and a concrete decorator (UndoUmlHelperDecorator) that can add behavior. While this class doesn’t override methods in the snippet, the composition and inheritance structure clearly indicate the Decorator pattern.""
+    }
+  ]
+}",21.779353
+PMART-ArgoUML-UndoUmlHelperDecorator.java,decorator,gemini-3.0-pro,Decorator,95,100,"The class extends 'AbstractUmlHelperDecorator' (acting as the Base Decorator) and acts as a Concrete Decorator. It accepts an instance of the component interface/abstract class ('UmlHelper') in its constructor and passes it to the superclass. This structural setup allows the object to wrap the component to extend its functionality, matching the definition of the Decorator pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The class extends 'AbstractUmlHelperDecorator' (acting as the Base Decorator) and acts as a Concrete Decorator. It accepts an instance of the component interface/abstract class ('UmlHelper') in its constructor and passes it to the superclass. This structural setup allows the object to wrap the component to extend its functionality, matching the definition of the Decorator pattern.""
+	}]
+}
+```",15.466844
+PMART-PMARt-InternalWrapperContext.java,decorator,gpt-5,Decorator,72,65,"The interface explicitly supports wrapping contexts (""interface for internal context wrapping functionality""). Methods like getInternalUserContext() expose the wrapped component, getBaseContext() exposes the root of a wrapper chain, and localPut(...) ensures operations target the top-level wrapper. These are characteristic of a decorator stack where each wrapper may add behavior while delegating to an underlying component.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 72,
+      ""adherence"": 65,
+      ""reason"": ""The interface explicitly supports wrapping contexts (\""interface for internal context wrapping functionality\""). Methods like getInternalUserContext() expose the wrapped component, getBaseContext() exposes the root of a wrapper chain, and localPut(...) ensures operations target the top-level wrapper. These are characteristic of a decorator stack where each wrapper may add behavior while delegating to an underlying component.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 60,
+      ""adherence"": 50,
+      ""reason"": ""The design distinguishes a user-facing Context and an InternalContextAdapter (\""base full context impl\""), suggesting adaptation from a user Context to an internal engine-facing contract. While this file is only an interface and does not show the adapting logic, the separation of user context vs. internal adapter and the ability to access both aligns with an Adapter arrangement.""
+    },
+    {
+      ""pattern"": ""Chain of Responsibility"",
+      ""confidence"": 35,
+      ""adherence"": 30,
+      ""reason"": ""The mention of \""possible wrapped contexts\"" and ensuring localPut(...) affects the top-level implies a chain through which operations could traverse. However, this interface alone does not show request forwarding/handling decisions typical of CoR; thus, evidence is limited and adherence is low.""
+    }
+  ]
+}",28.594304
+PMART-PMARt-InternalWrapperContext.java,decorator,gpt-5,Adapter,60,50,"The design distinguishes a user-facing Context and an InternalContextAdapter (""base full context impl""), suggesting adaptation from a user Context to an internal engine-facing contract. While this file is only an interface and does not show the adapting logic, the separation of user context vs. internal adapter and the ability to access both aligns with an Adapter arrangement.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 72,
+      ""adherence"": 65,
+      ""reason"": ""The interface explicitly supports wrapping contexts (\""interface for internal context wrapping functionality\""). Methods like getInternalUserContext() expose the wrapped component, getBaseContext() exposes the root of a wrapper chain, and localPut(...) ensures operations target the top-level wrapper. These are characteristic of a decorator stack where each wrapper may add behavior while delegating to an underlying component.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 60,
+      ""adherence"": 50,
+      ""reason"": ""The design distinguishes a user-facing Context and an InternalContextAdapter (\""base full context impl\""), suggesting adaptation from a user Context to an internal engine-facing contract. While this file is only an interface and does not show the adapting logic, the separation of user context vs. internal adapter and the ability to access both aligns with an Adapter arrangement.""
+    },
+    {
+      ""pattern"": ""Chain of Responsibility"",
+      ""confidence"": 35,
+      ""adherence"": 30,
+      ""reason"": ""The mention of \""possible wrapped contexts\"" and ensuring localPut(...) affects the top-level implies a chain through which operations could traverse. However, this interface alone does not show request forwarding/handling decisions typical of CoR; thus, evidence is limited and adherence is low.""
+    }
+  ]
+}",28.594304
+PMART-PMARt-InternalWrapperContext.java,decorator,gpt-5,Chain of Responsibility,35,30,"The mention of ""possible wrapped contexts"" and ensuring localPut(...) affects the top-level implies a chain through which operations could traverse. However, this interface alone does not show request forwarding/handling decisions typical of CoR; thus, evidence is limited and adherence is low.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 72,
+      ""adherence"": 65,
+      ""reason"": ""The interface explicitly supports wrapping contexts (\""interface for internal context wrapping functionality\""). Methods like getInternalUserContext() expose the wrapped component, getBaseContext() exposes the root of a wrapper chain, and localPut(...) ensures operations target the top-level wrapper. These are characteristic of a decorator stack where each wrapper may add behavior while delegating to an underlying component.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 60,
+      ""adherence"": 50,
+      ""reason"": ""The design distinguishes a user-facing Context and an InternalContextAdapter (\""base full context impl\""), suggesting adaptation from a user Context to an internal engine-facing contract. While this file is only an interface and does not show the adapting logic, the separation of user context vs. internal adapter and the ability to access both aligns with an Adapter arrangement.""
+    },
+    {
+      ""pattern"": ""Chain of Responsibility"",
+      ""confidence"": 35,
+      ""adherence"": 30,
+      ""reason"": ""The mention of \""possible wrapped contexts\"" and ensuring localPut(...) affects the top-level implies a chain through which operations could traverse. However, this interface alone does not show request forwarding/handling decisions typical of CoR; thus, evidence is limited and adherence is low.""
+    }
+  ]
+}",28.594304
+PMART-PMARt-InternalWrapperContext.java,decorator,gemini-3.0-pro,Decorator,90,85,"The interface is explicitly defined to support 'wrapping functionality' (also known as the Wrapper pattern). The method 'getInternalUserContext()' mandates that the implementing class must hold and expose a reference to a wrapped 'Context' object. Additionally, the 'localPut' method suggests that the wrapper adds specific behavior (local scope management) on top of the wrapped context, which is the core intent of the Decorator pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The interface is explicitly defined to support 'wrapping functionality' (also known as the Wrapper pattern). The method 'getInternalUserContext()' mandates that the implementing class must hold and expose a reference to a wrapped 'Context' object. Additionally, the 'localPut' method suggests that the wrapper adds specific behavior (local scope management) on top of the wrapped context, which is the core intent of the Decorator pattern.""
+	}]
+}
+```",25.303758
+PMART-Azureus-HashWrapper.java,decorator,gpt-5,Adapter,65,55,"The class wraps a byte[] to adapt its behavior so it can be used as a Map/Set key with value-based equality and hashing (arrays in Java have identity-based equals/hashCode). It uses composition and overrides equals/hashCode, effectively adapting the semantics clients expect. However, adherence is weakened because getHash exposes the internal array, allowing mutation that can break the equals/hashCode contract (hash_code is cached and would become inconsistent if the array contents change). Fields are also not final, reducing immutability guarantees.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 65,
+      ""adherence"": 55,
+      ""reason"": ""The class wraps a byte[] to adapt its behavior so it can be used as a Map/Set key with value-based equality and hashing (arrays in Java have identity-based equals/hashCode). It uses composition and overrides equals/hashCode, effectively adapting the semantics clients expect. However, adherence is weakened because getHash exposes the internal array, allowing mutation that can break the equals/hashCode contract (hash_code is cached and would become inconsistent if the array contents change). Fields are also not final, reducing immutability guarantees.""
+    }
+  ]
+}",27.035308
+PMART-Azureus-HashWrapper.java,decorator,gemini-3.0-pro,Immutable Object,95,60,"The class pre-calculates and caches the 'hash_code' in the constructor, which implies the internal state is intended to remain constant for the object's lifecycle. However, strict adherence is compromised because the 'getHash()' method returns a direct reference to the mutable 'hash' byte array instead of returning a defensive copy, allowing external modification of the state.","Based on the analysis of the provided `HashWrapper` class, the code exhibits the characteristics of the **Immutable Object** pattern (often associated with Value Objects), though with a specific flaw regarding the ""missing parts"" hint. Additionally, it functionally acts as an **Adapter** to make byte arrays compatible with Collection keys.
+
+Here is the analysis in JSON format:
+
+```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Immutable Object"",
+      ""confidence"": 95,
+      ""adherence"": 60,
+      ""reason"": ""The class pre-calculates and caches the 'hash_code' in the constructor, which implies the internal state is intended to remain constant for the object's lifecycle. However, strict adherence is compromised because the 'getHash()' method returns a direct reference to the mutable 'hash' byte array instead of returning a defensive copy, allowing external modification of the state.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 85,
+      ""adherence"": 100,
+      ""reason"": ""The class wraps a primitive 'byte[]' (which relies on reference identity) and adapts it to fulfill the 'java.lang.Object' contract for 'equals()' and 'hashCode()' based on content. This allows the byte array to be used effectively as a key in Hash-based collections (like HashMap), adapting the array interface to the Collection framework's requirements.""
+    }
+  ]
+}
+```",66.38198
+PMART-Azureus-HashWrapper.java,decorator,gemini-3.0-pro,Adapter,85,100,"The class wraps a primitive 'byte[]' (which relies on reference identity) and adapts it to fulfill the 'java.lang.Object' contract for 'equals()' and 'hashCode()' based on content. This allows the byte array to be used effectively as a key in Hash-based collections (like HashMap), adapting the array interface to the Collection framework's requirements.","Based on the analysis of the provided `HashWrapper` class, the code exhibits the characteristics of the **Immutable Object** pattern (often associated with Value Objects), though with a specific flaw regarding the ""missing parts"" hint. Additionally, it functionally acts as an **Adapter** to make byte arrays compatible with Collection keys.
+
+Here is the analysis in JSON format:
+
+```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Immutable Object"",
+      ""confidence"": 95,
+      ""adherence"": 60,
+      ""reason"": ""The class pre-calculates and caches the 'hash_code' in the constructor, which implies the internal state is intended to remain constant for the object's lifecycle. However, strict adherence is compromised because the 'getHash()' method returns a direct reference to the mutable 'hash' byte array instead of returning a defensive copy, allowing external modification of the state.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 85,
+      ""adherence"": 100,
+      ""reason"": ""The class wraps a primitive 'byte[]' (which relies on reference identity) and adapts it to fulfill the 'java.lang.Object' contract for 'equals()' and 'hashCode()' based on content. This allows the byte array to be used effectively as a key in Hash-based collections (like HashMap), adapting the array interface to the Collection framework's requirements.""
+    }
+  ]
+}
+```",66.38198
+PMART-Xerces-DOMErrorHandlerWrapper.java,decorator,gpt-5,Adapter,95,92,"The class implements XMLErrorHandler and converts XNI XMLParseException-based callbacks (warning/error/fatalError) into DOMError by populating a DOMErrorImpl/DOMLocatorImpl, then delegates to a provided DOMErrorHandler (fDomErrorHandler). This bridges two incompatible interfaces (XNI error handling -> DOM Level 3 error handling) via composition and translation. Although the class also implements DOMErrorHandler itself, the adaptation path is clearly directional (XMLErrorHandler -> DOMErrorHandler), fitting the Adapter pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 92,
+      ""reason"": ""The class implements XMLErrorHandler and converts XNI XMLParseException-based callbacks (warning/error/fatalError) into DOMError by populating a DOMErrorImpl/DOMLocatorImpl, then delegates to a provided DOMErrorHandler (fDomErrorHandler). This bridges two incompatible interfaces (XNI error handling -> DOM Level 3 error handling) via composition and translation. Although the class also implements DOMErrorHandler itself, the adaptation path is clearly directional (XMLErrorHandler -> DOMErrorHandler), fitting the Adapter pattern.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 60,
+      ""adherence"": 50,
+      ""reason"": ""The class serves as a callback target by implementing XMLErrorHandler/DOMErrorHandler and is intended to be registered with a parser that emits error events. This reflects the Observer pattern (publisher-subscriber), where the parser is the subject and this class is an observer. Only the observer side is visible here; the subject and observer management are outside this snippet.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 45,
+      ""adherence"": 55,
+      ""reason"": ""The field fDomErrorHandler is a pluggable policy for handling DOMError; setErrorHandler allows swapping behavior at runtime. This class plays the role of a context delegating to a Strategy (DOMErrorHandler). However, the primary intent is adaptation rather than selecting among multiple algorithms, so evidence is partial.""
+    }
+  ]
+}",47.087139
+PMART-Xerces-DOMErrorHandlerWrapper.java,decorator,gpt-5,Observer,60,50,"The class serves as a callback target by implementing XMLErrorHandler/DOMErrorHandler and is intended to be registered with a parser that emits error events. This reflects the Observer pattern (publisher-subscriber), where the parser is the subject and this class is an observer. Only the observer side is visible here; the subject and observer management are outside this snippet.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 92,
+      ""reason"": ""The class implements XMLErrorHandler and converts XNI XMLParseException-based callbacks (warning/error/fatalError) into DOMError by populating a DOMErrorImpl/DOMLocatorImpl, then delegates to a provided DOMErrorHandler (fDomErrorHandler). This bridges two incompatible interfaces (XNI error handling -> DOM Level 3 error handling) via composition and translation. Although the class also implements DOMErrorHandler itself, the adaptation path is clearly directional (XMLErrorHandler -> DOMErrorHandler), fitting the Adapter pattern.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 60,
+      ""adherence"": 50,
+      ""reason"": ""The class serves as a callback target by implementing XMLErrorHandler/DOMErrorHandler and is intended to be registered with a parser that emits error events. This reflects the Observer pattern (publisher-subscriber), where the parser is the subject and this class is an observer. Only the observer side is visible here; the subject and observer management are outside this snippet.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 45,
+      ""adherence"": 55,
+      ""reason"": ""The field fDomErrorHandler is a pluggable policy for handling DOMError; setErrorHandler allows swapping behavior at runtime. This class plays the role of a context delegating to a Strategy (DOMErrorHandler). However, the primary intent is adaptation rather than selecting among multiple algorithms, so evidence is partial.""
+    }
+  ]
+}",47.087139
+PMART-Xerces-DOMErrorHandlerWrapper.java,decorator,gpt-5,Strategy,45,55,"The field fDomErrorHandler is a pluggable policy for handling DOMError; setErrorHandler allows swapping behavior at runtime. This class plays the role of a context delegating to a Strategy (DOMErrorHandler). However, the primary intent is adaptation rather than selecting among multiple algorithms, so evidence is partial.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 92,
+      ""reason"": ""The class implements XMLErrorHandler and converts XNI XMLParseException-based callbacks (warning/error/fatalError) into DOMError by populating a DOMErrorImpl/DOMLocatorImpl, then delegates to a provided DOMErrorHandler (fDomErrorHandler). This bridges two incompatible interfaces (XNI error handling -> DOM Level 3 error handling) via composition and translation. Although the class also implements DOMErrorHandler itself, the adaptation path is clearly directional (XMLErrorHandler -> DOMErrorHandler), fitting the Adapter pattern.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 60,
+      ""adherence"": 50,
+      ""reason"": ""The class serves as a callback target by implementing XMLErrorHandler/DOMErrorHandler and is intended to be registered with a parser that emits error events. This reflects the Observer pattern (publisher-subscriber), where the parser is the subject and this class is an observer. Only the observer side is visible here; the subject and observer management are outside this snippet.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 45,
+      ""adherence"": 55,
+      ""reason"": ""The field fDomErrorHandler is a pluggable policy for handling DOMError; setErrorHandler allows swapping behavior at runtime. This class plays the role of a context delegating to a Strategy (DOMErrorHandler). However, the primary intent is adaptation rather than selecting among multiple algorithms, so evidence is partial.""
+    }
+  ]
+}",47.087139
+PMART-Xerces-DOMErrorHandlerWrapper.java,decorator,gemini-3.0-pro,Adapter,98,100,"The class `DOMErrorHandlerWrapper` acts as an Adapter between the `XMLErrorHandler` interface (the Target) and the `DOMErrorHandler` interface (the Adaptee). It implements `XMLErrorHandler` to receive parser callbacks (`warning`, `error`, `fatalError`) and holds a reference to a `DOMErrorHandler` (`fDomErrorHandler`). Inside these methods, it translates the incompatible inputs (converting `XMLParseException` and strings into a `DOMError` object) and delegates the execution to the wrapped `fDomErrorHandler`. This allows an application's DOM error handler to be used by the Xerces XNI parser.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Adapter"",
+		""confidence"": 98,
+		""adherence"": 100,
+		""reason"": ""The class `DOMErrorHandlerWrapper` acts as an Adapter between the `XMLErrorHandler` interface (the Target) and the `DOMErrorHandler` interface (the Adaptee). It implements `XMLErrorHandler` to receive parser callbacks (`warning`, `error`, `fatalError`) and holds a reference to a `DOMErrorHandler` (`fDomErrorHandler`). Inside these methods, it translates the incompatible inputs (converting `XMLParseException` and strings into a `DOMError` object) and delegates the execution to the wrapped `fDomErrorHandler`. This allows an application's DOM error handler to be used by the Xerces XNI parser.""
+	}]
+}
+```",20.296151
+PMART-PMARt-TIntByteHashMapDecorator.java,decorator,gpt-5,Adapter,95,95,"The class wraps a TIntByteHashMap and exposes the java.util.Map interface. It translates between Object-based keys/values (Integer/Byte) and primitive ints/bytes via wrap/unwrap methods and delegates all operations to the underlying primitive map, adapting one interface to another.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""The class wraps a TIntByteHashMap and exposes the java.util.Map interface. It translates between Object-based keys/values (Integer/Byte) and primitive ints/bytes via wrap/unwrap methods and delegates all operations to the underlying primitive map, adapting one interface to another.""
+    },
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 80,
+      ""adherence"": 90,
+      ""reason"": ""entrySet().iterator() returns a java.util.Iterator that internally uses a TIntByteIterator and adapts primitive keys/values to Map.Entry objects. The anonymous iterator implements hasNext/next/remove by delegating to the underlying primitive iterator.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 60,
+      ""adherence"": 70,
+      ""reason"": ""By extending AbstractMap and providing entrySet (and related overrides), the class participates in the AbstractMap template where the abstract base class implements parts of Map behavior based on subclass-provided hooks like entrySet.""
+    }
+  ]
+}",51.042287
+PMART-PMARt-TIntByteHashMapDecorator.java,decorator,gpt-5,Iterator,80,90,entrySet().iterator() returns a java.util.Iterator that internally uses a TIntByteIterator and adapts primitive keys/values to Map.Entry objects. The anonymous iterator implements hasNext/next/remove by delegating to the underlying primitive iterator.,"{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""The class wraps a TIntByteHashMap and exposes the java.util.Map interface. It translates between Object-based keys/values (Integer/Byte) and primitive ints/bytes via wrap/unwrap methods and delegates all operations to the underlying primitive map, adapting one interface to another.""
+    },
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 80,
+      ""adherence"": 90,
+      ""reason"": ""entrySet().iterator() returns a java.util.Iterator that internally uses a TIntByteIterator and adapts primitive keys/values to Map.Entry objects. The anonymous iterator implements hasNext/next/remove by delegating to the underlying primitive iterator.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 60,
+      ""adherence"": 70,
+      ""reason"": ""By extending AbstractMap and providing entrySet (and related overrides), the class participates in the AbstractMap template where the abstract base class implements parts of Map behavior based on subclass-provided hooks like entrySet.""
+    }
+  ]
+}",51.042287
+PMART-PMARt-TIntByteHashMapDecorator.java,decorator,gpt-5,Template Method,60,70,"By extending AbstractMap and providing entrySet (and related overrides), the class participates in the AbstractMap template where the abstract base class implements parts of Map behavior based on subclass-provided hooks like entrySet.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""The class wraps a TIntByteHashMap and exposes the java.util.Map interface. It translates between Object-based keys/values (Integer/Byte) and primitive ints/bytes via wrap/unwrap methods and delegates all operations to the underlying primitive map, adapting one interface to another.""
+    },
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 80,
+      ""adherence"": 90,
+      ""reason"": ""entrySet().iterator() returns a java.util.Iterator that internally uses a TIntByteIterator and adapts primitive keys/values to Map.Entry objects. The anonymous iterator implements hasNext/next/remove by delegating to the underlying primitive iterator.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 60,
+      ""adherence"": 70,
+      ""reason"": ""By extending AbstractMap and providing entrySet (and related overrides), the class participates in the AbstractMap template where the abstract base class implements parts of Map behavior based on subclass-provided hooks like entrySet.""
+    }
+  ]
+}",51.042287
+PMART-PMARt-TIntByteHashMapDecorator.java,decorator,gemini-3.0-pro,Adapter,100,100,"Despite the class name 'TIntByteHashMapDecorator', this is structurally an implementation of the Adapter pattern (specifically an Object Adapter). The class implements the 'java.util.Map' interface (the Target) but delegates functionality to the wrapped 'TIntByteHashMap' instance (the Adaptee). It translates the specific primitive-based interface of the Adaptee (int/byte) into the generic Object-based interface required by the Target, utilizing helper methods like 'wrapKey' and 'unwrapKey' to bridge the incompatibility.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Adapter"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""Despite the class name 'TIntByteHashMapDecorator', this is structurally an implementation of the Adapter pattern (specifically an Object Adapter). The class implements the 'java.util.Map' interface (the Target) but delegates functionality to the wrapped 'TIntByteHashMap' instance (the Adaptee). It translates the specific primitive-based interface of the Adaptee (int/byte) into the generic Object-based interface required by the Target, utilizing helper methods like 'wrapKey' and 'unwrapKey' to bridge the incompatibility.""
+		},
+		{
+			""pattern"": ""Iterator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""In the 'entrySet' method, the code returns an anonymous inner class that implements 'java.util.Iterator'. This implementation provides sequential access to the elements of the underlying collection without exposing its internal representation. It delegates to the internal Trove iterator ('TIntByteIterator') while adapting the returned values to standard 'Map.Entry' objects.""
+		},
+		{
+			""pattern"": ""Prototype"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class implements the 'Cloneable' interface and overrides the 'clone' method. It manually handles the creation of a new instance and performs a deep copy of the underlying '_map' reference, allowing the object to create a copy of itself.""
+		}
+	]
+}
+```",35.387275
+PMART-PMARt-TIntByteHashMapDecorator.java,decorator,gemini-3.0-pro,Iterator,100,100,"In the 'entrySet' method, the code returns an anonymous inner class that implements 'java.util.Iterator'. This implementation provides sequential access to the elements of the underlying collection without exposing its internal representation. It delegates to the internal Trove iterator ('TIntByteIterator') while adapting the returned values to standard 'Map.Entry' objects.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Adapter"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""Despite the class name 'TIntByteHashMapDecorator', this is structurally an implementation of the Adapter pattern (specifically an Object Adapter). The class implements the 'java.util.Map' interface (the Target) but delegates functionality to the wrapped 'TIntByteHashMap' instance (the Adaptee). It translates the specific primitive-based interface of the Adaptee (int/byte) into the generic Object-based interface required by the Target, utilizing helper methods like 'wrapKey' and 'unwrapKey' to bridge the incompatibility.""
+		},
+		{
+			""pattern"": ""Iterator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""In the 'entrySet' method, the code returns an anonymous inner class that implements 'java.util.Iterator'. This implementation provides sequential access to the elements of the underlying collection without exposing its internal representation. It delegates to the internal Trove iterator ('TIntByteIterator') while adapting the returned values to standard 'Map.Entry' objects.""
+		},
+		{
+			""pattern"": ""Prototype"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class implements the 'Cloneable' interface and overrides the 'clone' method. It manually handles the creation of a new instance and performs a deep copy of the underlying '_map' reference, allowing the object to create a copy of itself.""
+		}
+	]
+}
+```",35.387275
+PMART-PMARt-TIntByteHashMapDecorator.java,decorator,gemini-3.0-pro,Prototype,95,90,"The class implements the 'Cloneable' interface and overrides the 'clone' method. It manually handles the creation of a new instance and performs a deep copy of the underlying '_map' reference, allowing the object to create a copy of itself.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Adapter"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""Despite the class name 'TIntByteHashMapDecorator', this is structurally an implementation of the Adapter pattern (specifically an Object Adapter). The class implements the 'java.util.Map' interface (the Target) but delegates functionality to the wrapped 'TIntByteHashMap' instance (the Adaptee). It translates the specific primitive-based interface of the Adaptee (int/byte) into the generic Object-based interface required by the Target, utilizing helper methods like 'wrapKey' and 'unwrapKey' to bridge the incompatibility.""
+		},
+		{
+			""pattern"": ""Iterator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""In the 'entrySet' method, the code returns an anonymous inner class that implements 'java.util.Iterator'. This implementation provides sequential access to the elements of the underlying collection without exposing its internal representation. It delegates to the internal Trove iterator ('TIntByteIterator') while adapting the returned values to standard 'Map.Entry' objects.""
+		},
+		{
+			""pattern"": ""Prototype"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class implements the 'Cloneable' interface and overrides the 'clone' method. It manually handles the creation of a new instance and performs a deep copy of the underlying '_map' reference, allowing the object to create a copy of itself.""
+		}
+	]
+}
+```",35.387275
+PMART-Xerces-DOMEntityResolverWrapper.java,decorator,gpt-5,Adapter,95,95,"The class implements XMLEntityResolver while holding an LSResourceResolver and translating between the two APIs. resolveEntity delegates to LSResourceResolver.resolveResource and converts the returned LSInput into an XMLInputSource (mapping streams, encoding, IDs, and determining type via getType). This is a classic object adapter using composition to adapt one interface to another.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""The class implements XMLEntityResolver while holding an LSResourceResolver and translating between the two APIs. resolveEntity delegates to LSResourceResolver.resolveResource and converts the returned LSInput into an XMLInputSource (mapping streams, encoding, IDs, and determining type via getType). This is a classic object adapter using composition to adapt one interface to another.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 55,
+      ""adherence"": 60,
+      ""reason"": ""The resolution behavior is pluggable via the LSResourceResolver field set by setEntityResolver. DOMEntityResolverWrapper acts as a context delegating resolution to the provided strategy (any LSResourceResolver implementation). However, the primary intent is adaptation rather than defining a family of algorithms, so adherence is moderate.""
+    }
+  ]
+}",36.827718
+PMART-Xerces-DOMEntityResolverWrapper.java,decorator,gpt-5,Strategy,55,60,"The resolution behavior is pluggable via the LSResourceResolver field set by setEntityResolver. DOMEntityResolverWrapper acts as a context delegating resolution to the provided strategy (any LSResourceResolver implementation). However, the primary intent is adaptation rather than defining a family of algorithms, so adherence is moderate.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""The class implements XMLEntityResolver while holding an LSResourceResolver and translating between the two APIs. resolveEntity delegates to LSResourceResolver.resolveResource and converts the returned LSInput into an XMLInputSource (mapping streams, encoding, IDs, and determining type via getType). This is a classic object adapter using composition to adapt one interface to another.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 55,
+      ""adherence"": 60,
+      ""reason"": ""The resolution behavior is pluggable via the LSResourceResolver field set by setEntityResolver. DOMEntityResolverWrapper acts as a context delegating resolution to the provided strategy (any LSResourceResolver implementation). However, the primary intent is adaptation rather than defining a family of algorithms, so adherence is moderate.""
+    }
+  ]
+}",36.827718
+PMART-Xerces-DOMEntityResolverWrapper.java,decorator,gemini-3.0-pro,Adapter,100,100,"The class 'DOMEntityResolverWrapper' functions as an Object Adapter. It implements the 'XMLEntityResolver' interface (the Target) but delegates the actual processing to a contained instance of 'LSResourceResolver' (the Adaptee), stored in the field 'fEntityResolver'. The 'resolveEntity' method translates the call from the XNI interface to the DOM interface by converting parameters and mapping the return type 'LSInput' back to 'XMLInputSource', allowing incompatible interfaces to work together.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Adapter"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class 'DOMEntityResolverWrapper' functions as an Object Adapter. It implements the 'XMLEntityResolver' interface (the Target) but delegates the actual processing to a contained instance of 'LSResourceResolver' (the Adaptee), stored in the field 'fEntityResolver'. The 'resolveEntity' method translates the call from the XNI interface to the DOM interface by converting parameters and mapping the return type 'LSInput' back to 'XMLInputSource', allowing incompatible interfaces to work together.""
+	}]
+}
+```",15.815779
+PMART-PMARt-StorageFeedWrapper.java,decorator,gpt-5,Adapter,78,85,"StorageFeedWrapper implements the StorageWrapper interface (target) and adapts a ServerBaseFeed (adaptee) to produce a Lucene Document that the storage layer expects. It composes the adaptee, translates its data (including generating Atom XML) into the target representation (Document fields), and exposes the expected method getLuceneDocument(). It does not preserve the adaptee's interface (so not a Decorator/Proxy), nor does it define an abstract creation hierarchy (so not Factory Method).","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 78,
+      ""adherence"": 85,
+      ""reason"": ""StorageFeedWrapper implements the StorageWrapper interface (target) and adapts a ServerBaseFeed (adaptee) to produce a Lucene Document that the storage layer expects. It composes the adaptee, translates its data (including generating Atom XML) into the target representation (Document fields), and exposes the expected method getLuceneDocument(). It does not preserve the adaptee's interface (so not a Decorator/Proxy), nor does it define an abstract creation hierarchy (so not Factory Method).""
+    }
+  ]
+}",18.039959
+PMART-PMARt-StorageFeedWrapper.java,decorator,gemini-3.0-pro,Adapter,95,100,The class 'StorageFeedWrapper' acts as an Object Adapter. It implements the 'StorageWrapper' interface (the Target) and holds a private reference to the 'ServerBaseFeed' class (the Adaptee). It converts the interface of the GData feed into the interface expected by the storage system by transforming the feed's data into a Lucene 'Document' inside the 'getLuceneDocument' method.,"Based on the analysis of the provided source code, the following design pattern has been detected.
+
+The class `StorageFeedWrapper` is a clear implementation of the **Adapter Pattern** (also known as the Wrapper pattern).
+
+1.  **Target Interface**: `StorageWrapper` (The interface the client expects).
+2.  **Adaptee**: `ServerBaseFeed` (The existing class with incompatible interface).
+3.  **Adapter**: `StorageFeedWrapper` (The class analyzing).
+
+The `StorageFeedWrapper` implements the `StorageWrapper` interface but wraps a `ServerBaseFeed` instance. It does not simply pass calls through (which would be a Proxy); it **adapts** the data from the `ServerBaseFeed` (getting IDs, service types, generating XML content) into a completely different format: a Lucene `Document` required by the storage system via the `getLuceneDocument()` method.
+
+```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Adapter"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The class 'StorageFeedWrapper' acts as an Object Adapter. It implements the 'StorageWrapper' interface (the Target) and holds a private reference to the 'ServerBaseFeed' class (the Adaptee). It converts the interface of the GData feed into the interface expected by the storage system by transforming the feed's data into a Lucene 'Document' inside the 'getLuceneDocument' method.""
+	}]
+}
+```",30.714027
+PMART-PMARt-OutputWrapper.java,decorator,gpt-5,Adapter,60,58,"OutputWrapper subclasses XMLOutputter and exposes a different, simplified interface for clients that want a String of an element's content instead of writing to a Writer. It leverages the protected outputElementContent(...) of the superclass and returns the result as a String, effectively adapting a writer-based API to a string-returning one. This is a class adapter (via inheritance) rather than a composition-based adapter. Adherence is partial: it adds only a single convenience method, does not generally replace the original interface, and the boolean parameter 'strip' is unused, suggesting an incomplete or leaky design.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 60,
+      ""adherence"": 58,
+      ""reason"": ""OutputWrapper subclasses XMLOutputter and exposes a different, simplified interface for clients that want a String of an element's content instead of writing to a Writer. It leverages the protected outputElementContent(...) of the superclass and returns the result as a String, effectively adapting a writer-based API to a string-returning one. This is a class adapter (via inheritance) rather than a composition-based adapter. Adherence is partial: it adds only a single convenience method, does not generally replace the original interface, and the boolean parameter 'strip' is unused, suggesting an incomplete or leaky design.""
+    }
+  ]
+}",38.401811
+PMART-PMARt-OutputWrapper.java,decorator,gemini-3.0-pro,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",40.568727
+PMART-PMARt-LogDisplayWrapper.java,decorator,gpt-5,Decorator,88,68,"The class adds responsibilities to an existing logging abstraction (prefixing messages and conditional logging) while keeping the same type usable by clients (extends Log). It composes another Log and augments behavior without changing client code. However, it does not delegate to the wrapped Log's methods but directly to its LogChute implementor, which prevents stacking multiple decorators and deviates from the canonical delegate-to-wrapped-component structure.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 88,
+      ""adherence"": 68,
+      ""reason"": ""The class adds responsibilities to an existing logging abstraction (prefixing messages and conditional logging) while keeping the same type usable by clients (extends Log). It composes another Log and augments behavior without changing client code. However, it does not delegate to the wrapped Log's methods but directly to its LogChute implementor, which prevents stacking multiple decorators and deviates from the canonical delegate-to-wrapped-component structure.""
+    },
+    {
+      ""pattern"": ""Bridge"",
+      ""confidence"": 62,
+      ""adherence"": 70,
+      ""reason"": ""Log (abstraction) delegates to a LogChute (implementor). This subclass passes the implementor from the wrapped Log to its superclass and calls getLogChute().log(...), indicating separation of abstraction from implementation. While the file shows only one participant, the structure fits a Bridge where different LogChute implementations can vary independently of Log.""
+    }
+  ]
+}",44.342853
+PMART-PMARt-LogDisplayWrapper.java,decorator,gpt-5,Bridge,62,70,"Log (abstraction) delegates to a LogChute (implementor). This subclass passes the implementor from the wrapped Log to its superclass and calls getLogChute().log(...), indicating separation of abstraction from implementation. While the file shows only one participant, the structure fits a Bridge where different LogChute implementations can vary independently of Log.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 88,
+      ""adherence"": 68,
+      ""reason"": ""The class adds responsibilities to an existing logging abstraction (prefixing messages and conditional logging) while keeping the same type usable by clients (extends Log). It composes another Log and augments behavior without changing client code. However, it does not delegate to the wrapped Log's methods but directly to its LogChute implementor, which prevents stacking multiple decorators and deviates from the canonical delegate-to-wrapped-component structure.""
+    },
+    {
+      ""pattern"": ""Bridge"",
+      ""confidence"": 62,
+      ""adherence"": 70,
+      ""reason"": ""Log (abstraction) delegates to a LogChute (implementor). This subclass passes the implementor from the wrapped Log to its superclass and calls getLogChute().log(...), indicating separation of abstraction from implementation. While the file shows only one participant, the structure fits a Bridge where different LogChute implementations can vary independently of Log.""
+    }
+  ]
+}",44.342853
+PMART-PMARt-LogDisplayWrapper.java,decorator,gemini-3.0-pro,Decorator,100,100,"The class 'LogDisplayWrapper' follows the Decorator pattern structure perfectly. 1. It shares the same type as the object it wraps (it extends 'Log'). 2. It holds a reference to an instance of that type ('private final Log log'). 3. It accepts the component to be wrapped in the constructor. 4. It adds behavior to the existing methods: specifically, it adds a 'prefix' string to messages and checks a boolean flag ('outputMessages') before delegating the core logging functionality.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class 'LogDisplayWrapper' follows the Decorator pattern structure perfectly. 1. It shares the same type as the object it wraps (it extends 'Log'). 2. It holds a reference to an instance of that type ('private final Log log'). 3. It accepts the component to be wrapped in the constructor. 4. It adds behavior to the existing methods: specifically, it adds a 'prefix' string to messages and checks a boolean flag ('outputMessages') before delegating the core logging functionality.""
+	}]
+}
+```",19.325975
+PMART-Azureus-CategoryListener.java,observer,gpt-5,Observer,70,60,"CategoryListener defines callback methods for change notifications (downloadManagerAdded/Removed) consistent with the Observer pattern, where Category would act as the subject and listeners as observers. However, the provided snippet lacks the subject-side mechanics (e.g., add/remove listener methods, storage of listeners, and notification logic), so adherence cannot be fully confirmed.","{""design_patterns"": [{""pattern"": ""Observer"", ""confidence"": 70, ""adherence"": 60, ""reason"": ""CategoryListener defines callback methods for change notifications (downloadManagerAdded/Removed) consistent with the Observer pattern, where Category would act as the subject and listeners as observers. However, the provided snippet lacks the subject-side mechanics (e.g., add/remove listener methods, storage of listeners, and notification logic), so adherence cannot be fully confirmed.""}]}",12.957391
+PMART-Azureus-CategoryListener.java,observer,gemini-3.0-pro,Observer,95,100,"The code defines an interface 'CategoryListener' with callback methods ('downloadManagerAdded', 'downloadManagerRemoved'). This structure is the standard definition of the Observer participant (often called 'Listener' in Java) within the Observer design pattern. It establishes a contract for objects that wish to be notified of specific state changes or events occurring in a Subject (in this case, the 'Category' class).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface 'CategoryListener' with callback methods ('downloadManagerAdded', 'downloadManagerRemoved'). This structure is the standard definition of the Observer participant (often called 'Listener' in Java) within the Observer design pattern. It establishes a contract for objects that wish to be notified of specific state changes or events occurring in a Subject (in this case, the 'Category' class).""
+	}]
+}
+```",13.060462
+PMART-Xalan-PrintTraceListener.java,observer,gpt-5,Observer,88,90,"PrintTraceListener implements the TraceListener interface and reacts to events (TracerEvent, SelectionEvent, GenerateEvent) via callback methods (trace, selected, generated). This is a classic listener/observer setup where a subject (not shown here, e.g., a transformer/tracer) notifies registered observers. The class holds no control over event dispatching, only responds to notifications, and uses event objects to carry state—typical Observer pattern characteristics.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 88,
+      ""adherence"": 90,
+      ""reason"": ""PrintTraceListener implements the TraceListener interface and reacts to events (TracerEvent, SelectionEvent, GenerateEvent) via callback methods (trace, selected, generated). This is a classic listener/observer setup where a subject (not shown here, e.g., a transformer/tracer) notifies registered observers. The class holds no control over event dispatching, only responds to notifications, and uses event objects to carry state—typical Observer pattern characteristics.""
+    }
+  ]
+}",14.530223
+PMART-Xalan-PrintTraceListener.java,observer,gemini-3.0-pro,Observer,95,90,"The class 'PrintTraceListener' implements the 'TraceListener' interface, identifying it as a Concrete Observer (or Subscriber). It defines specific update methods ('trace', 'selected', 'generated') that accept 'Event' objects (TracerEvent, SelectionEvent, GenerateEvent). This structure allows the class to be notified of changes or specific points of execution by a Subject (the XSLT processor) and handle them asynchronously, which is the core definition of the Observer pattern in Java event handling.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 95,
+		""adherence"": 90,
+		""reason"": ""The class 'PrintTraceListener' implements the 'TraceListener' interface, identifying it as a Concrete Observer (or Subscriber). It defines specific update methods ('trace', 'selected', 'generated') that accept 'Event' objects (TracerEvent, SelectionEvent, GenerateEvent). This structure allows the class to be notified of changes or specific points of execution by a Subject (the XSLT processor) and handle them asynchronously, which is the core definition of the Observer pattern in Java event handling.""
+	}]
+}
+```",22.162767
+PMART-Azureus-DownloadWillBeRemovedListener.java,observer,gpt-5,Observer,70,50,"The interface defines a listener callback (downloadWillBeRemoved) that is intended to be notified before a download is removed. This matches the Observer pattern where observers (listeners) are notified of subject events. The ability to veto via DownloadRemovalVetoException is a common variant in event/listener systems. However, the subject, registration/deregistration mechanisms, and notification flow are not shown here, so adherence can only be partially confirmed from this snippet.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 70,
+      ""adherence"": 50,
+      ""reason"": ""The interface defines a listener callback (downloadWillBeRemoved) that is intended to be notified before a download is removed. This matches the Observer pattern where observers (listeners) are notified of subject events. The ability to veto via DownloadRemovalVetoException is a common variant in event/listener systems. However, the subject, registration/deregistration mechanisms, and notification flow are not shown here, so adherence can only be partially confirmed from this snippet.""
+    }
+  ]
+}",17.519029
+PMART-Azureus-DownloadWillBeRemovedListener.java,observer,gemini-3.0-pro,Observer,95,100,The code defines an interface with the suffix 'Listener' containing a specific callback method ('downloadWillBeRemoved'). This is the standard Java implementation of the Observer component within the Observer pattern. It defines the contract for an object that wishes to receive notifications/updates from a Subject (the 'Download' object).,"```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface with the suffix 'Listener' containing a specific callback method ('downloadWillBeRemoved'). This is the standard Java implementation of the Observer component within the Observer pattern. It defines the contract for an object that wishes to receive notifications/updates from a Subject (the 'Download' object).""
+	}]
+}
+```",14.734277
+PMART-PMARt-TitleChangeListener.java,observer,gpt-5,Observer,78,60,"Defines a listener interface (TitleChangeListener extends EventListener) with a callback method (titleChanged(TitleChangeEvent)) to receive change notifications, which aligns with the observer/event-listener pattern. This snippet, however, does not include the subject or registration/unregistration methods, so only part of the pattern is visible.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 78,
+      ""adherence"": 60,
+      ""reason"": ""Defines a listener interface (TitleChangeListener extends EventListener) with a callback method (titleChanged(TitleChangeEvent)) to receive change notifications, which aligns with the observer/event-listener pattern. This snippet, however, does not include the subject or registration/unregistration methods, so only part of the pattern is visible.""
+    }
+  ]
+}",21.817187
+PMART-PMARt-TitleChangeListener.java,observer,gemini-3.0-pro,Observer,100,100,"The code defines an interface `TitleChangeListener` which extends `java.util.EventListener` and contains a callback method `titleChanged` accepting an event object. This is the canonical implementation of the Observer (Subscriber) interface in Java's event-driven architecture, intended to receive notifications from a Subject.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 100,
+      ""adherence"": 100,
+      ""reason"": ""The code defines an interface `TitleChangeListener` which extends `java.util.EventListener` and contains a callback method `titleChanged` accepting an event object. This is the canonical implementation of the Observer (Subscriber) interface in Java's event-driven architecture, intended to receive notifications from a Subject.""
+    }
+  ]
+}
+```",14.548394
+PMART-Xerces-DtdEventListener.java,observer,gpt-5,Observer,85,70,"DtdEventListener defines a listener interface for DTD-related events emitted by a parser, matching the Observer pattern: the parser (subject) notifies registered listeners (observers) about events like startDtd/endDtd, entityDecls, and attributeDecls. The code shows the Observer role (callbacks) but not the Subject side (attach/detach and notification dispatch), which slightly reduces adherence in this snippet alone.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 85,
+      ""adherence"": 70,
+      ""reason"": ""DtdEventListener defines a listener interface for DTD-related events emitted by a parser, matching the Observer pattern: the parser (subject) notifies registered listeners (observers) about events like startDtd/endDtd, entityDecls, and attributeDecls. The code shows the Observer role (callbacks) but not the Subject side (attach/detach and notification dispatch), which slightly reduces adherence in this snippet alone.""
+    }
+  ]
+}",19.64538
+PMART-Xerces-DtdEventListener.java,observer,gemini-3.0-pro,Observer,100,100,"The code defines an interface `DtdEventListener` which acts as the 'Observer' component in the Observer pattern (commonly referred to as the Listener pattern in Java). It extends `DTDHandler` and defines a series of callback methods (such as `startDtd`, `elementDecl`, and `attributeDecl`). These methods are designed to be invoked by a 'Subject' (in this case, an XML Parser) to notify the listener when specific parsing events occur. The Javadoc explicitly uses terms like 'events are signaled', 'receive notification', and 'callbacks', which are hallmarks of this pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface `DtdEventListener` which acts as the 'Observer' component in the Observer pattern (commonly referred to as the Listener pattern in Java). It extends `DTDHandler` and defines a series of callback methods (such as `startDtd`, `elementDecl`, and `attributeDecl`). These methods are designed to be invoked by a 'Subject' (in this case, an XML Parser) to notify the listener when specific parsing events occur. The Javadoc explicitly uses terms like 'events are signaled', 'receive notification', and 'callbacks', which are hallmarks of this pattern.""
+	}]
+}
+```",18.260003
+PMART-Ant-BuildListener.java,observer,gpt-5,Observer,95,88,"BuildListener defines an observer interface (extending EventListener) with callbacks like buildStarted/Finished, targetStarted/Finished, taskStarted/Finished, and messageLogged. The Javadoc references Project#addBuildListener(BuildListener), indicating a Subject that registers observers and notifies them with BuildEvent objects (push model). While the Subject implementation and remove/notify logic are not shown in this snippet, the structure strongly matches the Observer pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 95,
+      ""adherence"": 88,
+      ""reason"": ""BuildListener defines an observer interface (extending EventListener) with callbacks like buildStarted/Finished, targetStarted/Finished, taskStarted/Finished, and messageLogged. The Javadoc references Project#addBuildListener(BuildListener), indicating a Subject that registers observers and notifies them with BuildEvent objects (push model). While the Subject implementation and remove/notify logic are not shown in this snippet, the structure strongly matches the Observer pattern.""
+    }
+  ]
+}",13.408548
+PMART-Ant-BuildListener.java,observer,gemini-3.0-pro,Observer,100,100,"The interface 'BuildListener' extends 'java.util.EventListener' and defines specific callback methods (e.g., 'buildStarted', 'taskFinished') that accept an event object ('BuildEvent'). This is the distinct signature of the Observer pattern (specifically the Observer/Subscriber interface role). The Javadoc also references a registration mechanism ('addBuildListener'), confirming that the implementing classes are intended to subscribe to a Subject to receive notifications.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The interface 'BuildListener' extends 'java.util.EventListener' and defines specific callback methods (e.g., 'buildStarted', 'taskFinished') that accept an event object ('BuildEvent'). This is the distinct signature of the Observer pattern (specifically the Observer/Subscriber interface role). The Javadoc also references a registration mechanism ('addBuildListener'), confirming that the implementing classes are intended to subscribe to a Subject to receive notifications.""
+	}]
+}
+```",16.134061
+PMART-PMARt-DatasetChangeListener.java,observer,gpt-5,Observer,90,78,"Defines a listener interface (DatasetChangeListener extends EventListener) with a callback method (datasetChanged(DatasetChangeEvent)) to receive notifications when a dataset changes. The use of an event object indicates a push-style update typical of Observer. While the subject/registration methods are not shown here, this interface clearly represents the observer side of the pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 90,
+      ""adherence"": 78,
+      ""reason"": ""Defines a listener interface (DatasetChangeListener extends EventListener) with a callback method (datasetChanged(DatasetChangeEvent)) to receive notifications when a dataset changes. The use of an event object indicates a push-style update typical of Observer. While the subject/registration methods are not shown here, this interface clearly represents the observer side of the pattern.""
+    }
+  ]
+}",12.003991
+PMART-PMARt-DatasetChangeListener.java,observer,gemini-3.0-pro,Observer,100,100,"The code defines an interface 'DatasetChangeListener' which extends 'java.util.EventListener' and declares a callback method 'datasetChanged' accepting a specific event object. This is the canonical implementation of the Observer participant (specifically the Subscriber interface) within the Java Event model, allowing objects to subscribe to and receive notifications from a Subject (the Dataset).","```json
+{
+    ""design_patterns"": [
+        {
+            ""pattern"": ""Observer"",
+            ""confidence"": 100,
+            ""adherence"": 100,
+            ""reason"": ""The code defines an interface 'DatasetChangeListener' which extends 'java.util.EventListener' and declares a callback method 'datasetChanged' accepting a specific event object. This is the canonical implementation of the Observer participant (specifically the Subscriber interface) within the Java Event model, allowing objects to subscribe to and receive notifications from a Subject (the Dataset).""
+        }
+    ]
+}
+```",17.571981
+PMART-Azureus-SSDPListener.java,observer,gpt-5,Observer,80,45,"The SSDPListener interface defines event callbacks (rootDiscovered, rootAlive, rootLost) that observers would implement to receive notifications from an SSDP subject, matching the Listener/Observer style. However, the snippet only shows the observer interface; it lacks the subject, registration/unregistration methods, and the notification mechanism, so adherence is only partial based on the provided code.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 80,
+      ""adherence"": 45,
+      ""reason"": ""The SSDPListener interface defines event callbacks (rootDiscovered, rootAlive, rootLost) that observers would implement to receive notifications from an SSDP subject, matching the Listener/Observer style. However, the snippet only shows the observer interface; it lacks the subject, registration/unregistration methods, and the notification mechanism, so adherence is only partial based on the provided code.""
+    }
+  ]
+}",15.091776
+PMART-Azureus-SSDPListener.java,observer,gemini-3.0-pro,Observer,95,100,"The code defines an interface named 'SSDPListener' with methods specifically designed to handle event notifications ('rootDiscovered', 'rootAlive', 'rootLost'). This is the standard definition of the Observer participant (often called a Listener in Java) within the Observer design pattern, intended to define a contract for objects receiving updates from a subject.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface named 'SSDPListener' with methods specifically designed to handle event notifications ('rootDiscovered', 'rootAlive', 'rootLost'). This is the standard definition of the Observer participant (often called a Listener in Java) within the Observer design pattern, intended to define a contract for objects receiving updates from a subject.""
+	}]
+}
+```",21.718726
+PMART-PMARt-TrackingAdjustmentListener.java,observer,gpt-5,Observer,85,80,"TrackingAdjustmentListener implements the AdjustmentListener interface and reacts to AdjustmentEvent notifications from an Adjustable (e.g., a scrollbar), which is the subject. This is the classic AWT/Swing listener model of the Observer pattern: the observer (listener) is decoupled from the subject and is notified via a callback method (adjustmentValueChanged). While the registration of the listener with the subject is not shown, the code clearly plays the concrete Observer role.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 85,
+      ""adherence"": 80,
+      ""reason"": ""TrackingAdjustmentListener implements the AdjustmentListener interface and reacts to AdjustmentEvent notifications from an Adjustable (e.g., a scrollbar), which is the subject. This is the classic AWT/Swing listener model of the Observer pattern: the observer (listener) is decoupled from the subject and is notified via a callback method (adjustmentValueChanged). While the registration of the listener with the subject is not shown, the code clearly plays the concrete Observer role.""
+    }
+  ]
+}",26.350563
+PMART-PMARt-TrackingAdjustmentListener.java,observer,gemini-3.0-pro,Observer,100,100,"The class implements the 'AdjustmentListener' interface, which is a standard Observer interface within the Java AWT event model. The 'adjustmentValueChanged' method functions as the 'update' method, which is automatically called when the 'Subject' (an Adjustable object, like a scrollbar) changes its state. This allows the class to react to changes in another object, fulfilling the core definition of the Observer pattern.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 100,
+      ""adherence"": 100,
+      ""reason"": ""The class implements the 'AdjustmentListener' interface, which is a standard Observer interface within the Java AWT event model. The 'adjustmentValueChanged' method functions as the 'update' method, which is automatically called when the 'Subject' (an Adjustable object, like a scrollbar) changes its state. This allows the class to react to changes in another object, fulfilling the core definition of the Observer pattern.""
+    }
+  ]
+}
+```",14.564049
+PMART-Azureus-WizardListener.java,observer,gpt-5,Observer,55,45,"The presence of a Listener interface with a callback method (closed()) suggests an event-listener setup typical of the Observer pattern in UI code. However, this snippet alone only defines the observer interface; it does not show the subject, registration/unregistration methods, or notification logic. It also lacks an event object or source parameter, which are common in robust observer implementations. Therefore, identification is tentative and adherence appears partial based on the provided code.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The presence of a Listener interface with a callback method (closed()) suggests an event-listener setup typical of the Observer pattern in UI code. However, this snippet alone only defines the observer interface; it does not show the subject, registration/unregistration methods, or notification logic. It also lacks an event object or source parameter, which are common in robust observer implementations. Therefore, identification is tentative and adherence appears partial based on the provided code.""
+    }
+  ]
+}",22.802903
+PMART-Azureus-WizardListener.java,observer,gemini-3.0-pro,Observer,98,100,"The code defines an interface named 'WizardListener' with a specific callback method 'closed()'. In Java UI frameworks (indicated by the SWT package), 'Listeners' are the standard implementation of the Observer participant in the Observer pattern. This interface defines the contract for objects that wish to be notified when the 'Subject' (the Wizard) triggers the specific event (closing).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 98,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface named 'WizardListener' with a specific callback method 'closed()'. In Java UI frameworks (indicated by the SWT package), 'Listeners' are the standard implementation of the Observer participant in the Observer pattern. This interface defines the contract for objects that wish to be notified when the 'Subject' (the Wizard) triggers the specific event (closing).""
+	}]
+}
+```",16.162533
+PMART-Eclipse-SuperTypesOfSingleton.java,singleton,gpt-5,Iterator,90,85,"The class exposes traversal over its elements via iterator(), delegating to enumerate().iterator(). The commented-out custom Iterator further confirms intent to provide sequential access independent of the underlying representation.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class exposes traversal over its elements via iterator(), delegating to enumerate().iterator(). The commented-out custom Iterator further confirms intent to provide sequential access independent of the underlying representation.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 70,
+      ""adherence"": 75,
+      ""reason"": ""The superclass TypeSet likely defines the overall algorithm for operations like intersection and calls subclass hooks. This class overrides specialCasesIntersectedWith(TypeSet other) to supply subclass-specific steps within a fixed algorithm structure, consistent with the Template Method pattern.""
+    },
+    {
+      ""pattern"": ""Lazy Initialization"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The enumeration of members is created on first use and cached in fEnumCache within enumerate(). Subsequent calls reuse the cached value, demonstrating lazy computation with memoization.""
+    }
+  ]
+}",48.70527
+PMART-Eclipse-SuperTypesOfSingleton.java,singleton,gpt-5,Template Method,70,75,"The superclass TypeSet likely defines the overall algorithm for operations like intersection and calls subclass hooks. This class overrides specialCasesIntersectedWith(TypeSet other) to supply subclass-specific steps within a fixed algorithm structure, consistent with the Template Method pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class exposes traversal over its elements via iterator(), delegating to enumerate().iterator(). The commented-out custom Iterator further confirms intent to provide sequential access independent of the underlying representation.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 70,
+      ""adherence"": 75,
+      ""reason"": ""The superclass TypeSet likely defines the overall algorithm for operations like intersection and calls subclass hooks. This class overrides specialCasesIntersectedWith(TypeSet other) to supply subclass-specific steps within a fixed algorithm structure, consistent with the Template Method pattern.""
+    },
+    {
+      ""pattern"": ""Lazy Initialization"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The enumeration of members is created on first use and cached in fEnumCache within enumerate(). Subsequent calls reuse the cached value, demonstrating lazy computation with memoization.""
+    }
+  ]
+}",48.70527
+PMART-Eclipse-SuperTypesOfSingleton.java,singleton,gpt-5,Lazy Initialization,85,90,"The enumeration of members is created on first use and cached in fEnumCache within enumerate(). Subsequent calls reuse the cached value, demonstrating lazy computation with memoization.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""The class exposes traversal over its elements via iterator(), delegating to enumerate().iterator(). The commented-out custom Iterator further confirms intent to provide sequential access independent of the underlying representation.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 70,
+      ""adherence"": 75,
+      ""reason"": ""The superclass TypeSet likely defines the overall algorithm for operations like intersection and calls subclass hooks. This class overrides specialCasesIntersectedWith(TypeSet other) to supply subclass-specific steps within a fixed algorithm structure, consistent with the Template Method pattern.""
+    },
+    {
+      ""pattern"": ""Lazy Initialization"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The enumeration of members is created on first use and cached in fEnumCache within enumerate(). Subsequent calls reuse the cached value, demonstrating lazy computation with memoization.""
+    }
+  ]
+}",48.70527
+PMART-Eclipse-SuperTypesOfSingleton.java,singleton,gemini-3.0-pro,Iterator,100,100,The class implements an `iterator()` method which returns a `java.util.Iterator`. This allows external clients to traverse the collection of types represented by this set without exposing the internal complexity of how the types are calculated or stored (delegating to `enumerate().iterator()`).,"```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Iterator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements an `iterator()` method which returns a `java.util.Iterator`. This allows external clients to traverse the collection of types represented by this set without exposing the internal complexity of how the types are calculated or stored (delegating to `enumerate().iterator()`).""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class implements the protected method `specialCasesIntersectedWith(TypeSet other)`. The naming convention and visibility suggest that the abstract superclass `TypeSet` contains a public template method (likely `intersectedWith`) that defines the skeleton of the operation and calls this hook method for subclass-specific implementation details.""
+		},
+		{
+			""pattern"": ""Lazy Initialization"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The `enumerate()` method utilizes the `fEnumCache` field to store the result of an expensive calculation (generating all supertypes). The calculation is only performed if `fEnumCache` is null, deferring the cost until the data is actually requested.""
+		},
+		{
+			""pattern"": ""Prototype"",
+			""confidence"": 85,
+			""adherence"": 60,
+			""reason"": ""The class contains a `makeClone()` method intended to create a copy of the object. Although the current implementation returns `this` (likely an optimization for immutable objects), it satisfies the interface and intent of the Prototype pattern.""
+		}
+	]
+}
+```",39.507427
+PMART-Eclipse-SuperTypesOfSingleton.java,singleton,gemini-3.0-pro,Template Method,95,100,The class implements the protected method `specialCasesIntersectedWith(TypeSet other)`. The naming convention and visibility suggest that the abstract superclass `TypeSet` contains a public template method (likely `intersectedWith`) that defines the skeleton of the operation and calls this hook method for subclass-specific implementation details.,"```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Iterator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements an `iterator()` method which returns a `java.util.Iterator`. This allows external clients to traverse the collection of types represented by this set without exposing the internal complexity of how the types are calculated or stored (delegating to `enumerate().iterator()`).""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class implements the protected method `specialCasesIntersectedWith(TypeSet other)`. The naming convention and visibility suggest that the abstract superclass `TypeSet` contains a public template method (likely `intersectedWith`) that defines the skeleton of the operation and calls this hook method for subclass-specific implementation details.""
+		},
+		{
+			""pattern"": ""Lazy Initialization"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The `enumerate()` method utilizes the `fEnumCache` field to store the result of an expensive calculation (generating all supertypes). The calculation is only performed if `fEnumCache` is null, deferring the cost until the data is actually requested.""
+		},
+		{
+			""pattern"": ""Prototype"",
+			""confidence"": 85,
+			""adherence"": 60,
+			""reason"": ""The class contains a `makeClone()` method intended to create a copy of the object. Although the current implementation returns `this` (likely an optimization for immutable objects), it satisfies the interface and intent of the Prototype pattern.""
+		}
+	]
+}
+```",39.507427
+PMART-Eclipse-SuperTypesOfSingleton.java,singleton,gemini-3.0-pro,Lazy Initialization,100,100,"The `enumerate()` method utilizes the `fEnumCache` field to store the result of an expensive calculation (generating all supertypes). The calculation is only performed if `fEnumCache` is null, deferring the cost until the data is actually requested.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Iterator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements an `iterator()` method which returns a `java.util.Iterator`. This allows external clients to traverse the collection of types represented by this set without exposing the internal complexity of how the types are calculated or stored (delegating to `enumerate().iterator()`).""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class implements the protected method `specialCasesIntersectedWith(TypeSet other)`. The naming convention and visibility suggest that the abstract superclass `TypeSet` contains a public template method (likely `intersectedWith`) that defines the skeleton of the operation and calls this hook method for subclass-specific implementation details.""
+		},
+		{
+			""pattern"": ""Lazy Initialization"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The `enumerate()` method utilizes the `fEnumCache` field to store the result of an expensive calculation (generating all supertypes). The calculation is only performed if `fEnumCache` is null, deferring the cost until the data is actually requested.""
+		},
+		{
+			""pattern"": ""Prototype"",
+			""confidence"": 85,
+			""adherence"": 60,
+			""reason"": ""The class contains a `makeClone()` method intended to create a copy of the object. Although the current implementation returns `this` (likely an optimization for immutable objects), it satisfies the interface and intent of the Prototype pattern.""
+		}
+	]
+}
+```",39.507427
+PMART-Eclipse-SuperTypesOfSingleton.java,singleton,gemini-3.0-pro,Prototype,85,60,"The class contains a `makeClone()` method intended to create a copy of the object. Although the current implementation returns `this` (likely an optimization for immutable objects), it satisfies the interface and intent of the Prototype pattern.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Iterator"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements an `iterator()` method which returns a `java.util.Iterator`. This allows external clients to traverse the collection of types represented by this set without exposing the internal complexity of how the types are calculated or stored (delegating to `enumerate().iterator()`).""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class implements the protected method `specialCasesIntersectedWith(TypeSet other)`. The naming convention and visibility suggest that the abstract superclass `TypeSet` contains a public template method (likely `intersectedWith`) that defines the skeleton of the operation and calls this hook method for subclass-specific implementation details.""
+		},
+		{
+			""pattern"": ""Lazy Initialization"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The `enumerate()` method utilizes the `fEnumCache` field to store the result of an expensive calculation (generating all supertypes). The calculation is only performed if `fEnumCache` is null, deferring the cost until the data is actually requested.""
+		},
+		{
+			""pattern"": ""Prototype"",
+			""confidence"": 85,
+			""adherence"": 60,
+			""reason"": ""The class contains a `makeClone()` method intended to create a copy of the object. Although the current implementation returns `this` (likely an optimization for immutable objects), it satisfies the interface and intent of the Prototype pattern.""
+		}
+	]
+}
+```",39.507427
+PMART-PMARt-AlphaSingleton.java,singleton,gpt-5,Singleton,100,88,"Uses a private constructor and a private static final instance with a public static accessor (getInstance), implementing an eager-initialized, classloader-safe Singleton. However, it lacks defenses against breaking the Singleton via serialization (no readResolve) and reflection, and the class is not final (though the private constructor already prevents subclassing).","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 100,
+      ""adherence"": 88,
+      ""reason"": ""Uses a private constructor and a private static final instance with a public static accessor (getInstance), implementing an eager-initialized, classloader-safe Singleton. However, it lacks defenses against breaking the Singleton via serialization (no readResolve) and reflection, and the class is not final (though the private constructor already prevents subclassing).""
+    }
+  ]
+}",13.907127
+PMART-PMARt-AlphaSingleton.java,singleton,gemini-3.0-pro,Singleton,100,100,The class implements the Singleton pattern using the eager initialization approach. It fulfills all requirements: 1) A private static final variable 'INSTANCE' ensures only one instance exists. 2) The private constructor prevents external instantiation. 3) The public static method 'getInstance' provides a global point of access to the instance.,"```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 100,
+      ""adherence"": 100,
+      ""reason"": ""The class implements the Singleton pattern using the eager initialization approach. It fulfills all requirements: 1) A private static final variable 'INSTANCE' ensures only one instance exists. 2) The private constructor prevents external instantiation. 3) The public static method 'getInstance' provides a global point of access to the instance.""
+    }
+  ]
+}
+```",10.281066
+PMART-PMARt-ScalaSingleton.java,singleton,gpt-5,None,0,0,No pattern detected or parse error,"{""design_patterns"": []}",16.443078
+PMART-PMARt-ScalaSingleton.java,singleton,gemini-3.0-pro,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",26.269993
+PMART-PMARt-ReloaderSingleton.java,singleton,gpt-5,Strategy,62,58,"ReloaderSingleton holds a reference to a Reloader and delegates reload() to it; clients can register different Reloader implementations at runtime via register(), making the behavior interchangeable—hallmarks of the Strategy pattern. Deviations: the 'context' is a global static holder (not instance-bound), no default/null-object strategy, and no thread-safety or lifecycle management. Despite the class name, this is not a true Singleton (it exposes no single instance of itself).","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 62,
+      ""adherence"": 58,
+      ""reason"": ""ReloaderSingleton holds a reference to a Reloader and delegates reload() to it; clients can register different Reloader implementations at runtime via register(), making the behavior interchangeable—hallmarks of the Strategy pattern. Deviations: the 'context' is a global static holder (not instance-bound), no default/null-object strategy, and no thread-safety or lifecycle management. Despite the class name, this is not a true Singleton (it exposes no single instance of itself).""
+    }
+  ]
+}",54.474914
+PMART-PMARt-ReloaderSingleton.java,singleton,gemini-3.0-pro,Singleton,90,60,"The class utilizes a private constructor to prevent external instantiation and maintains a static reference to a single instance (field `singleton`). However, the implementation deviates from the strict GoF definition: instead of self-instantiating (lazy loading) and providing a `getInstance` accessor, it relies on an external caller to inject the instance via the `register` method, effectively acting as a static holder or service locator.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 90,
+		""adherence"": 60,
+		""reason"": ""The class utilizes a private constructor to prevent external instantiation and maintains a static reference to a single instance (field `singleton`). However, the implementation deviates from the strict GoF definition: instead of self-instantiating (lazy loading) and providing a `getInstance` accessor, it relies on an external caller to inject the instance via the `register` method, effectively acting as a static holder or service locator.""
+	}]
+}
+```",23.311528
+PMART-PMARt-ScalaSingleton$.java,singleton,gpt-5,Singleton,85,55,"The class exposes a single, eagerly initialized global instance via a public static final field (MODULE$), which matches the core intent of the Singleton pattern. The class is final, preventing subclassing. However, the constructor is not private (default visibility), so additional instances can be created with 'new', and there is no getInstance accessor, reducing adherence to the canonical Singleton implementation.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 85,
+      ""adherence"": 55,
+      ""reason"": ""The class exposes a single, eagerly initialized global instance via a public static final field (MODULE$), which matches the core intent of the Singleton pattern. The class is final, preventing subclassing. However, the constructor is not private (default visibility), so additional instances can be created with 'new', and there is no getInstance accessor, reducing adherence to the canonical Singleton implementation.""
+    }
+  ]
+}",9.298097
+PMART-PMARt-ScalaSingleton$.java,singleton,gemini-3.0-pro,Singleton,95,60,"The class implements the Eager Initialization approach of the Singleton pattern by creating a static final instance of itself (`MODULE$`) to serve as a global access point. High confidence is derived from the structure and the context of simulating a Scala `object`. However, adherence is lower because the class fails to define a private constructor. Since no constructor is explicitly defined, Java provides a default public constructor, which allows external classes to create multiple instances, technically violating the uniqueness constraint of the pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 95,
+		""adherence"": 60,
+		""reason"": ""The class implements the Eager Initialization approach of the Singleton pattern by creating a static final instance of itself (`MODULE$`) to serve as a global access point. High confidence is derived from the structure and the context of simulating a Scala `object`. However, adherence is lower because the class fails to define a private constructor. Since no constructor is explicitly defined, Java provides a default public constructor, which allows external classes to create multiple instances, technically violating the uniqueness constraint of the pattern.""
+	}]
+}
+```",19.045166
+PMART-Xalan-SingletonIterator.java,singleton,gpt-5,Iterator,95,90,"Implements iteration behavior via next(), setStartNode(), and reset() while hiding the underlying structure behind the NodeIterator API. It iterates over a single element and then returns a sentinel (NodeIterator.END). Despite the class name, this is not the Singleton pattern but an iterator over a singleton collection.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""Implements iteration behavior via next(), setStartNode(), and reset() while hiding the underlying structure behind the NodeIterator API. It iterates over a single element and then returns a sentinel (NodeIterator.END). Despite the class name, this is not the Singleton pattern but an iterator over a singleton collection.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""The class extends NodeIteratorBase and relies on base-class hooks like resetPosition() and returnNode(). The superclass likely defines the algorithm skeleton for iteration, with this subclass supplying specific steps (e.g., next(), setStartNode()).""
+    }
+  ]
+}",23.556881
+PMART-Xalan-SingletonIterator.java,singleton,gpt-5,Template Method,65,70,"The class extends NodeIteratorBase and relies on base-class hooks like resetPosition() and returnNode(). The superclass likely defines the algorithm skeleton for iteration, with this subclass supplying specific steps (e.g., next(), setStartNode()).","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""Implements iteration behavior via next(), setStartNode(), and reset() while hiding the underlying structure behind the NodeIterator API. It iterates over a single element and then returns a sentinel (NodeIterator.END). Despite the class name, this is not the Singleton pattern but an iterator over a singleton collection.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""The class extends NodeIteratorBase and relies on base-class hooks like resetPosition() and returnNode(). The superclass likely defines the algorithm skeleton for iteration, with this subclass supplying specific steps (e.g., next(), setStartNode()).""
+    }
+  ]
+}",23.556881
+PMART-Xalan-SingletonIterator.java,singleton,gemini-3.0-pro,Iterator,100,100,"The class extends `NodeIteratorBase` and implements standard traversal methods like `next()` and `reset()`. It encapsulates the logic required to traverse a data set (in this specific case, a set containing a single node) sequentially without exposing the underlying representation. Despite the class name `SingletonIterator`, it does not implement the Singleton pattern (it has public constructors and no static instance management); rather, the name implies it is an Iterator for a 'singleton' collection (a collection of size 1).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Iterator"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class extends `NodeIteratorBase` and implements standard traversal methods like `next()` and `reset()`. It encapsulates the logic required to traverse a data set (in this specific case, a set containing a single node) sequentially without exposing the underlying representation. Despite the class name `SingletonIterator`, it does not implement the Singleton pattern (it has public constructors and no static instance management); rather, the name implies it is an Iterator for a 'singleton' collection (a collection of size 1).""
+	}]
+}
+```",18.729535
+PMART-PMARt-RuntimeSingleton.java,singleton,gpt-5,Facade,97,92,"RuntimeSingleton exposes a simple, unified API while delegating virtually all work to a single subsystem object (private static RuntimeInstance ri). Methods like init(), parse(...), getTemplate(...), getContent(...), property accessors, logging, and macro operations are thin pass-throughs to ri, hiding subsystem complexity from clients. Despite Javadoc mentioning Mediator, the code does not coordinate independent colleagues; it fronts a single underlying service, which fits Facade.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 97,
+      ""adherence"": 92,
+      ""reason"": ""RuntimeSingleton exposes a simple, unified API while delegating virtually all work to a single subsystem object (private static RuntimeInstance ri). Methods like init(), parse(...), getTemplate(...), getContent(...), property accessors, logging, and macro operations are thin pass-throughs to ri, hiding subsystem complexity from clients. Despite Javadoc mentioning Mediator, the code does not coordinate independent colleagues; it fronts a single underlying service, which fits Facade.""
+    },
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 60,
+      ""adherence"": 35,
+      ""reason"": ""The class provides global access to a single, eagerly created RuntimeInstance (private static RuntimeInstance ri) used by all static methods, which is a singleton-like usage. However, RuntimeSingleton itself is not a proper Singleton (no private constructor, one instance method exists, and clients could instantiate the class). The singleton constraint is only applied to the internal RuntimeInstance within this wrapper, not enforced application-wide.""
+    }
+  ]
+}",43.09745
+PMART-PMARt-RuntimeSingleton.java,singleton,gpt-5,Singleton,60,35,"The class provides global access to a single, eagerly created RuntimeInstance (private static RuntimeInstance ri) used by all static methods, which is a singleton-like usage. However, RuntimeSingleton itself is not a proper Singleton (no private constructor, one instance method exists, and clients could instantiate the class). The singleton constraint is only applied to the internal RuntimeInstance within this wrapper, not enforced application-wide.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 97,
+      ""adherence"": 92,
+      ""reason"": ""RuntimeSingleton exposes a simple, unified API while delegating virtually all work to a single subsystem object (private static RuntimeInstance ri). Methods like init(), parse(...), getTemplate(...), getContent(...), property accessors, logging, and macro operations are thin pass-throughs to ri, hiding subsystem complexity from clients. Despite Javadoc mentioning Mediator, the code does not coordinate independent colleagues; it fronts a single underlying service, which fits Facade.""
+    },
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 60,
+      ""adherence"": 35,
+      ""reason"": ""The class provides global access to a single, eagerly created RuntimeInstance (private static RuntimeInstance ri) used by all static methods, which is a singleton-like usage. However, RuntimeSingleton itself is not a proper Singleton (no private constructor, one instance method exists, and clients could instantiate the class). The singleton constraint is only applied to the internal RuntimeInstance within this wrapper, not enforced application-wide.""
+    }
+  ]
+}",43.09745
+PMART-PMARt-RuntimeSingleton.java,singleton,gemini-3.0-pro,Singleton,95,70,"The class is explicitly named 'RuntimeSingleton' and ensures a single global point of access to the Velocity Runtime via a private static 'ri' (RuntimeInstance) field. However, it deviates from the standard Gang of Four implementation by lacking a private constructor (allowing the instantiation of the stateless wrapper class) and exposing functionality through static methods rather than a 'getInstance()' method.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 95,
+			""adherence"": 70,
+			""reason"": ""The class is explicitly named 'RuntimeSingleton' and ensures a single global point of access to the Velocity Runtime via a private static 'ri' (RuntimeInstance) field. However, it deviates from the standard Gang of Four implementation by lacking a private constructor (allowing the instantiation of the stateless wrapper class) and exposing functionality through static methods rather than a 'getInstance()' method.""
+		},
+		{
+			""pattern"": ""Facade"",
+			""confidence"": 90,
+			""adherence"": 100,
+			""reason"": ""The class acts as a 'single access point' (as described in the Javadoc) to the complex underlying Velocity system. It hides the initialization and coordination of subsystems like logging, resource management, and parsing behind a simplified static interface.""
+		},
+		{
+			""pattern"": ""Delegation"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements almost all of its logic by forwarding method calls to the internal 'ri' (RuntimeInstance) object, adhering strictly to the delegation principle.""
+		}
+	]
+}
+```",61.928095
+PMART-PMARt-RuntimeSingleton.java,singleton,gemini-3.0-pro,Facade,90,100,"The class acts as a 'single access point' (as described in the Javadoc) to the complex underlying Velocity system. It hides the initialization and coordination of subsystems like logging, resource management, and parsing behind a simplified static interface.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 95,
+			""adherence"": 70,
+			""reason"": ""The class is explicitly named 'RuntimeSingleton' and ensures a single global point of access to the Velocity Runtime via a private static 'ri' (RuntimeInstance) field. However, it deviates from the standard Gang of Four implementation by lacking a private constructor (allowing the instantiation of the stateless wrapper class) and exposing functionality through static methods rather than a 'getInstance()' method.""
+		},
+		{
+			""pattern"": ""Facade"",
+			""confidence"": 90,
+			""adherence"": 100,
+			""reason"": ""The class acts as a 'single access point' (as described in the Javadoc) to the complex underlying Velocity system. It hides the initialization and coordination of subsystems like logging, resource management, and parsing behind a simplified static interface.""
+		},
+		{
+			""pattern"": ""Delegation"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements almost all of its logic by forwarding method calls to the internal 'ri' (RuntimeInstance) object, adhering strictly to the delegation principle.""
+		}
+	]
+}
+```",61.928095
+PMART-PMARt-RuntimeSingleton.java,singleton,gemini-3.0-pro,Delegation,100,100,"The class implements almost all of its logic by forwarding method calls to the internal 'ri' (RuntimeInstance) object, adhering strictly to the delegation principle.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 95,
+			""adherence"": 70,
+			""reason"": ""The class is explicitly named 'RuntimeSingleton' and ensures a single global point of access to the Velocity Runtime via a private static 'ri' (RuntimeInstance) field. However, it deviates from the standard Gang of Four implementation by lacking a private constructor (allowing the instantiation of the stateless wrapper class) and exposing functionality through static methods rather than a 'getInstance()' method.""
+		},
+		{
+			""pattern"": ""Facade"",
+			""confidence"": 90,
+			""adherence"": 100,
+			""reason"": ""The class acts as a 'single access point' (as described in the Javadoc) to the complex underlying Velocity system. It hides the initialization and coordination of subsystems like logging, resource management, and parsing behind a simplified static interface.""
+		},
+		{
+			""pattern"": ""Delegation"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements almost all of its logic by forwarding method calls to the internal 'ri' (RuntimeInstance) object, adhering strictly to the delegation principle.""
+		}
+	]
+}
+```",61.928095
+PMART-PMARt-ScalaSingletonTrait$.java,singleton,gpt-5,Singleton,85,55,"Exposes a single global instance via a public static final field (eager initialization), and the class is final to prevent subclassing. However, the constructor is not private, so external code could create additional instances, weakening the singleton guarantee.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 85,
+      ""adherence"": 55,
+      ""reason"": ""Exposes a single global instance via a public static final field (eager initialization), and the class is final to prevent subclassing. However, the constructor is not private, so external code could create additional instances, weakening the singleton guarantee.""
+    }
+  ]
+}",15.393798
+PMART-PMARt-ScalaSingletonTrait$.java,singleton,gemini-3.0-pro,Singleton,95,60,"The code demonstrates the Singleton pattern, specifically the idiom used when Scala 'object' definitions are compiled for Java interoperability (indicated by the 'MODULE$' static field). It provides a global point of access via the public static final field. However, the adherence is compromised because the class lacks an explicit private constructor. In Java, this results in a default public constructor, which allows external clients to instantiate the class multiple times, violating the strict constraint that a Singleton must ensure only one instance exists.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 95,
+		""adherence"": 60,
+		""reason"": ""The code demonstrates the Singleton pattern, specifically the idiom used when Scala 'object' definitions are compiled for Java interoperability (indicated by the 'MODULE$' static field). It provides a global point of access via the public static final field. However, the adherence is compromised because the class lacks an explicit private constructor. In Java, this results in a default public constructor, which allows external clients to instantiate the class multiple times, violating the strict constraint that a Singleton must ensure only one instance exists.""
+	}]
+}
+```",17.578187
+PMART-ArgoUML-CrSingletonViolatedMissingStaticAttr.java,singleton,gpt-5,Template Method,85,88,The class extends a framework base (CrUML) and overrides predicate2 to provide the specific check while the evaluation flow (when/how a critic runs) is defined in the superclass. This is a classic hook method overridden within a fixed algorithm.,"{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 85,
+      ""adherence"": 88,
+      ""reason"": ""The class extends a framework base (CrUML) and overrides predicate2 to provide the specific check while the evaluation flow (when/how a critic runs) is defined in the superclass. This is a classic hook method overridden within a fixed algorithm.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each Critic encapsulates a distinct validation algorithm (here, the singleton static attribute check) that the framework can select and apply interchangeably. The predicate2 contract serves as the strategy interface for different Critic implementations.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""The critic registers interest in model changes via addTrigger(\""stereotype\"", \""structuralFeature\"", \""associationEnd\""). This indicates a publish/subscribe mechanism where changes notify interested critics, consistent with the observer pattern.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""Interactions with the UML model are funneled through Model.getFacade(), which exposes simple, coarse-grained methods (isAClass, isSingleton, getAttributes, isClassifierScope, getType), hiding the underlying model complexity. This is a textbook facade usage.""
+    }
+  ]
+}",45.339409
+PMART-ArgoUML-CrSingletonViolatedMissingStaticAttr.java,singleton,gpt-5,Strategy,70,65,"Each Critic encapsulates a distinct validation algorithm (here, the singleton static attribute check) that the framework can select and apply interchangeably. The predicate2 contract serves as the strategy interface for different Critic implementations.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 85,
+      ""adherence"": 88,
+      ""reason"": ""The class extends a framework base (CrUML) and overrides predicate2 to provide the specific check while the evaluation flow (when/how a critic runs) is defined in the superclass. This is a classic hook method overridden within a fixed algorithm.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each Critic encapsulates a distinct validation algorithm (here, the singleton static attribute check) that the framework can select and apply interchangeably. The predicate2 contract serves as the strategy interface for different Critic implementations.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""The critic registers interest in model changes via addTrigger(\""stereotype\"", \""structuralFeature\"", \""associationEnd\""). This indicates a publish/subscribe mechanism where changes notify interested critics, consistent with the observer pattern.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""Interactions with the UML model are funneled through Model.getFacade(), which exposes simple, coarse-grained methods (isAClass, isSingleton, getAttributes, isClassifierScope, getType), hiding the underlying model complexity. This is a textbook facade usage.""
+    }
+  ]
+}",45.339409
+PMART-ArgoUML-CrSingletonViolatedMissingStaticAttr.java,singleton,gpt-5,Observer,65,60,"The critic registers interest in model changes via addTrigger(""stereotype"", ""structuralFeature"", ""associationEnd""). This indicates a publish/subscribe mechanism where changes notify interested critics, consistent with the observer pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 85,
+      ""adherence"": 88,
+      ""reason"": ""The class extends a framework base (CrUML) and overrides predicate2 to provide the specific check while the evaluation flow (when/how a critic runs) is defined in the superclass. This is a classic hook method overridden within a fixed algorithm.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each Critic encapsulates a distinct validation algorithm (here, the singleton static attribute check) that the framework can select and apply interchangeably. The predicate2 contract serves as the strategy interface for different Critic implementations.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""The critic registers interest in model changes via addTrigger(\""stereotype\"", \""structuralFeature\"", \""associationEnd\""). This indicates a publish/subscribe mechanism where changes notify interested critics, consistent with the observer pattern.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""Interactions with the UML model are funneled through Model.getFacade(), which exposes simple, coarse-grained methods (isAClass, isSingleton, getAttributes, isClassifierScope, getType), hiding the underlying model complexity. This is a textbook facade usage.""
+    }
+  ]
+}",45.339409
+PMART-ArgoUML-CrSingletonViolatedMissingStaticAttr.java,singleton,gpt-5,Facade,90,90,"Interactions with the UML model are funneled through Model.getFacade(), which exposes simple, coarse-grained methods (isAClass, isSingleton, getAttributes, isClassifierScope, getType), hiding the underlying model complexity. This is a textbook facade usage.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 85,
+      ""adherence"": 88,
+      ""reason"": ""The class extends a framework base (CrUML) and overrides predicate2 to provide the specific check while the evaluation flow (when/how a critic runs) is defined in the superclass. This is a classic hook method overridden within a fixed algorithm.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""Each Critic encapsulates a distinct validation algorithm (here, the singleton static attribute check) that the framework can select and apply interchangeably. The predicate2 contract serves as the strategy interface for different Critic implementations.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""The critic registers interest in model changes via addTrigger(\""stereotype\"", \""structuralFeature\"", \""associationEnd\""). This indicates a publish/subscribe mechanism where changes notify interested critics, consistent with the observer pattern.""
+    },
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""Interactions with the UML model are funneled through Model.getFacade(), which exposes simple, coarse-grained methods (isAClass, isSingleton, getAttributes, isClassifierScope, getType), hiding the underlying model complexity. This is a textbook facade usage.""
+    }
+  ]
+}",45.339409
+PMART-ArgoUML-CrSingletonViolatedMissingStaticAttr.java,singleton,gemini-3.0-pro,Strategy,95,100,"The class extends `CrUML` and acts as a concrete implementation of a validation rule (Critic). It encapsulates a specific algorithm in the `predicate2` method to check for missing static attributes. This structure allows the application to define a family of interchangeable algorithms (critics) that can be applied to the model, matching the Strategy pattern definition.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Strategy"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class extends `CrUML` and acts as a concrete implementation of a validation rule (Critic). It encapsulates a specific algorithm in the `predicate2` method to check for missing static attributes. This structure allows the application to define a family of interchangeable algorithms (critics) that can be applied to the model, matching the Strategy pattern definition.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 90,
+			""adherence"": 75,
+			""reason"": ""The constructor calls `addTrigger` multiple times (e.g., `addTrigger(\""stereotype\"")`), which indicates that this object subscribes to specific events or changes in the model. This is a Publisher-Subscriber mechanism where the Critic (Observer) registers itself to be notified of changes to specific model elements.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 85,
+			""adherence"": 80,
+			""reason"": ""The class overrides `predicate2`, which functions as a hook method or primitive operation. This implies that the superclass (`CrUML`) implements a Template Method (likely the main critique workflow) that calls `predicate2` to execute the specific logic defined in this subclass.""
+		}
+	]
+}
+```",75.806084
+PMART-ArgoUML-CrSingletonViolatedMissingStaticAttr.java,singleton,gemini-3.0-pro,Observer,90,75,"The constructor calls `addTrigger` multiple times (e.g., `addTrigger(""stereotype"")`), which indicates that this object subscribes to specific events or changes in the model. This is a Publisher-Subscriber mechanism where the Critic (Observer) registers itself to be notified of changes to specific model elements.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Strategy"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class extends `CrUML` and acts as a concrete implementation of a validation rule (Critic). It encapsulates a specific algorithm in the `predicate2` method to check for missing static attributes. This structure allows the application to define a family of interchangeable algorithms (critics) that can be applied to the model, matching the Strategy pattern definition.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 90,
+			""adherence"": 75,
+			""reason"": ""The constructor calls `addTrigger` multiple times (e.g., `addTrigger(\""stereotype\"")`), which indicates that this object subscribes to specific events or changes in the model. This is a Publisher-Subscriber mechanism where the Critic (Observer) registers itself to be notified of changes to specific model elements.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 85,
+			""adherence"": 80,
+			""reason"": ""The class overrides `predicate2`, which functions as a hook method or primitive operation. This implies that the superclass (`CrUML`) implements a Template Method (likely the main critique workflow) that calls `predicate2` to execute the specific logic defined in this subclass.""
+		}
+	]
+}
+```",75.806084
+PMART-ArgoUML-CrSingletonViolatedMissingStaticAttr.java,singleton,gemini-3.0-pro,Template Method,85,80,"The class overrides `predicate2`, which functions as a hook method or primitive operation. This implies that the superclass (`CrUML`) implements a Template Method (likely the main critique workflow) that calls `predicate2` to execute the specific logic defined in this subclass.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Strategy"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class extends `CrUML` and acts as a concrete implementation of a validation rule (Critic). It encapsulates a specific algorithm in the `predicate2` method to check for missing static attributes. This structure allows the application to define a family of interchangeable algorithms (critics) that can be applied to the model, matching the Strategy pattern definition.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 90,
+			""adherence"": 75,
+			""reason"": ""The constructor calls `addTrigger` multiple times (e.g., `addTrigger(\""stereotype\"")`), which indicates that this object subscribes to specific events or changes in the model. This is a Publisher-Subscriber mechanism where the Critic (Observer) registers itself to be notified of changes to specific model elements.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 85,
+			""adherence"": 80,
+			""reason"": ""The class overrides `predicate2`, which functions as a hook method or primitive operation. This implies that the superclass (`CrUML`) implements a Template Method (likely the main critique workflow) that calls `predicate2` to execute the specific logic defined in this subclass.""
+		}
+	]
+}
+```",75.806084
+PMART-PMARt-UseSingletonRule.java,singleton,gpt-5,Visitor,98,95,"The class implements multiple visit(...) methods for different AST node types and uses cu.childrenAccept(this, data) to traverse. This double-dispatch mechanism, where nodes accept a visitor and call back the appropriate visit method, is the hallmark of the Visitor pattern. Despite the class name, it does not implement a Singleton.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Visitor"",
+      ""confidence"": 98,
+      ""adherence"": 95,
+      ""reason"": ""The class implements multiple visit(...) methods for different AST node types and uses cu.childrenAccept(this, data) to traverse. This double-dispatch mechanism, where nodes accept a visitor and call back the appropriate visit method, is the hallmark of the Visitor pattern. Despite the class name, it does not implement a Singleton.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 62,
+      ""adherence"": 70,
+      ""reason"": ""UseSingletonRule extends AbstractRule to encapsulate a specific analysis algorithm (a rule) that can be applied to an AST. Different rule implementations are interchangeable without modifying the rule engine, which aligns with the Strategy pattern.""
+    },
+    {
+      ""pattern"": ""Composite"",
+      ""confidence"": 50,
+      ""adherence"": 60,
+      ""reason"": ""The AST appears to be a tree of nodes navigated uniformly via childrenAccept, implying a whole-part hierarchy typical of Composite. While the composite structure itself is not shown, its use is suggested by the traversal API.""
+    }
+  ]
+}",48.02517
+PMART-PMARt-UseSingletonRule.java,singleton,gpt-5,Strategy,62,70,"UseSingletonRule extends AbstractRule to encapsulate a specific analysis algorithm (a rule) that can be applied to an AST. Different rule implementations are interchangeable without modifying the rule engine, which aligns with the Strategy pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Visitor"",
+      ""confidence"": 98,
+      ""adherence"": 95,
+      ""reason"": ""The class implements multiple visit(...) methods for different AST node types and uses cu.childrenAccept(this, data) to traverse. This double-dispatch mechanism, where nodes accept a visitor and call back the appropriate visit method, is the hallmark of the Visitor pattern. Despite the class name, it does not implement a Singleton.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 62,
+      ""adherence"": 70,
+      ""reason"": ""UseSingletonRule extends AbstractRule to encapsulate a specific analysis algorithm (a rule) that can be applied to an AST. Different rule implementations are interchangeable without modifying the rule engine, which aligns with the Strategy pattern.""
+    },
+    {
+      ""pattern"": ""Composite"",
+      ""confidence"": 50,
+      ""adherence"": 60,
+      ""reason"": ""The AST appears to be a tree of nodes navigated uniformly via childrenAccept, implying a whole-part hierarchy typical of Composite. While the composite structure itself is not shown, its use is suggested by the traversal API.""
+    }
+  ]
+}",48.02517
+PMART-PMARt-UseSingletonRule.java,singleton,gpt-5,Composite,50,60,"The AST appears to be a tree of nodes navigated uniformly via childrenAccept, implying a whole-part hierarchy typical of Composite. While the composite structure itself is not shown, its use is suggested by the traversal API.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Visitor"",
+      ""confidence"": 98,
+      ""adherence"": 95,
+      ""reason"": ""The class implements multiple visit(...) methods for different AST node types and uses cu.childrenAccept(this, data) to traverse. This double-dispatch mechanism, where nodes accept a visitor and call back the appropriate visit method, is the hallmark of the Visitor pattern. Despite the class name, it does not implement a Singleton.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 62,
+      ""adherence"": 70,
+      ""reason"": ""UseSingletonRule extends AbstractRule to encapsulate a specific analysis algorithm (a rule) that can be applied to an AST. Different rule implementations are interchangeable without modifying the rule engine, which aligns with the Strategy pattern.""
+    },
+    {
+      ""pattern"": ""Composite"",
+      ""confidence"": 50,
+      ""adherence"": 60,
+      ""reason"": ""The AST appears to be a tree of nodes navigated uniformly via childrenAccept, implying a whole-part hierarchy typical of Composite. While the composite structure itself is not shown, its use is suggested by the traversal API.""
+    }
+  ]
+}",48.02517
+PMART-PMARt-UseSingletonRule.java,singleton,gemini-3.0-pro,Visitor,100,100,"The class functions as a Concrete Visitor. It implements multiple 'visit' methods for specific types of objects (ASTCompilationUnit, ASTFieldDeclaration, ASTConstructorDeclaration, etc.) and utilizes the 'childrenAccept(this, data)' method to traverse the structure. This is the standard Double Dispatch mechanism used in the Visitor pattern to separate the algorithm (the rule logic) from the object structure (the Abstract Syntax Tree).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Visitor"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class functions as a Concrete Visitor. It implements multiple 'visit' methods for specific types of objects (ASTCompilationUnit, ASTFieldDeclaration, ASTConstructorDeclaration, etc.) and utilizes the 'childrenAccept(this, data)' method to traverse the structure. This is the standard Double Dispatch mechanism used in the Visitor pattern to separate the algorithm (the rule logic) from the object structure (the Abstract Syntax Tree).""
+	}]
+}
+```",17.154727
+PMART-PMARt-VelocimacroFactory.java,factory,gpt-5,Facade,85,88,"VelocimacroFactory centralizes and simplifies access to the macro subsystem. It coordinates initialization (initVelocimacro), configuration/permissions (blather, templateLocal, addNewAllowed, replaceAllowed), and delegates core operations to subsystems (VelocimacroManager and Runtime). Clients can add, query, retrieve, and dump macros without interacting directly with the underlying manager or runtime configuration details.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 85,
+      ""adherence"": 88,
+      ""reason"": ""VelocimacroFactory centralizes and simplifies access to the macro subsystem. It coordinates initialization (initVelocimacro), configuration/permissions (blather, templateLocal, addNewAllowed, replaceAllowed), and delegates core operations to subsystems (VelocimacroManager and Runtime). Clients can add, query, retrieve, and dump macros without interacting directly with the underlying manager or runtime configuration details.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The method getVelocimacro(vmName, sourceTemplate) acts as a factory-like accessor that returns a Directive representing a macro by name (or null if absent), encapsulating the retrieval/creation decision. However, it does not use subclass overriding and delegates actual creation/storage to VelocimacroManager, making it closer to a simple factory facade than the canonical GoF Factory Method.""
+    }
+  ]
+}",45.385298
+PMART-PMARt-VelocimacroFactory.java,factory,gpt-5,Factory Method,55,45,"The method getVelocimacro(vmName, sourceTemplate) acts as a factory-like accessor that returns a Directive representing a macro by name (or null if absent), encapsulating the retrieval/creation decision. However, it does not use subclass overriding and delegates actual creation/storage to VelocimacroManager, making it closer to a simple factory facade than the canonical GoF Factory Method.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Facade"",
+      ""confidence"": 85,
+      ""adherence"": 88,
+      ""reason"": ""VelocimacroFactory centralizes and simplifies access to the macro subsystem. It coordinates initialization (initVelocimacro), configuration/permissions (blather, templateLocal, addNewAllowed, replaceAllowed), and delegates core operations to subsystems (VelocimacroManager and Runtime). Clients can add, query, retrieve, and dump macros without interacting directly with the underlying manager or runtime configuration details.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 55,
+      ""adherence"": 45,
+      ""reason"": ""The method getVelocimacro(vmName, sourceTemplate) acts as a factory-like accessor that returns a Directive representing a macro by name (or null if absent), encapsulating the retrieval/creation decision. However, it does not use subclass overriding and delegates actual creation/storage to VelocimacroManager, making it closer to a simple factory facade than the canonical GoF Factory Method.""
+    }
+  ]
+}",45.385298
+PMART-PMARt-VelocimacroFactory.java,factory,gemini-3.0-pro,Facade,92,85,"Although the class is named 'VelocimacroFactory', it functions primarily as a Facade for the macro subsystem. It encapsulates the `VelocimacroManager` instance and provides a simplified, unified interface for the rest of the application to interact with macros. It handles complex initialization (loading libraries via `Runtime`), manages configuration state (permissions like `replaceAllowed`, `addNewAllowed`), and centralizes logging (`blather` logic), thereby shielding clients from the underlying complexity of macro management and storage.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Facade"",
+		""confidence"": 92,
+		""adherence"": 85,
+		""reason"": ""Although the class is named 'VelocimacroFactory', it functions primarily as a Facade for the macro subsystem. It encapsulates the `VelocimacroManager` instance and provides a simplified, unified interface for the rest of the application to interact with macros. It handles complex initialization (loading libraries via `Runtime`), manages configuration state (permissions like `replaceAllowed`, `addNewAllowed`), and centralizes logging (`blather` logic), thereby shielding clients from the underlying complexity of macro management and storage.""
+	}, {
+		""pattern"": ""Monitor Object"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The class explicitly enforces thread safety by synchronizing access to its internal state and the underlying `vmManager`. All critical methods (`initVelocimacro`, `addVelocimacro`, `isVelocimacro`, `getVelocimacro`) use `synchronized(this)` blocks to ensure mutual exclusion, adhering strictly to the Monitor Object concurrency pattern.""
+	}]
+}
+```",79.33758
+PMART-PMARt-VelocimacroFactory.java,factory,gemini-3.0-pro,Monitor Object,95,100,"The class explicitly enforces thread safety by synchronizing access to its internal state and the underlying `vmManager`. All critical methods (`initVelocimacro`, `addVelocimacro`, `isVelocimacro`, `getVelocimacro`) use `synchronized(this)` blocks to ensure mutual exclusion, adhering strictly to the Monitor Object concurrency pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Facade"",
+		""confidence"": 92,
+		""adherence"": 85,
+		""reason"": ""Although the class is named 'VelocimacroFactory', it functions primarily as a Facade for the macro subsystem. It encapsulates the `VelocimacroManager` instance and provides a simplified, unified interface for the rest of the application to interact with macros. It handles complex initialization (loading libraries via `Runtime`), manages configuration state (permissions like `replaceAllowed`, `addNewAllowed`), and centralizes logging (`blather` logic), thereby shielding clients from the underlying complexity of macro management and storage.""
+	}, {
+		""pattern"": ""Monitor Object"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The class explicitly enforces thread safety by synchronizing access to its internal state and the underlying `vmManager`. All critical methods (`initVelocimacro`, `addVelocimacro`, `isVelocimacro`, `getVelocimacro`) use `synchronized(this)` blocks to ensure mutual exclusion, adhering strictly to the Monitor Object concurrency pattern.""
+	}]
+}
+```",79.33758
+PMART-Azureus-PluginConfigUIFactoryImpl.java,factory,gpt-5,Abstract Factory,93,92,"PluginConfigUIFactory is an abstract factory defining multiple creation methods for a family of related UI config products (Parameter, EnablerParameter). PluginConfigUIFactoryImpl is the concrete factory that instantiates concrete product implementations (e.g., IntParameterImpl, StringParameterImpl, FileParameter) while hiding their classes from clients. The factory maintains shared context (PluginConfig and pluginKey) applied consistently to all created products, which is characteristic of an abstract factory producing a coherent family.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 93,
+      ""adherence"": 92,
+      ""reason"": ""PluginConfigUIFactory is an abstract factory defining multiple creation methods for a family of related UI config products (Parameter, EnablerParameter). PluginConfigUIFactoryImpl is the concrete factory that instantiates concrete product implementations (e.g., IntParameterImpl, StringParameterImpl, FileParameter) while hiding their classes from clients. The factory maintains shared context (PluginConfig and pluginKey) applied consistently to all created products, which is characteristic of an abstract factory producing a coherent family.""
+    }
+  ]
+}",24.26533
+PMART-Azureus-PluginConfigUIFactoryImpl.java,factory,gemini-3.0-pro,Abstract Factory,100,100,"The class implements an interface (`PluginConfigUIFactory`) that serves as an Abstract Factory, defining methods to create a family of related objects (abstract products like `Parameter` and `EnablerParameter`). The class (`PluginConfigUIFactoryImpl`) acts as the Concrete Factory, encapsulating the instantiation logic for specific concrete products (e.g., `IntParameterImpl`, `BooleanParameterImpl`, `FileParameter`) while returning them via their abstract interfaces. This decouples the client code from the specific implementation classes of the parameters.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Abstract Factory"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class implements an interface (`PluginConfigUIFactory`) that serves as an Abstract Factory, defining methods to create a family of related objects (abstract products like `Parameter` and `EnablerParameter`). The class (`PluginConfigUIFactoryImpl`) acts as the Concrete Factory, encapsulating the instantiation logic for specific concrete products (e.g., `IntParameterImpl`, `BooleanParameterImpl`, `FileParameter`) while returning them via their abstract interfaces. This decouples the client code from the specific implementation classes of the parameters.""
+	}]
+}
+```",20.071293
+PMART-Azureus-PEPeerTransportFactory.java,factory,gpt-5,Strategy,90,85,"Handlers implementing a common interface (PEPeerTransportExtensionHandler) are registered in a map keyed by protocol_name. createExtendedTransports looks up the appropriate handler at runtime and delegates to handler.handleExtension(manager, details). This cleanly swaps the algorithm/behavior per protocol without changing the factory. Minor gaps: no explicit unregister/default handler, and reliance on a static registry.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""Handlers implementing a common interface (PEPeerTransportExtensionHandler) are registered in a map keyed by protocol_name. createExtendedTransports looks up the appropriate handler at runtime and delegates to handler.handleExtension(manager, details). This cleanly swaps the algorithm/behavior per protocol without changing the factory. Minor gaps: no explicit unregister/default handler, and reliance on a static registry.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 75,
+      ""adherence"": 60,
+      ""reason"": ""Static factory methods (createTransport, createServer) return interface types (PEPeerTransport, PEPeerServer) while hiding concrete implementations (PEPeerTransportImpl, PESharedPortServerImpl). There is evidence of potential variant selection (commented configuration branch in createServer). However, this is a simple static factory utility without polymorphic creator subclasses, so it deviates from the classic GoF structure.""
+    }
+  ]
+}",30.824677
+PMART-Azureus-PEPeerTransportFactory.java,factory,gpt-5,Factory Method,75,60,"Static factory methods (createTransport, createServer) return interface types (PEPeerTransport, PEPeerServer) while hiding concrete implementations (PEPeerTransportImpl, PESharedPortServerImpl). There is evidence of potential variant selection (commented configuration branch in createServer). However, this is a simple static factory utility without polymorphic creator subclasses, so it deviates from the classic GoF structure.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 90,
+      ""adherence"": 85,
+      ""reason"": ""Handlers implementing a common interface (PEPeerTransportExtensionHandler) are registered in a map keyed by protocol_name. createExtendedTransports looks up the appropriate handler at runtime and delegates to handler.handleExtension(manager, details). This cleanly swaps the algorithm/behavior per protocol without changing the factory. Minor gaps: no explicit unregister/default handler, and reliance on a static registry.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 75,
+      ""adherence"": 60,
+      ""reason"": ""Static factory methods (createTransport, createServer) return interface types (PEPeerTransport, PEPeerServer) while hiding concrete implementations (PEPeerTransportImpl, PESharedPortServerImpl). There is evidence of potential variant selection (commented configuration branch in createServer). However, this is a simple static factory utility without polymorphic creator subclasses, so it deviates from the classic GoF structure.""
+    }
+  ]
+}",30.824677
+PMART-Azureus-PEPeerTransportFactory.java,factory,gemini-3.0-pro,Simple Factory,100,100,"The class acts as a centralized entry point for creating objects (specifically peer transports and servers). It utilizes static methods ('createTransport', 'createServer') to encapsulate the instantiation logic of concrete classes ('PEPeerTransportImpl', 'PESharedPortServerImpl') and returns them via their interfaces. This creates a decoupling between the client code and the specific implementations. The method 'createExtendedTransports' further demonstrates this by using a registry of handlers to dynamically manufacture objects based on input protocols.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Simple Factory"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class acts as a centralized entry point for creating objects (specifically peer transports and servers). It utilizes static methods ('createTransport', 'createServer') to encapsulate the instantiation logic of concrete classes ('PEPeerTransportImpl', 'PESharedPortServerImpl') and returns them via their interfaces. This creates a decoupling between the client code and the specific implementations. The method 'createExtendedTransports' further demonstrates this by using a registry of handlers to dynamically manufacture objects based on input protocols.""
+	}]
+}
+```",30.21216
+PMART-Azureus-SFPluginDetailsLoaderFactory.java,factory,gpt-5,Factory Method,82,88,"SFPluginDetailsLoaderFactory exposes a static method that returns an SFPluginDetailsLoader while hiding the concrete SFPluginDetailsLoaderImpl. This centralizes and encapsulates object provision behind an interface. Although it’s a static factory (not the classic overridable method from GoF), it follows the intent of a factory method by decoupling clients from the concrete type.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 82,
+      ""adherence"": 88,
+      ""reason"": ""SFPluginDetailsLoaderFactory exposes a static method that returns an SFPluginDetailsLoader while hiding the concrete SFPluginDetailsLoaderImpl. This centralizes and encapsulates object provision behind an interface. Although it’s a static factory (not the classic overridable method from GoF), it follows the intent of a factory method by decoupling clients from the concrete type.""
+    },
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 64,
+      ""adherence"": 55,
+      ""reason"": ""The factory delegates to SFPluginDetailsLoaderImpl.getSingleton(), indicating the implementation likely follows the Singleton pattern. However, the singleton’s implementation details (private constructor, thread-safety, lazy vs eager init) are not shown, so adherence cannot be fully verified.""
+    }
+  ]
+}",20.780917
+PMART-Azureus-SFPluginDetailsLoaderFactory.java,factory,gpt-5,Singleton,64,55,"The factory delegates to SFPluginDetailsLoaderImpl.getSingleton(), indicating the implementation likely follows the Singleton pattern. However, the singleton’s implementation details (private constructor, thread-safety, lazy vs eager init) are not shown, so adherence cannot be fully verified.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 82,
+      ""adherence"": 88,
+      ""reason"": ""SFPluginDetailsLoaderFactory exposes a static method that returns an SFPluginDetailsLoader while hiding the concrete SFPluginDetailsLoaderImpl. This centralizes and encapsulates object provision behind an interface. Although it’s a static factory (not the classic overridable method from GoF), it follows the intent of a factory method by decoupling clients from the concrete type.""
+    },
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 64,
+      ""adherence"": 55,
+      ""reason"": ""The factory delegates to SFPluginDetailsLoaderImpl.getSingleton(), indicating the implementation likely follows the Singleton pattern. However, the singleton’s implementation details (private constructor, thread-safety, lazy vs eager init) are not shown, so adherence cannot be fully verified.""
+    }
+  ]
+}",20.780917
+PMART-Azureus-SFPluginDetailsLoaderFactory.java,factory,gemini-3.0-pro,Factory,90,85,"The class implements a Static Factory method. Although it delegates the actual retrieval to another class (`SFPluginDetailsLoaderImpl`), it serves the architectural purpose of a Factory by decoupling the client from the concrete implementation. The client requests the abstract type (`SFPluginDetailsLoader`) via the factory, without needing to know that `SFPluginDetailsLoaderImpl` exists or that it is located in the `impl2` package.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Factory"",
+		""confidence"": 90,
+		""adherence"": 85,
+		""reason"": ""The class implements a Static Factory method. Although it delegates the actual retrieval to another class (`SFPluginDetailsLoaderImpl`), it serves the architectural purpose of a Factory by decoupling the client from the concrete implementation. The client requests the abstract type (`SFPluginDetailsLoader`) via the factory, without needing to know that `SFPluginDetailsLoaderImpl` exists or that it is located in the `impl2` package.""
+	}]
+}
+```",24.779374
+PMART-Xerces-DatatypeValidatorFactory.java,factory,gpt-5,Factory Method,87,75,"The DatatypeValidatorFactory interface declares a createDatatypeValidator method that returns a DatatypeValidator (the product). Concrete implementations are expected to decide which concrete validator to instantiate based on inputs (typeName, base, facets, list). This matches the Factory Method pattern where an abstract creator defines a factory method for creating products. Adherence is partial because only the abstract creator is shown; no concrete creators or concrete product hierarchy are present in the snippet.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 87,
+      ""adherence"": 75,
+      ""reason"": ""The DatatypeValidatorFactory interface declares a createDatatypeValidator method that returns a DatatypeValidator (the product). Concrete implementations are expected to decide which concrete validator to instantiate based on inputs (typeName, base, facets, list). This matches the Factory Method pattern where an abstract creator defines a factory method for creating products. Adherence is partial because only the abstract creator is shown; no concrete creators or concrete product hierarchy are present in the snippet.""
+    }
+  ]
+}",12.348831
+PMART-Xerces-DatatypeValidatorFactory.java,factory,gemini-3.0-pro,Abstract Factory,95,100,"The provided source code is an interface (`DatatypeValidatorFactory`) that defines a method (`createDatatypeValidator`) responsible for instantiating objects of a specific type (`DatatypeValidator`). This corresponds exactly to the 'AbstractFactory' participant in the Abstract Factory design pattern, which defines an interface for creating objects without specifying their concrete classes.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Abstract Factory"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The provided source code is an interface (`DatatypeValidatorFactory`) that defines a method (`createDatatypeValidator`) responsible for instantiating objects of a specific type (`DatatypeValidator`). This corresponds exactly to the 'AbstractFactory' participant in the Abstract Factory design pattern, which defines an interface for creating objects without specifying their concrete classes.""
+	}]
+}
+```",37.108775
+PMART-Azureus-DHTDBFactory.java,factory,gpt-5,Factory Method,90,70,"DHTDBFactory provides a static create method that returns the interface type (DHTDB) while instantiating a concrete implementation (DHTDBImpl), encapsulating object creation and decoupling clients from the implementation. This is a static/simple factory variant rather than the classic overridable factory method, hence partial adherence.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 90,
+      ""adherence"": 70,
+      ""reason"": ""DHTDBFactory provides a static create method that returns the interface type (DHTDB) while instantiating a concrete implementation (DHTDBImpl), encapsulating object creation and decoupling clients from the implementation. This is a static/simple factory variant rather than the classic overridable factory method, hence partial adherence.""
+    }
+  ]
+}",16.607193
+PMART-Azureus-DHTDBFactory.java,factory,gemini-3.0-pro,Simple Factory,100,100,"The class 'DHTDBFactory' contains a static method 'create' that encapsulates the instantiation logic of the 'DHTDB' object. It returns a concrete instance ('DHTDBImpl') masked by an interface or abstract type ('DHTDB'), thereby decoupling the client code from the specific implementation details.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Simple Factory"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class 'DHTDBFactory' contains a static method 'create' that encapsulates the instantiation logic of the 'DHTDB' object. It returns a concrete instance ('DHTDBImpl') masked by an interface or abstract type ('DHTDB'), thereby decoupling the client code from the specific implementation details.""
+	}]
+}
+```",17.458161
+PMART-Azureus-DiskAccessControllerFactory.java,factory,gpt-5,Factory Method,88,60,"DiskAccessControllerFactory exposes a static create method that returns the interface type DiskAccessController while instantiating the concrete DiskAccessControllerImpl, hiding construction details from clients. However, the creation logic is hard-coded and not polymorphically overridden (no subclass-based variation of the factory), making it a simple/static factory rather than the full GoF factory method.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 60,
+      ""reason"": ""DiskAccessControllerFactory exposes a static create method that returns the interface type DiskAccessController while instantiating the concrete DiskAccessControllerImpl, hiding construction details from clients. However, the creation logic is hard-coded and not polymorphically overridden (no subclass-based variation of the factory), making it a simple/static factory rather than the full GoF factory method.""
+    }
+  ]
+}",20.509911
+PMART-Azureus-DiskAccessControllerFactory.java,factory,gemini-3.0-pro,Simple Factory,100,100,"The class functions as a Simple Factory (also known as a Static Factory Method). It provides a public static method ('create') that encapsulates the logic for instantiating an object. It hides the concrete implementation ('DiskAccessControllerImpl') from the caller, returning the object via its interface or abstract type ('DiskAccessController'). This decouples the client code from the specific implementation class.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Simple Factory"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class functions as a Simple Factory (also known as a Static Factory Method). It provides a public static method ('create') that encapsulates the logic for instantiating an object. It hides the concrete implementation ('DiskAccessControllerImpl') from the caller, returning the object via its interface or abstract type ('DiskAccessController'). This decouples the client code from the specific implementation class.""
+	}]
+}
+```",16.662423
+PMART-Xerces-XML11DTDDVFactoryImpl.java,factory,gpt-5,Factory Method,85,85,"The method getBuiltInDV(String) selects and returns a DatatypeValidator based on a key (name), with this subclass extending the set of products (XML 1.1 types) and deferring to the base collection for others. Although instances are created in a static block and cached, the method still acts as the factory point for clients, consistent with Factory Method.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""The method getBuiltInDV(String) selects and returns a DatatypeValidator based on a key (name), with this subclass extending the set of products (XML 1.1 types) and deferring to the base collection for others. Although instances are created in a static block and cached, the method still acts as the factory point for clients, consistent with Factory Method.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""XML11DTDDVFactoryImpl is a concrete factory variant that extends DTDDVFactoryImpl to provide a family of related products (DTD DatatypeValidators for XML 1.1). The getBuiltInTypes() method returns the whole family by merging XML 1.1 and base types. While the abstract interface is not shown here, the inheritance-based specialization aligns with Abstract Factory.""
+    },
+    {
+      ""pattern"": ""Flyweight"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""Validator instances are created once and stored in static Hashtables (fXML11BuiltInTypes and inherited fBuiltInTypes) and then shared by all callers. This reuse of single instances per key matches Flyweight/Multi-ton characteristics, though explicit handling of extrinsic state is not visible.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""Clients receive DatatypeValidator (a common interface) while the factory chooses among different concrete validators (e.g., XML11IDDatatypeValidator, XML11NMTOKENDatatypeValidator). This enables interchangeable validation algorithms behind a uniform type, consistent with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""ListDatatypeValidator is constructed with another DatatypeValidator and likely implements the same interface to add list-handling behavior around the wrapped validator. Although its implementation is not shown, the composition and type suggest a Decorator-like extension.""
+    }
+  ]
+}",52.456256
+PMART-Xerces-XML11DTDDVFactoryImpl.java,factory,gpt-5,Abstract Factory,70,65,"XML11DTDDVFactoryImpl is a concrete factory variant that extends DTDDVFactoryImpl to provide a family of related products (DTD DatatypeValidators for XML 1.1). The getBuiltInTypes() method returns the whole family by merging XML 1.1 and base types. While the abstract interface is not shown here, the inheritance-based specialization aligns with Abstract Factory.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""The method getBuiltInDV(String) selects and returns a DatatypeValidator based on a key (name), with this subclass extending the set of products (XML 1.1 types) and deferring to the base collection for others. Although instances are created in a static block and cached, the method still acts as the factory point for clients, consistent with Factory Method.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""XML11DTDDVFactoryImpl is a concrete factory variant that extends DTDDVFactoryImpl to provide a family of related products (DTD DatatypeValidators for XML 1.1). The getBuiltInTypes() method returns the whole family by merging XML 1.1 and base types. While the abstract interface is not shown here, the inheritance-based specialization aligns with Abstract Factory.""
+    },
+    {
+      ""pattern"": ""Flyweight"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""Validator instances are created once and stored in static Hashtables (fXML11BuiltInTypes and inherited fBuiltInTypes) and then shared by all callers. This reuse of single instances per key matches Flyweight/Multi-ton characteristics, though explicit handling of extrinsic state is not visible.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""Clients receive DatatypeValidator (a common interface) while the factory chooses among different concrete validators (e.g., XML11IDDatatypeValidator, XML11NMTOKENDatatypeValidator). This enables interchangeable validation algorithms behind a uniform type, consistent with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""ListDatatypeValidator is constructed with another DatatypeValidator and likely implements the same interface to add list-handling behavior around the wrapped validator. Although its implementation is not shown, the composition and type suggest a Decorator-like extension.""
+    }
+  ]
+}",52.456256
+PMART-Xerces-XML11DTDDVFactoryImpl.java,factory,gpt-5,Flyweight,60,60,"Validator instances are created once and stored in static Hashtables (fXML11BuiltInTypes and inherited fBuiltInTypes) and then shared by all callers. This reuse of single instances per key matches Flyweight/Multi-ton characteristics, though explicit handling of extrinsic state is not visible.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""The method getBuiltInDV(String) selects and returns a DatatypeValidator based on a key (name), with this subclass extending the set of products (XML 1.1 types) and deferring to the base collection for others. Although instances are created in a static block and cached, the method still acts as the factory point for clients, consistent with Factory Method.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""XML11DTDDVFactoryImpl is a concrete factory variant that extends DTDDVFactoryImpl to provide a family of related products (DTD DatatypeValidators for XML 1.1). The getBuiltInTypes() method returns the whole family by merging XML 1.1 and base types. While the abstract interface is not shown here, the inheritance-based specialization aligns with Abstract Factory.""
+    },
+    {
+      ""pattern"": ""Flyweight"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""Validator instances are created once and stored in static Hashtables (fXML11BuiltInTypes and inherited fBuiltInTypes) and then shared by all callers. This reuse of single instances per key matches Flyweight/Multi-ton characteristics, though explicit handling of extrinsic state is not visible.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""Clients receive DatatypeValidator (a common interface) while the factory chooses among different concrete validators (e.g., XML11IDDatatypeValidator, XML11NMTOKENDatatypeValidator). This enables interchangeable validation algorithms behind a uniform type, consistent with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""ListDatatypeValidator is constructed with another DatatypeValidator and likely implements the same interface to add list-handling behavior around the wrapped validator. Although its implementation is not shown, the composition and type suggest a Decorator-like extension.""
+    }
+  ]
+}",52.456256
+PMART-Xerces-XML11DTDDVFactoryImpl.java,factory,gpt-5,Strategy,65,70,"Clients receive DatatypeValidator (a common interface) while the factory chooses among different concrete validators (e.g., XML11IDDatatypeValidator, XML11NMTOKENDatatypeValidator). This enables interchangeable validation algorithms behind a uniform type, consistent with Strategy.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""The method getBuiltInDV(String) selects and returns a DatatypeValidator based on a key (name), with this subclass extending the set of products (XML 1.1 types) and deferring to the base collection for others. Although instances are created in a static block and cached, the method still acts as the factory point for clients, consistent with Factory Method.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""XML11DTDDVFactoryImpl is a concrete factory variant that extends DTDDVFactoryImpl to provide a family of related products (DTD DatatypeValidators for XML 1.1). The getBuiltInTypes() method returns the whole family by merging XML 1.1 and base types. While the abstract interface is not shown here, the inheritance-based specialization aligns with Abstract Factory.""
+    },
+    {
+      ""pattern"": ""Flyweight"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""Validator instances are created once and stored in static Hashtables (fXML11BuiltInTypes and inherited fBuiltInTypes) and then shared by all callers. This reuse of single instances per key matches Flyweight/Multi-ton characteristics, though explicit handling of extrinsic state is not visible.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""Clients receive DatatypeValidator (a common interface) while the factory chooses among different concrete validators (e.g., XML11IDDatatypeValidator, XML11NMTOKENDatatypeValidator). This enables interchangeable validation algorithms behind a uniform type, consistent with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""ListDatatypeValidator is constructed with another DatatypeValidator and likely implements the same interface to add list-handling behavior around the wrapped validator. Although its implementation is not shown, the composition and type suggest a Decorator-like extension.""
+    }
+  ]
+}",52.456256
+PMART-Xerces-XML11DTDDVFactoryImpl.java,factory,gpt-5,Decorator,55,55,"ListDatatypeValidator is constructed with another DatatypeValidator and likely implements the same interface to add list-handling behavior around the wrapped validator. Although its implementation is not shown, the composition and type suggest a Decorator-like extension.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""The method getBuiltInDV(String) selects and returns a DatatypeValidator based on a key (name), with this subclass extending the set of products (XML 1.1 types) and deferring to the base collection for others. Although instances are created in a static block and cached, the method still acts as the factory point for clients, consistent with Factory Method.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 70,
+      ""adherence"": 65,
+      ""reason"": ""XML11DTDDVFactoryImpl is a concrete factory variant that extends DTDDVFactoryImpl to provide a family of related products (DTD DatatypeValidators for XML 1.1). The getBuiltInTypes() method returns the whole family by merging XML 1.1 and base types. While the abstract interface is not shown here, the inheritance-based specialization aligns with Abstract Factory.""
+    },
+    {
+      ""pattern"": ""Flyweight"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""Validator instances are created once and stored in static Hashtables (fXML11BuiltInTypes and inherited fBuiltInTypes) and then shared by all callers. This reuse of single instances per key matches Flyweight/Multi-ton characteristics, though explicit handling of extrinsic state is not visible.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""Clients receive DatatypeValidator (a common interface) while the factory chooses among different concrete validators (e.g., XML11IDDatatypeValidator, XML11NMTOKENDatatypeValidator). This enables interchangeable validation algorithms behind a uniform type, consistent with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""ListDatatypeValidator is constructed with another DatatypeValidator and likely implements the same interface to add list-handling behavior around the wrapped validator. Although its implementation is not shown, the composition and type suggest a Decorator-like extension.""
+    }
+  ]
+}",52.456256
+PMART-Xerces-XML11DTDDVFactoryImpl.java,factory,gemini-3.0-pro,Abstract Factory,95,90,"The class is explicitly named and structured as a factory implementation (`XML11DTDDVFactoryImpl` extending `DTDDVFactoryImpl`). It encapsulates the creation and mapping of a specific family of related objects (XML 1.1 Datatype Validators such as `XML11IDDatatypeValidator`) behind a common interface (`DatatypeValidator`). The method `getBuiltInDV` acts as the factory method, decoupling the client from the concrete classes.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Abstract Factory"",
+		""confidence"": 95,
+		""adherence"": 90,
+		""reason"": ""The class is explicitly named and structured as a factory implementation (`XML11DTDDVFactoryImpl` extending `DTDDVFactoryImpl`). It encapsulates the creation and mapping of a specific family of related objects (XML 1.1 Datatype Validators such as `XML11IDDatatypeValidator`) behind a common interface (`DatatypeValidator`). The method `getBuiltInDV` acts as the factory method, decoupling the client from the concrete classes.""
+	}]
+}
+```",39.285464
+PMART-Azureus-ExternalIPCheckerFactory.java,factory,gpt-5,Factory Method,85,55,"ExternalIPCheckerFactory exposes a static create() that returns the interface type (ExternalIPChecker) while instantiating a concrete implementation (ExternalIPCheckerImpl), encapsulating creation and hiding the implementation. However, there is no subclassing/overridable creator and only a single product is produced, making it a simple/static factory rather than the full GoF Factory Method.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 85,
+      ""adherence"": 55,
+      ""reason"": ""ExternalIPCheckerFactory exposes a static create() that returns the interface type (ExternalIPChecker) while instantiating a concrete implementation (ExternalIPCheckerImpl), encapsulating creation and hiding the implementation. However, there is no subclassing/overridable creator and only a single product is produced, making it a simple/static factory rather than the full GoF Factory Method.""
+    }
+  ]
+}",12.629473
+PMART-Azureus-ExternalIPCheckerFactory.java,factory,gemini-3.0-pro,Simple Factory,100,100,"The class 'ExternalIPCheckerFactory' implements a static method 'create()' that encapsulates the instantiation logic of the concrete class 'ExternalIPCheckerImpl'. It returns the instance typed as the interface 'ExternalIPChecker'. This completely decouples the client code from the concrete implementation and centralizes the object creation, which is the exact definition of the Simple Factory idiom.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Simple Factory"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class 'ExternalIPCheckerFactory' implements a static method 'create()' that encapsulates the instantiation logic of the concrete class 'ExternalIPCheckerImpl'. It returns the instance typed as the interface 'ExternalIPChecker'. This completely decouples the client code from the concrete implementation and centralizes the object creation, which is the exact definition of the Simple Factory idiom.""
+	}]
+}
+```",18.124958
+PMART-PMARt-PrerequisiteTestFactory.java,factory,gpt-5,Singleton,95,75,"A single globally accessible instance via getInstance(), private constructor, and static instance field. However, lazy initialization is not thread-safe, so adherence is not perfect.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 75,
+      ""reason"": ""A single globally accessible instance via getInstance(), private constructor, and static instance field. However, lazy initialization is not thread-safe, so adherence is not perfect.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 75,
+      ""adherence"": 85,
+      ""reason"": ""Acts as a registry mapping string keys to pre-registered PrerequisiteTest instances and returning them on demand. It centralizes lookup rather than creation, which aligns with a service locator/registry pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 60,
+      ""adherence"": 65,
+      ""reason"": ""PrerequisiteTest appears to define a common interface, and different concrete tests (e.g., PreAlign, PreFeat) are selected at runtime based on a key. While usage context is not shown, the structure suggests interchangeable algorithms chosen via the locator.""
+    }
+  ]
+}",31.332318
+PMART-PMARt-PrerequisiteTestFactory.java,factory,gpt-5,Service Locator,75,85,"Acts as a registry mapping string keys to pre-registered PrerequisiteTest instances and returning them on demand. It centralizes lookup rather than creation, which aligns with a service locator/registry pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 75,
+      ""reason"": ""A single globally accessible instance via getInstance(), private constructor, and static instance field. However, lazy initialization is not thread-safe, so adherence is not perfect.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 75,
+      ""adherence"": 85,
+      ""reason"": ""Acts as a registry mapping string keys to pre-registered PrerequisiteTest instances and returning them on demand. It centralizes lookup rather than creation, which aligns with a service locator/registry pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 60,
+      ""adherence"": 65,
+      ""reason"": ""PrerequisiteTest appears to define a common interface, and different concrete tests (e.g., PreAlign, PreFeat) are selected at runtime based on a key. While usage context is not shown, the structure suggests interchangeable algorithms chosen via the locator.""
+    }
+  ]
+}",31.332318
+PMART-PMARt-PrerequisiteTestFactory.java,factory,gpt-5,Strategy,60,65,"PrerequisiteTest appears to define a common interface, and different concrete tests (e.g., PreAlign, PreFeat) are selected at runtime based on a key. While usage context is not shown, the structure suggests interchangeable algorithms chosen via the locator.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 75,
+      ""reason"": ""A single globally accessible instance via getInstance(), private constructor, and static instance field. However, lazy initialization is not thread-safe, so adherence is not perfect.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 75,
+      ""adherence"": 85,
+      ""reason"": ""Acts as a registry mapping string keys to pre-registered PrerequisiteTest instances and returning them on demand. It centralizes lookup rather than creation, which aligns with a service locator/registry pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 60,
+      ""adherence"": 65,
+      ""reason"": ""PrerequisiteTest appears to define a common interface, and different concrete tests (e.g., PreAlign, PreFeat) are selected at runtime based on a key. While usage context is not shown, the structure suggests interchangeable algorithms chosen via the locator.""
+    }
+  ]
+}",31.332318
+PMART-PMARt-PrerequisiteTestFactory.java,factory,gemini-3.0-pro,Singleton,100,85,"The class explicitly implements the Singleton pattern. It features a private static 'instance' variable, a private constructor to prevent external instantiation, and a public static 'getInstance()' method to provide global access. The adherence is not 100% because the 'getInstance()' method lacks thread-safety (synchronization or double-checked locking), which could cause issues in a multi-threaded environment.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 100,
+			""adherence"": 85,
+			""reason"": ""The class explicitly implements the Singleton pattern. It features a private static 'instance' variable, a private constructor to prevent external instantiation, and a public static 'getInstance()' method to provide global access. The adherence is not 100% because the 'getInstance()' method lacks thread-safety (synchronization or double-checked locking), which could cause issues in a multi-threaded environment.""
+		},
+		{
+			""pattern"": ""Simple Factory"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class acts as a factory for 'PrerequisiteTest' objects. The 'getTest(String kind)' method abstracts the logic of retrieving a specific implementation based on a string identifier. Instead of a switch statement, it uses a registration/lookup map ('testLookup') populated in the constructor to return the correct concrete object.""
+		}
+	]
+}
+```",31.846017
+PMART-PMARt-PrerequisiteTestFactory.java,factory,gemini-3.0-pro,Simple Factory,95,100,"The class acts as a factory for 'PrerequisiteTest' objects. The 'getTest(String kind)' method abstracts the logic of retrieving a specific implementation based on a string identifier. Instead of a switch statement, it uses a registration/lookup map ('testLookup') populated in the constructor to return the correct concrete object.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 100,
+			""adherence"": 85,
+			""reason"": ""The class explicitly implements the Singleton pattern. It features a private static 'instance' variable, a private constructor to prevent external instantiation, and a public static 'getInstance()' method to provide global access. The adherence is not 100% because the 'getInstance()' method lacks thread-safety (synchronization or double-checked locking), which could cause issues in a multi-threaded environment.""
+		},
+		{
+			""pattern"": ""Simple Factory"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class acts as a factory for 'PrerequisiteTest' objects. The 'getTest(String kind)' method abstracts the logic of retrieving a specific implementation based on a string identifier. Instead of a switch statement, it uses a registration/lookup map ('testLookup') populated in the constructor to return the correct concrete object.""
+		}
+	]
+}
+```",31.846017

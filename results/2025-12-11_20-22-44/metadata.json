@@ -1,11 +1,12 @@
 {
   "source_dir": "design-patterns",
-  "timestamp": "2025-12-05T10:15:46.038562",
+  "timestamp": "2025-12-11T21:38:18.753868",
   "files_processed": 80,
   "models_used": [
-    "gpt-4o-mini"
+    "gpt-5",
+    "gemini-3.0-pro"
   ],
-  "total_results": 85,
+  "total_results": 251,
   "dpd_files": 40,
   "pmart_files": 40
 }

@@ -1,0 +1,2042 @@
+filename,ground_truth_label,model_name,detected_pattern,confidence,adherence,reasoning,raw_response,duration_seconds
+DPD-wayback-MementoReplayRendererDecorator.java,decorator,gpt-5,Decorator,98,95,"MementoReplayRendererDecorator extends ReplayRendererDecorator, accepts a ReplayRenderer in its constructor, and augments behavior (sets Memento HTTP headers) before delegating to decorated.renderResource. It preserves the component interface and can be stacked with other decorators. Note: the 'Memento' here refers to the web archiving protocol, not the GoF Memento pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 98,
+      ""adherence"": 95,
+      ""reason"": ""MementoReplayRendererDecorator extends ReplayRendererDecorator, accepts a ReplayRenderer in its constructor, and augments behavior (sets Memento HTTP headers) before delegating to decorated.renderResource. It preserves the component interface and can be stacked with other decorators. Note: the 'Memento' here refers to the web archiving protocol, not the GoF Memento pattern.""
+    }
+  ]
+}",23.639275
+DPD-wayback-MementoReplayRendererDecorator.java,decorator,gemini-3.0-pro,Decorator,100,100,"The class MementoReplayRendererDecorator extends a class named ReplayRendererDecorator and accepts an instance of the component interface (ReplayRenderer) in its constructor. Crucially, inside the 'renderResource' method, it executes custom logic (adding HTTP headers) and then delegates the call to the wrapped object ('decorated.renderResource(...)'). This allows behavior to be added dynamically to the wrapped object, which is the definition of the Decorator pattern. While the class name contains 'Memento', it implements the Memento Web Protocol, not the Memento Design Pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class MementoReplayRendererDecorator extends a class named ReplayRendererDecorator and accepts an instance of the component interface (ReplayRenderer) in its constructor. Crucially, inside the 'renderResource' method, it executes custom logic (adding HTTP headers) and then delegates the call to the wrapped object ('decorated.renderResource(...)'). This allows behavior to be added dynamically to the wrapped object, which is the definition of the Decorator pattern. While the class name contains 'Memento', it implements the Memento Web Protocol, not the Memento Design Pattern.""
+	}]
+}
+```",26.262334
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gpt-5,Factory Method,88,85,"Creation of StringTemplateViewResolver is delegated to protected createResolver(), allowing subclasses to override the instantiation. The init sequence (createResolver, initParameters, initContexts) uses this factory to supply a configurable product.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 85,
+      ""reason"": ""Creation of StringTemplateViewResolver is delegated to protected createResolver(), allowing subclasses to override the instantiation. The init sequence (createResolver, initParameters, initContexts) uses this factory to supply a configurable product.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 72,
+      ""adherence"": 70,
+      ""reason"": ""doGet defines the algorithm (resolveTemplate -> render or sendError) with overridable steps via protected hooks (resolveTemplate, viewName, getLocale, pageModel, render). Similarly, createResolver(ServletConfig) fixes the setup steps with hook methods.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 64,
+      ""adherence"": 60,
+      ""reason"": ""Locale resolution is delegated to a LocaleResolver obtained at runtime, encapsulating the varying algorithm for determining Locale, with a fallback to request.getLocale(). The servlet is agnostic of the concrete strategy.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 58,
+      ""adherence"": 55,
+      ""reason"": ""Dependencies are retrieved from a global WebApplicationContext (getRequiredWebApplicationContext, wac.getBean), and findTemplateErrorListener encapsulates this lookup before injecting into the resolver.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 47,
+      ""adherence"": 45,
+      ""reason"": ""An ErrorListener is registered on the resolver (setTemplateErrorListener), suggesting a subject-listener notification relationship; the notification mechanics are not shown in this snippet.""
+    },
+    {
+      ""pattern"": ""Front Controller"",
+      ""confidence"": 50,
+      ""adherence"": 50,
+      ""reason"": ""A single servlet acts as an entry point for its URL mapping, parses the request path, resolves a view, and renders the response, centralizing request handling for a set of requests.""
+    }
+  ]
+}",48.988092
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gpt-5,Template Method,72,70,"doGet defines the algorithm (resolveTemplate -> render or sendError) with overridable steps via protected hooks (resolveTemplate, viewName, getLocale, pageModel, render). Similarly, createResolver(ServletConfig) fixes the setup steps with hook methods.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 85,
+      ""reason"": ""Creation of StringTemplateViewResolver is delegated to protected createResolver(), allowing subclasses to override the instantiation. The init sequence (createResolver, initParameters, initContexts) uses this factory to supply a configurable product.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 72,
+      ""adherence"": 70,
+      ""reason"": ""doGet defines the algorithm (resolveTemplate -> render or sendError) with overridable steps via protected hooks (resolveTemplate, viewName, getLocale, pageModel, render). Similarly, createResolver(ServletConfig) fixes the setup steps with hook methods.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 64,
+      ""adherence"": 60,
+      ""reason"": ""Locale resolution is delegated to a LocaleResolver obtained at runtime, encapsulating the varying algorithm for determining Locale, with a fallback to request.getLocale(). The servlet is agnostic of the concrete strategy.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 58,
+      ""adherence"": 55,
+      ""reason"": ""Dependencies are retrieved from a global WebApplicationContext (getRequiredWebApplicationContext, wac.getBean), and findTemplateErrorListener encapsulates this lookup before injecting into the resolver.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 47,
+      ""adherence"": 45,
+      ""reason"": ""An ErrorListener is registered on the resolver (setTemplateErrorListener), suggesting a subject-listener notification relationship; the notification mechanics are not shown in this snippet.""
+    },
+    {
+      ""pattern"": ""Front Controller"",
+      ""confidence"": 50,
+      ""adherence"": 50,
+      ""reason"": ""A single servlet acts as an entry point for its URL mapping, parses the request path, resolves a view, and renders the response, centralizing request handling for a set of requests.""
+    }
+  ]
+}",48.988092
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gpt-5,Strategy,64,60,"Locale resolution is delegated to a LocaleResolver obtained at runtime, encapsulating the varying algorithm for determining Locale, with a fallback to request.getLocale(). The servlet is agnostic of the concrete strategy.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 85,
+      ""reason"": ""Creation of StringTemplateViewResolver is delegated to protected createResolver(), allowing subclasses to override the instantiation. The init sequence (createResolver, initParameters, initContexts) uses this factory to supply a configurable product.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 72,
+      ""adherence"": 70,
+      ""reason"": ""doGet defines the algorithm (resolveTemplate -> render or sendError) with overridable steps via protected hooks (resolveTemplate, viewName, getLocale, pageModel, render). Similarly, createResolver(ServletConfig) fixes the setup steps with hook methods.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 64,
+      ""adherence"": 60,
+      ""reason"": ""Locale resolution is delegated to a LocaleResolver obtained at runtime, encapsulating the varying algorithm for determining Locale, with a fallback to request.getLocale(). The servlet is agnostic of the concrete strategy.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 58,
+      ""adherence"": 55,
+      ""reason"": ""Dependencies are retrieved from a global WebApplicationContext (getRequiredWebApplicationContext, wac.getBean), and findTemplateErrorListener encapsulates this lookup before injecting into the resolver.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 47,
+      ""adherence"": 45,
+      ""reason"": ""An ErrorListener is registered on the resolver (setTemplateErrorListener), suggesting a subject-listener notification relationship; the notification mechanics are not shown in this snippet.""
+    },
+    {
+      ""pattern"": ""Front Controller"",
+      ""confidence"": 50,
+      ""adherence"": 50,
+      ""reason"": ""A single servlet acts as an entry point for its URL mapping, parses the request path, resolves a view, and renders the response, centralizing request handling for a set of requests.""
+    }
+  ]
+}",48.988092
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gpt-5,Service Locator,58,55,"Dependencies are retrieved from a global WebApplicationContext (getRequiredWebApplicationContext, wac.getBean), and findTemplateErrorListener encapsulates this lookup before injecting into the resolver.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 85,
+      ""reason"": ""Creation of StringTemplateViewResolver is delegated to protected createResolver(), allowing subclasses to override the instantiation. The init sequence (createResolver, initParameters, initContexts) uses this factory to supply a configurable product.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 72,
+      ""adherence"": 70,
+      ""reason"": ""doGet defines the algorithm (resolveTemplate -> render or sendError) with overridable steps via protected hooks (resolveTemplate, viewName, getLocale, pageModel, render). Similarly, createResolver(ServletConfig) fixes the setup steps with hook methods.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 64,
+      ""adherence"": 60,
+      ""reason"": ""Locale resolution is delegated to a LocaleResolver obtained at runtime, encapsulating the varying algorithm for determining Locale, with a fallback to request.getLocale(). The servlet is agnostic of the concrete strategy.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 58,
+      ""adherence"": 55,
+      ""reason"": ""Dependencies are retrieved from a global WebApplicationContext (getRequiredWebApplicationContext, wac.getBean), and findTemplateErrorListener encapsulates this lookup before injecting into the resolver.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 47,
+      ""adherence"": 45,
+      ""reason"": ""An ErrorListener is registered on the resolver (setTemplateErrorListener), suggesting a subject-listener notification relationship; the notification mechanics are not shown in this snippet.""
+    },
+    {
+      ""pattern"": ""Front Controller"",
+      ""confidence"": 50,
+      ""adherence"": 50,
+      ""reason"": ""A single servlet acts as an entry point for its URL mapping, parses the request path, resolves a view, and renders the response, centralizing request handling for a set of requests.""
+    }
+  ]
+}",48.988092
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gpt-5,Observer,47,45,"An ErrorListener is registered on the resolver (setTemplateErrorListener), suggesting a subject-listener notification relationship; the notification mechanics are not shown in this snippet.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 85,
+      ""reason"": ""Creation of StringTemplateViewResolver is delegated to protected createResolver(), allowing subclasses to override the instantiation. The init sequence (createResolver, initParameters, initContexts) uses this factory to supply a configurable product.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 72,
+      ""adherence"": 70,
+      ""reason"": ""doGet defines the algorithm (resolveTemplate -> render or sendError) with overridable steps via protected hooks (resolveTemplate, viewName, getLocale, pageModel, render). Similarly, createResolver(ServletConfig) fixes the setup steps with hook methods.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 64,
+      ""adherence"": 60,
+      ""reason"": ""Locale resolution is delegated to a LocaleResolver obtained at runtime, encapsulating the varying algorithm for determining Locale, with a fallback to request.getLocale(). The servlet is agnostic of the concrete strategy.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 58,
+      ""adherence"": 55,
+      ""reason"": ""Dependencies are retrieved from a global WebApplicationContext (getRequiredWebApplicationContext, wac.getBean), and findTemplateErrorListener encapsulates this lookup before injecting into the resolver.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 47,
+      ""adherence"": 45,
+      ""reason"": ""An ErrorListener is registered on the resolver (setTemplateErrorListener), suggesting a subject-listener notification relationship; the notification mechanics are not shown in this snippet.""
+    },
+    {
+      ""pattern"": ""Front Controller"",
+      ""confidence"": 50,
+      ""adherence"": 50,
+      ""reason"": ""A single servlet acts as an entry point for its URL mapping, parses the request path, resolves a view, and renders the response, centralizing request handling for a set of requests.""
+    }
+  ]
+}",48.988092
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gpt-5,Front Controller,50,50,"A single servlet acts as an entry point for its URL mapping, parses the request path, resolves a view, and renders the response, centralizing request handling for a set of requests.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 85,
+      ""reason"": ""Creation of StringTemplateViewResolver is delegated to protected createResolver(), allowing subclasses to override the instantiation. The init sequence (createResolver, initParameters, initContexts) uses this factory to supply a configurable product.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 72,
+      ""adherence"": 70,
+      ""reason"": ""doGet defines the algorithm (resolveTemplate -> render or sendError) with overridable steps via protected hooks (resolveTemplate, viewName, getLocale, pageModel, render). Similarly, createResolver(ServletConfig) fixes the setup steps with hook methods.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 64,
+      ""adherence"": 60,
+      ""reason"": ""Locale resolution is delegated to a LocaleResolver obtained at runtime, encapsulating the varying algorithm for determining Locale, with a fallback to request.getLocale(). The servlet is agnostic of the concrete strategy.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 58,
+      ""adherence"": 55,
+      ""reason"": ""Dependencies are retrieved from a global WebApplicationContext (getRequiredWebApplicationContext, wac.getBean), and findTemplateErrorListener encapsulates this lookup before injecting into the resolver.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 47,
+      ""adherence"": 45,
+      ""reason"": ""An ErrorListener is registered on the resolver (setTemplateErrorListener), suggesting a subject-listener notification relationship; the notification mechanics are not shown in this snippet.""
+    },
+    {
+      ""pattern"": ""Front Controller"",
+      ""confidence"": 50,
+      ""adherence"": 50,
+      ""reason"": ""A single servlet acts as an entry point for its URL mapping, parses the request path, resolves a view, and renders the response, centralizing request handling for a set of requests.""
+    }
+  ]
+}",48.988092
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gemini-3.0-pro,Factory Method,95,100,"The class implements the Factory Method pattern via the protected method 'createResolver()'. This method isolates the instantiation of the 'StringTemplateViewResolver'. By making this method protected and virtual, the class allows potential subclasses to override this specific method to return a subtype of 'StringTemplateViewResolver' (or a configured instance) without needing to rewrite the logic in 'createResolver(ServletConfig)' or 'init'.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Factory Method"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class implements the Factory Method pattern via the protected method 'createResolver()'. This method isolates the instantiation of the 'StringTemplateViewResolver'. By making this method protected and virtual, the class allows potential subclasses to override this specific method to return a subtype of 'StringTemplateViewResolver' (or a configured instance) without needing to rewrite the logic in 'createResolver(ServletConfig)' or 'init'.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 90,
+			""adherence"": 95,
+			""reason"": ""The method 'createResolver(ServletConfig)' functions as a Template Method. It defines the skeleton of the algorithm for setting up the view resolver by enforcing a specific sequence of steps: instantiation ('createResolver()'), parameter binding ('initParameters'), and context setup ('initContexts'). These steps are broken out into distinct protected methods, allowing subclasses to redefine specific steps of the initialization process without changing the overarching algorithm structure.""
+		}
+	]
+}
+```",31.987184
+DPD-spring-stringtemplate-StringTemplateDecoratorServlet.java,decorator,gemini-3.0-pro,Template Method,90,95,"The method 'createResolver(ServletConfig)' functions as a Template Method. It defines the skeleton of the algorithm for setting up the view resolver by enforcing a specific sequence of steps: instantiation ('createResolver()'), parameter binding ('initParameters'), and context setup ('initContexts'). These steps are broken out into distinct protected methods, allowing subclasses to redefine specific steps of the initialization process without changing the overarching algorithm structure.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Factory Method"",
+			""confidence"": 95,
+			""adherence"": 100,
+			""reason"": ""The class implements the Factory Method pattern via the protected method 'createResolver()'. This method isolates the instantiation of the 'StringTemplateViewResolver'. By making this method protected and virtual, the class allows potential subclasses to override this specific method to return a subtype of 'StringTemplateViewResolver' (or a configured instance) without needing to rewrite the logic in 'createResolver(ServletConfig)' or 'init'.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 90,
+			""adherence"": 95,
+			""reason"": ""The method 'createResolver(ServletConfig)' functions as a Template Method. It defines the skeleton of the algorithm for setting up the view resolver by enforcing a specific sequence of steps: instantiation ('createResolver()'), parameter binding ('initParameters'), and context setup ('initContexts'). These steps are broken out into distinct protected methods, allowing subclasses to redefine specific steps of the initialization process without changing the overarching algorithm structure.""
+		}
+	]
+}
+```",31.987184
+DPD-wayback-ReplayRendererDecorator.java,decorator,gpt-5,Decorator,92,86,"ReplayRendererDecorator implements the same interface (ReplayRenderer) as the wrapped object and holds a reference to a ReplayRenderer (field 'decorated'), with constructors, getter, and setter to wrap another renderer. This structure enables behavior extension via composition and potential chaining. Adherence is slightly reduced because there is no default pass-through implementation of renderResource; delegation is left to concrete subclasses.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 92,
+      ""adherence"": 86,
+      ""reason"": ""ReplayRendererDecorator implements the same interface (ReplayRenderer) as the wrapped object and holds a reference to a ReplayRenderer (field 'decorated'), with constructors, getter, and setter to wrap another renderer. This structure enables behavior extension via composition and potential chaining. Adherence is slightly reduced because there is no default pass-through implementation of renderResource; delegation is left to concrete subclasses.""
+    }
+  ]
+}",15.579826
+DPD-wayback-ReplayRendererDecorator.java,decorator,gemini-3.0-pro,Decorator,98,85,"The class 'ReplayRendererDecorator' implements the 'ReplayRenderer' interface while maintaining a reference field ('decorated') of the same interface type. This structure allows the class (and its concrete subclasses) to wrap an existing 'ReplayRenderer' instance. This 'is-a' and 'has-a' relationship with the same interface is the structural signature of the Decorator pattern. The adherence is slightly lowered because this abstract base class does not implement the default delegation logic for 'renderResource', forcing subclasses to manually implement the call to the decorated object.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 98,
+		""adherence"": 85,
+		""reason"": ""The class 'ReplayRendererDecorator' implements the 'ReplayRenderer' interface while maintaining a reference field ('decorated') of the same interface type. This structure allows the class (and its concrete subclasses) to wrap an existing 'ReplayRenderer' instance. This 'is-a' and 'has-a' relationship with the same interface is the structural signature of the Decorator pattern. The adherence is slightly lowered because this abstract base class does not implement the default delegation logic for 'renderResource', forcing subclasses to manually implement the call to the decorated object.""
+	}]
+}
+```",20.669532
+DPD-fuzzydb-IDecorator.java,decorator,gpt-5,Strategy,62,60,"IDecorator defines a family of interchangeable algorithms for converting and rendering BaseAttribute instances (getValueString, render), likely chosen per attribute type via getAttrName(). It encapsulates the formatting behavior used by BaseAttribute.toString(), fitting the Strategy intent. It does not wrap BaseAttribute nor implement the same interface as BaseAttribute, so despite the name it is not the Decorator pattern.","{""design_patterns"":[{""pattern"":""Strategy"",""confidence"":62,""adherence"":60,""reason"":""IDecorator defines a family of interchangeable algorithms for converting and rendering BaseAttribute instances (getValueString, render), likely chosen per attribute type via getAttrName(). It encapsulates the formatting behavior used by BaseAttribute.toString(), fitting the Strategy intent. It does not wrap BaseAttribute nor implement the same interface as BaseAttribute, so despite the name it is not the Decorator pattern.""}]}",25.367782
+DPD-fuzzydb-IDecorator.java,decorator,gemini-3.0-pro,Strategy,90,95,"Despite the interface name 'IDecorator', the code exhibits the Strategy pattern. The interface defines a family of algorithms (rendering logic via 'render' and 'getValueString') that are intended to be used interchangeably by a context object ('BaseAttribute'). The Javadoc note ('called by BaseAttribute.toString()') confirms that the context delegates the rendering behavior to this interface, allowing the string representation logic to vary independently of the data object. It does not fit the Decorator pattern because it accepts the object as a parameter rather than wrapping it via a shared interface.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 90,
+      ""adherence"": 95,
+      ""reason"": ""Despite the interface name 'IDecorator', the code exhibits the Strategy pattern. The interface defines a family of algorithms (rendering logic via 'render' and 'getValueString') that are intended to be used interchangeably by a context object ('BaseAttribute'). The Javadoc note ('called by BaseAttribute.toString()') confirms that the context delegates the rendering behavior to this interface, allowing the string representation logic to vary independently of the data object. It does not fit the Decorator pattern because it accepts the object as a parameter rather than wrapping it via a shared interface.""
+    }
+  ]
+}
+```",26.249399
+DPD-freemind-ConditionNotSatisfiedDecorator.java,decorator,gpt-5,Decorator,95,88,"ConditionNotSatisfiedDecorator implements the same interface (Condition), holds a reference to another Condition, and augments behavior by delegating and altering results (negates checkNode, composes renderer output, and wraps persistence). The only slight deviation is passing null instead of the provided Controller to the wrapped condition in checkNode, which may affect substitutability.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 88,
+      ""reason"": ""ConditionNotSatisfiedDecorator implements the same interface (Condition), holds a reference to another Condition, and augments behavior by delegating and altering results (negates checkNode, composes renderer output, and wraps persistence). The only slight deviation is passing null instead of the provided Controller to the wrapped condition in checkNode, which may affect substitutability.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 55,
+      ""adherence"": 70,
+      ""reason"": ""The static load method defers creation of the wrapped Condition to a factory obtained via FilterController.getConditionFactory().loadCondition(...), encapsulating instantiation based on XML. While the class uses a factory method rather than defining the pattern itself, the usage aligns with factory-based object creation; details of the factory hierarchy are not visible here.""
+    }
+  ]
+}",76.178354
+DPD-freemind-ConditionNotSatisfiedDecorator.java,decorator,gpt-5,Factory Method,55,70,"The static load method defers creation of the wrapped Condition to a factory obtained via FilterController.getConditionFactory().loadCondition(...), encapsulating instantiation based on XML. While the class uses a factory method rather than defining the pattern itself, the usage aligns with factory-based object creation; details of the factory hierarchy are not visible here.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 88,
+      ""reason"": ""ConditionNotSatisfiedDecorator implements the same interface (Condition), holds a reference to another Condition, and augments behavior by delegating and altering results (negates checkNode, composes renderer output, and wraps persistence). The only slight deviation is passing null instead of the provided Controller to the wrapped condition in checkNode, which may affect substitutability.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 55,
+      ""adherence"": 70,
+      ""reason"": ""The static load method defers creation of the wrapped Condition to a factory obtained via FilterController.getConditionFactory().loadCondition(...), encapsulating instantiation based on XML. While the class uses a factory method rather than defining the pattern itself, the usage aligns with factory-based object creation; details of the factory hierarchy are not visible here.""
+    }
+  ]
+}",76.178354
+DPD-freemind-ConditionNotSatisfiedDecorator.java,decorator,gemini-3.0-pro,Decorator,100,100,"The class 'ConditionNotSatisfiedDecorator' implements the 'Condition' interface and holds a private reference to another 'Condition' object ('originalCondition'). It initializes this reference via the constructor. In the 'checkNode' method, it calls the wrapped object's method and modifies the result (negates it). Similarly, 'getListCellRendererComponent' calls the wrapped object's method and decorates the result with a JLabel. This structure of wrapping an object of the same interface to add behavior dynamically is the definition of the Decorator pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class 'ConditionNotSatisfiedDecorator' implements the 'Condition' interface and holds a private reference to another 'Condition' object ('originalCondition'). It initializes this reference via the constructor. In the 'checkNode' method, it calls the wrapped object's method and modifies the result (negates it). Similarly, 'getListCellRendererComponent' calls the wrapped object's method and decorates the result with a JLabel. This structure of wrapping an object of the same interface to add behavior dynamically is the definition of the Decorator pattern.""
+	}]
+}
+```",23.712948
+DPD-cdt-CNavigatorProblemsLabelDecorator.java,decorator,gpt-5,Decorator,90,80,"The class extends ProblemsLabelDecorator, a label decorator in Eclipse that augments label presentation (e.g., overlays for problems) without changing the underlying objects or client usage. CNavigatorProblemsLabelDecorator preserves the same role/interface while specializing behavior for the Common Navigator (optimizing the change notification), fitting the Decorator intent.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 90,
+      ""adherence"": 80,
+      ""reason"": ""The class extends ProblemsLabelDecorator, a label decorator in Eclipse that augments label presentation (e.g., overlays for problems) without changing the underlying objects or client usage. CNavigatorProblemsLabelDecorator preserves the same role/interface while specializing behavior for the Common Navigator (optimizing the change notification), fitting the Decorator intent.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""The subclass overrides a protected hook method (fireProblemsChanged) to tweak a step in the parent’s event/refresh algorithm (e.g., coalescing many changes by passing null), then delegates to super. This is characteristic of a hook within a Template Method where the superclass defines the workflow and subclasses customize a step.""
+    }
+  ]
+}",22.506528
+DPD-cdt-CNavigatorProblemsLabelDecorator.java,decorator,gpt-5,Template Method,60,60,"The subclass overrides a protected hook method (fireProblemsChanged) to tweak a step in the parent’s event/refresh algorithm (e.g., coalescing many changes by passing null), then delegates to super. This is characteristic of a hook within a Template Method where the superclass defines the workflow and subclasses customize a step.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 90,
+      ""adherence"": 80,
+      ""reason"": ""The class extends ProblemsLabelDecorator, a label decorator in Eclipse that augments label presentation (e.g., overlays for problems) without changing the underlying objects or client usage. CNavigatorProblemsLabelDecorator preserves the same role/interface while specializing behavior for the Common Navigator (optimizing the change notification), fitting the Decorator intent.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""The subclass overrides a protected hook method (fireProblemsChanged) to tweak a step in the parent’s event/refresh algorithm (e.g., coalescing many changes by passing null), then delegates to super. This is characteristic of a hook within a Template Method where the superclass defines the workflow and subclasses customize a step.""
+    }
+  ]
+}",22.506528
+DPD-cdt-CNavigatorProblemsLabelDecorator.java,decorator,gemini-3.0-pro,Observer,90,50,"The class overrides 'fireProblemsChanged', a method explicitly designed to notify listeners of state changes (Publisher/Subject role). The code implements specific logic to optimize the notification payload (forcing a full refresh by setting the resource list to null) before delegating the actual event firing to the superclass.","Based on the analysis of the source code provided, here is the JSON output detecting the design patterns.
+
+The analysis highlights that while the class name suggests the **Decorator** pattern, the implementation utilizes inheritance without composition (passing `null` to the super constructor), which does not adhere to the structural requirements of the standard GoF Decorator pattern. However, the method `fireProblemsChanged` clearly indicates participation in the **Observer** pattern (as a Publisher/Subject).
+
+```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 90,
+		""adherence"": 50,
+		""reason"": ""The class overrides 'fireProblemsChanged', a method explicitly designed to notify listeners of state changes (Publisher/Subject role). The code implements specific logic to optimize the notification payload (forcing a full refresh by setting the resource list to null) before delegating the actual event firing to the superclass.""
+	}]
+}
+```",58.258369
+DPD-junit5-RunnerDecorator.java,decorator,gpt-5,Decorator,25,15,"The interface name suggests decoration, but it does not implement or extend Runner (the component it would need to mimic). A classic Decorator must conform to the same interface as the component and delegate to a wrapped instance. Here we only see getDecoratedRunner() returning a Runner with no evidence of wrapping/delegation or concrete implementations. This looks more like a provider/factory for a Runner than a true Decorator, so adherence is very low and cannot be confirmed from this snippet alone.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 25,
+      ""adherence"": 15,
+      ""reason"": ""The interface name suggests decoration, but it does not implement or extend Runner (the component it would need to mimic). A classic Decorator must conform to the same interface as the component and delegate to a wrapped instance. Here we only see getDecoratedRunner() returning a Runner with no evidence of wrapping/delegation or concrete implementations. This looks more like a provider/factory for a Runner than a true Decorator, so adherence is very low and cannot be confirmed from this snippet alone.""
+    }
+  ]
+}",39.54551
+DPD-junit5-RunnerDecorator.java,decorator,gemini-3.0-pro,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",36.71721
+DPD-Get-Another-Label-Decorator.java,decorator,gpt-5,Decorator,78,55,"DatumDecorator wraps a Datum instance (via a superclass Decorator<T>) and adds extra responsibilities (quality/cost computations) by delegating to the wrapped object and Helper utilities. This aligns with the Decorator intent of adding behavior by wrapping. However, it does not appear to implement the same interface/type as Datum (no transparent substitutability) and does not forward the full Datum API, so it only partially adheres to the classic Decorator pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 78,
+      ""adherence"": 55,
+      ""reason"": ""DatumDecorator wraps a Datum instance (via a superclass Decorator<T>) and adds extra responsibilities (quality/cost computations) by delegating to the wrapped object and Helper utilities. This aligns with the Decorator intent of adding behavior by wrapping. However, it does not appear to implement the same interface/type as Datum (no transparent substitutability) and does not forward the full Datum API, so it only partially adheres to the classic Decorator pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 30,
+      ""adherence"": 35,
+      ""reason"": ""Multiple algorithm variants are hinted via the ClassificationMethod enum (e.g., DS_Soft, MV_Soft, MinCost) and are selected at call sites. This suggests strategy-like variability, but the selection is parameter-based rather than using distinct Strategy objects with a common interface. Without polymorphic strategy objects or injection, adherence to the GoF Strategy pattern is weak.""
+    }
+  ]
+}",21.998138
+DPD-Get-Another-Label-Decorator.java,decorator,gpt-5,Strategy,30,35,"Multiple algorithm variants are hinted via the ClassificationMethod enum (e.g., DS_Soft, MV_Soft, MinCost) and are selected at call sites. This suggests strategy-like variability, but the selection is parameter-based rather than using distinct Strategy objects with a common interface. Without polymorphic strategy objects or injection, adherence to the GoF Strategy pattern is weak.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 78,
+      ""adherence"": 55,
+      ""reason"": ""DatumDecorator wraps a Datum instance (via a superclass Decorator<T>) and adds extra responsibilities (quality/cost computations) by delegating to the wrapped object and Helper utilities. This aligns with the Decorator intent of adding behavior by wrapping. However, it does not appear to implement the same interface/type as Datum (no transparent substitutability) and does not forward the full Datum API, so it only partially adheres to the classic Decorator pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 30,
+      ""adherence"": 35,
+      ""reason"": ""Multiple algorithm variants are hinted via the ClassificationMethod enum (e.g., DS_Soft, MV_Soft, MinCost) and are selected at call sites. This suggests strategy-like variability, but the selection is parameter-based rather than using distinct Strategy objects with a common interface. Without polymorphic strategy objects or injection, adherence to the GoF Strategy pattern is weak.""
+    }
+  ]
+}",21.998138
+DPD-Get-Another-Label-Decorator.java,decorator,gemini-3.0-pro,Decorator,95,88,"The class explicitly mimics the structure of the Decorator pattern. It extends a base `Decorator` class and accepts an instance of `Datum` in the constructor, establishing a composition relationship (wrapping). It then adds significant new functionality (additional methods for cost and data quality calculations) while delegating core data retrieval to the wrapped `object` instance. Although the specific interface definitions are not visible to confirm strict type interchangeability with `Datum`, the structural implementation of wrapping and behavior expansion is consistent with the pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 95,
+		""adherence"": 88,
+		""reason"": ""The class explicitly mimics the structure of the Decorator pattern. It extends a base `Decorator` class and accepts an instance of `Datum` in the constructor, establishing a composition relationship (wrapping). It then adds significant new functionality (additional methods for cost and data quality calculations) while delegating core data retrieval to the wrapped `object` instance. Although the specific interface definitions are not visible to confirm strict type interchangeability with `Datum`, the structural implementation of wrapping and behavior expansion is consistent with the pattern.""
+	}]
+}
+```",40.916704
+DPD-molgenis_apps-legacy-TaskDecorator.java,decorator,gpt-5,Decorator,95,90,"TaskDecorator wraps a Mapper (via MapperDecorator), keeps the same Mapper interface, and augments add/update/remove by setting the owner and persisting TaskHistory before/after delegating to the wrapped mapper through super. This transparently adds responsibilities without changing the component’s interface. It is not an Adapter (no interface conversion), not a Proxy (primary intent is added behavior, not access control), and not Observer (no subscription/notification mechanism).","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""TaskDecorator wraps a Mapper (via MapperDecorator), keeps the same Mapper interface, and augments add/update/remove by setting the owner and persisting TaskHistory before/after delegating to the wrapped mapper through super. This transparently adds responsibilities without changing the component’s interface. It is not an Adapter (no interface conversion), not a Proxy (primary intent is added behavior, not access control), and not Observer (no subscription/notification mechanism).""
+    }
+  ]
+}",20.792908
+DPD-molgenis_apps-legacy-TaskDecorator.java,decorator,gemini-3.0-pro,Decorator,98,100,"The class `TaskDecorator` explicitly extends `MapperDecorator` and appears to wrap a `Mapper` component (implied by the constructor passing `generatedMapper` to `super`). It overrides operations (`add`, `update`, `remove`) to inject additional behavior (setting the owner and logging history) before or after delegating the execution to the wrapped object via `super` calls. This is the structural definition of the Decorator pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Decorator"",
+		""confidence"": 98,
+		""adherence"": 100,
+		""reason"": ""The class `TaskDecorator` explicitly extends `MapperDecorator` and appears to wrap a `Mapper` component (implied by the constructor passing `generatedMapper` to `super`). It overrides operations (`add`, `update`, `remove`) to inject additional behavior (setting the owner and logging history) before or after delegating the execution to the wrapped object via `super` calls. This is the structural definition of the Decorator pattern.""
+	}]
+}
+```",17.216826
+DPD-fuzzydb-AgeDecorator.java,decorator,gpt-5,Strategy,65,70,"AgeDecorator defines a specific algorithm for converting a BaseAttribute to a String by overriding getValueString. It is likely one of several interchangeable algorithms selected at runtime via the Decorator base type. There is no object wrapping, only polymorphic behavior, aligning with Strategy.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""AgeDecorator defines a specific algorithm for converting a BaseAttribute to a String by overriding getValueString. It is likely one of several interchangeable algorithms selected at runtime via the Decorator base type. There is no object wrapping, only polymorphic behavior, aligning with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 20,
+      ""adherence"": 15,
+      ""reason"": ""Despite the class name and base class name, the code shows no wrapped component or delegation to a contained component. It does not add responsibilities to a specific object instance; it simply computes a representation, so the GoF Decorator structure is not evident.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 35,
+      ""adherence"": 30,
+      ""reason"": ""It is plausible the Decorator base class defines a general workflow and relies on subclasses to supply the step getValueString. However, without seeing the base class, this remains speculative and thus only weakly indicated.""
+    }
+  ]
+}",30.795753
+DPD-fuzzydb-AgeDecorator.java,decorator,gpt-5,Decorator,20,15,"Despite the class name and base class name, the code shows no wrapped component or delegation to a contained component. It does not add responsibilities to a specific object instance; it simply computes a representation, so the GoF Decorator structure is not evident.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""AgeDecorator defines a specific algorithm for converting a BaseAttribute to a String by overriding getValueString. It is likely one of several interchangeable algorithms selected at runtime via the Decorator base type. There is no object wrapping, only polymorphic behavior, aligning with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 20,
+      ""adherence"": 15,
+      ""reason"": ""Despite the class name and base class name, the code shows no wrapped component or delegation to a contained component. It does not add responsibilities to a specific object instance; it simply computes a representation, so the GoF Decorator structure is not evident.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 35,
+      ""adherence"": 30,
+      ""reason"": ""It is plausible the Decorator base class defines a general workflow and relies on subclasses to supply the step getValueString. However, without seeing the base class, this remains speculative and thus only weakly indicated.""
+    }
+  ]
+}",30.795753
+DPD-fuzzydb-AgeDecorator.java,decorator,gpt-5,Template Method,35,30,"It is plausible the Decorator base class defines a general workflow and relies on subclasses to supply the step getValueString. However, without seeing the base class, this remains speculative and thus only weakly indicated.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 70,
+      ""reason"": ""AgeDecorator defines a specific algorithm for converting a BaseAttribute to a String by overriding getValueString. It is likely one of several interchangeable algorithms selected at runtime via the Decorator base type. There is no object wrapping, only polymorphic behavior, aligning with Strategy.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 20,
+      ""adherence"": 15,
+      ""reason"": ""Despite the class name and base class name, the code shows no wrapped component or delegation to a contained component. It does not add responsibilities to a specific object instance; it simply computes a representation, so the GoF Decorator structure is not evident.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 35,
+      ""adherence"": 30,
+      ""reason"": ""It is plausible the Decorator base class defines a general workflow and relies on subclasses to supply the step getValueString. However, without seeing the base class, this remains speculative and thus only weakly indicated.""
+    }
+  ]
+}",30.795753
+DPD-fuzzydb-AgeDecorator.java,decorator,gemini-3.0-pro,Strategy,95,100,"The class encapsulates a specific algorithm (calculating age from a timestamp) inside the 'getValueString' method. By extending 'Decorator' (acting as the Strategy interface/abstract class), this logic can be swapped interchangeably with other formatting strategies. The data ('BaseAttribute') is passed as an argument to the method, which is characteristic of the Strategy pattern, keeping the logic stateless and reusable.","Here is the analysis of the provided source code.
+
+```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 95,
+      ""adherence"": 100,
+      ""reason"": ""The class encapsulates a specific algorithm (calculating age from a timestamp) inside the 'getValueString' method. By extending 'Decorator' (acting as the Strategy interface/abstract class), this logic can be swapped interchangeably with other formatting strategies. The data ('BaseAttribute') is passed as an argument to the method, which is characteristic of the Strategy pattern, keeping the logic stateless and reusable.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 40,
+      ""adherence"": 10,
+      ""reason"": ""The class is explicitly named 'AgeDecorator' and extends a class named 'Decorator', indicating the developer's intent to apply the Decorator pattern. However, structurally, it fails to meet the GoF pattern requirements (the 'missing part' noted in the prompt). It does not wrap/contain an instance of the component (Composition) nor does it strictly mirror the component's interface to add stateful behavior. Instead, it relies on method arguments, behaving functionally like a Strategy or Formatter.""
+    }
+  ]
+}
+```",62.143832
+DPD-fuzzydb-AgeDecorator.java,decorator,gemini-3.0-pro,Decorator,40,10,"The class is explicitly named 'AgeDecorator' and extends a class named 'Decorator', indicating the developer's intent to apply the Decorator pattern. However, structurally, it fails to meet the GoF pattern requirements (the 'missing part' noted in the prompt). It does not wrap/contain an instance of the component (Composition) nor does it strictly mirror the component's interface to add stateful behavior. Instead, it relies on method arguments, behaving functionally like a Strategy or Formatter.","Here is the analysis of the provided source code.
+
+```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 95,
+      ""adherence"": 100,
+      ""reason"": ""The class encapsulates a specific algorithm (calculating age from a timestamp) inside the 'getValueString' method. By extending 'Decorator' (acting as the Strategy interface/abstract class), this logic can be swapped interchangeably with other formatting strategies. The data ('BaseAttribute') is passed as an argument to the method, which is characteristic of the Strategy pattern, keeping the logic stateless and reusable.""
+    },
+    {
+      ""pattern"": ""Decorator"",
+      ""confidence"": 40,
+      ""adherence"": 10,
+      ""reason"": ""The class is explicitly named 'AgeDecorator' and extends a class named 'Decorator', indicating the developer's intent to apply the Decorator pattern. However, structurally, it fails to meet the GoF pattern requirements (the 'missing part' noted in the prompt). It does not wrap/contain an instance of the component (Composition) nor does it strictly mirror the component's interface to add stateful behavior. Instead, it relies on method arguments, behaving functionally like a Strategy or Formatter.""
+    }
+  ]
+}
+```",62.143832
+DPD-jge3d-Observer.java,observer,gpt-5,Observer,62,35,"Defines an Observer-like interface with an update() callback intended for notification, consistent with the Observer pattern. However, there is no Subject/Observable, registration (attach/detach), or notification mechanism shown, and the update method carries no context/data, so the full pattern implementation cannot be confirmed.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 62,
+      ""adherence"": 35,
+      ""reason"": ""Defines an Observer-like interface with an update() callback intended for notification, consistent with the Observer pattern. However, there is no Subject/Observable, registration (attach/detach), or notification mechanism shown, and the update method carries no context/data, so the full pattern implementation cannot be confirmed.""
+    }
+  ]
+}",12.649353
+DPD-jge3d-Observer.java,observer,gemini-3.0-pro,Observer,98,100,"The code defines an interface named `EntityListObserver` containing a single method `update()`. This strictly follows the definition of the Observer participant in the Observer design pattern, establishing a contract for objects that need to be notified of changes.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 98,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface named `EntityListObserver` containing a single method `update()`. This strictly follows the definition of the Observer participant in the Observer design pattern, establishing a contract for objects that need to be notified of changes.""
+	}]
+}
+```",24.474442
+DPD-smsc-server-StatisticsObserver.java,observer,gpt-5,Observer,68,55,"The interface defines a set of event notification callbacks (notifyBind, notifyBindFail, notifyOpenConnection, etc.), which is characteristic of the Observer/Listener style where a subject would notify observers about state changes or events. However, the snippet only shows the observer interface without the corresponding subject (no registration/unregistration or notify mechanisms shown), so full adherence to the Observer pattern cannot be confirmed from this code alone.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 68,
+      ""adherence"": 55,
+      ""reason"": ""The interface defines a set of event notification callbacks (notifyBind, notifyBindFail, notifyOpenConnection, etc.), which is characteristic of the Observer/Listener style where a subject would notify observers about state changes or events. However, the snippet only shows the observer interface without the corresponding subject (no registration/unregistration or notify mechanisms shown), so full adherence to the Observer pattern cannot be confirmed from this code alone.""
+    }
+  ]
+}",14.551334
+DPD-smsc-server-StatisticsObserver.java,observer,gemini-3.0-pro,Observer,100,100,"The code defines an interface named 'StatisticsObserver' containing multiple void methods prefixed with 'notify' (e.g., 'notifyBind', 'notifyMessageReceived'). This structure corresponds exactly to the Observer participant in the Observer design pattern, defining a contract for objects that subscribe to and receive specific event notifications from a Subject.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface named 'StatisticsObserver' containing multiple void methods prefixed with 'notify' (e.g., 'notifyBind', 'notifyMessageReceived'). This structure corresponds exactly to the Observer participant in the Observer design pattern, defining a contract for objects that subscribe to and receive specific event notifications from a Subject.""
+	}]
+}
+```",16.39675
+DPD-cream-LoggingObserver.java,observer,gpt-5,Observer,93,90,"LoggingObserver implements EventListener and is registered via @JcrOnEvent to receive JCR repository events. The framework notifies onEvent when the subject (JCR observation mechanism) publishes changes, which is a classic observer/subscriber setup.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 93,
+      ""adherence"": 90,
+      ""reason"": ""LoggingObserver implements EventListener and is registered via @JcrOnEvent to receive JCR repository events. The framework notifies onEvent when the subject (JCR observation mechanism) publishes changes, which is a classic observer/subscriber setup.""
+    },
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 87,
+      ""adherence"": 95,
+      ""reason"": ""The code consumes EventIterator using hasNext() and nextEvent() to traverse events without exposing the underlying collection, which aligns with the Iterator pattern.""
+    }
+  ]
+}",20.039821
+DPD-cream-LoggingObserver.java,observer,gpt-5,Iterator,87,95,"The code consumes EventIterator using hasNext() and nextEvent() to traverse events without exposing the underlying collection, which aligns with the Iterator pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 93,
+      ""adherence"": 90,
+      ""reason"": ""LoggingObserver implements EventListener and is registered via @JcrOnEvent to receive JCR repository events. The framework notifies onEvent when the subject (JCR observation mechanism) publishes changes, which is a classic observer/subscriber setup.""
+    },
+    {
+      ""pattern"": ""Iterator"",
+      ""confidence"": 87,
+      ""adherence"": 95,
+      ""reason"": ""The code consumes EventIterator using hasNext() and nextEvent() to traverse events without exposing the underlying collection, which aligns with the Iterator pattern.""
+    }
+  ]
+}",20.039821
+DPD-cream-LoggingObserver.java,observer,gemini-3.0-pro,Observer,100,100,"The class functions as a Concrete Observer. It implements the `EventListener` interface and defines the `onEvent` method to receive updates. The `@JcrOnEvent` annotation acts as the subscription mechanism, registering the class to listen for specific state changes (events like NODE_ADDED, NODE_REMOVED) occurring within the Subject (the Java Content Repository/JCR).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class functions as a Concrete Observer. It implements the `EventListener` interface and defines the `onEvent` method to receive updates. The `@JcrOnEvent` annotation acts as the subscription mechanism, registering the class to listen for specific state changes (events like NODE_ADDED, NODE_REMOVED) occurring within the Subject (the Java Content Repository/JCR).""
+	}]
+}
+```",19.760157
+DPD-JavaDesignPatternExercises-ISubject.java,observer,gpt-5,Observer,93,70,"The ISubject interface defines methods to register, deregister, and notify observers (IObserver), which matches the Subject role in the Observer pattern. However, adherence is not perfect because the code is only an interface (no storage of observers or concrete notify behavior shown), method names are atypical (addSubject/removeSubject instead of addObserver/removeObserver), and there is no indication of what data is pushed/pulled to observers (no update signature or event parameter visible).","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 93,
+      ""adherence"": 70,
+      ""reason"": ""The ISubject interface defines methods to register, deregister, and notify observers (IObserver), which matches the Subject role in the Observer pattern. However, adherence is not perfect because the code is only an interface (no storage of observers or concrete notify behavior shown), method names are atypical (addSubject/removeSubject instead of addObserver/removeObserver), and there is no indication of what data is pushed/pulled to observers (no update signature or event parameter visible).""
+    }
+  ]
+}",10.465498
+DPD-JavaDesignPatternExercises-ISubject.java,observer,gemini-3.0-pro,Observer,95,60,"The interface ISubject clearly defines the contract for the Subject participant in the Observer pattern, featuring the three required methods: subscription, unsubscription, and notification. The methods accept an 'IObserver' type, confirming the relationship. However, the adherence score is penalized because the method names are semantically incorrect: 'addSubject' and 'notifySubjects' imply the Subject is managing itself, whereas standard naming would be 'addObserver' and 'notifyObservers'.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 95,
+		""adherence"": 60,
+		""reason"": ""The interface ISubject clearly defines the contract for the Subject participant in the Observer pattern, featuring the three required methods: subscription, unsubscription, and notification. The methods accept an 'IObserver' type, confirming the relationship. However, the adherence score is penalized because the method names are semantically incorrect: 'addSubject' and 'notifySubjects' imply the Subject is managing itself, whereas standard naming would be 'addObserver' and 'notifyObservers'.""
+	}]
+}
+```",16.338513
+DPD-cxf-AbstractFaultChainInitiatorObserver.java,observer,gpt-5,Observer,90,90,"The class implements the MessageObserver interface and exposes onMessage as a callback that is invoked when a message arrives, fitting the observer pattern where the subject (message source/transport) notifies observers.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""The class implements the MessageObserver interface and exposes onMessage as a callback that is invoked when a message arrives, fitting the observer pattern where the subject (message source/transport) notifies observers.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""onMessage defines the fixed algorithm for fault handling (construct fault message, set exchange state, build and run interceptor chain) while deferring specific steps to abstract hooks isOutboundObserver(), getPhases(), and the overridable initializeInterceptors().""
+    },
+    {
+      ""pattern"": ""Chain of Responsibility"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""It constructs and executes a PhaseInterceptorChain and invokes chain.doIntercept(faultMessage), passing the message through a sequence of interceptors (handlers), which is characteristic of CoR.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""The code delegates message creation to exchange.getEndpoint().getBinding().createMessage(faultMessage) instead of instantiating directly, indicating use of a factory method provided by another component (Binding). This class is a client of that factory.""
+    }
+  ]
+}",29.107787
+DPD-cxf-AbstractFaultChainInitiatorObserver.java,observer,gpt-5,Template Method,95,95,"onMessage defines the fixed algorithm for fault handling (construct fault message, set exchange state, build and run interceptor chain) while deferring specific steps to abstract hooks isOutboundObserver(), getPhases(), and the overridable initializeInterceptors().","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""The class implements the MessageObserver interface and exposes onMessage as a callback that is invoked when a message arrives, fitting the observer pattern where the subject (message source/transport) notifies observers.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""onMessage defines the fixed algorithm for fault handling (construct fault message, set exchange state, build and run interceptor chain) while deferring specific steps to abstract hooks isOutboundObserver(), getPhases(), and the overridable initializeInterceptors().""
+    },
+    {
+      ""pattern"": ""Chain of Responsibility"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""It constructs and executes a PhaseInterceptorChain and invokes chain.doIntercept(faultMessage), passing the message through a sequence of interceptors (handlers), which is characteristic of CoR.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""The code delegates message creation to exchange.getEndpoint().getBinding().createMessage(faultMessage) instead of instantiating directly, indicating use of a factory method provided by another component (Binding). This class is a client of that factory.""
+    }
+  ]
+}",29.107787
+DPD-cxf-AbstractFaultChainInitiatorObserver.java,observer,gpt-5,Chain of Responsibility,85,85,"It constructs and executes a PhaseInterceptorChain and invokes chain.doIntercept(faultMessage), passing the message through a sequence of interceptors (handlers), which is characteristic of CoR.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""The class implements the MessageObserver interface and exposes onMessage as a callback that is invoked when a message arrives, fitting the observer pattern where the subject (message source/transport) notifies observers.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""onMessage defines the fixed algorithm for fault handling (construct fault message, set exchange state, build and run interceptor chain) while deferring specific steps to abstract hooks isOutboundObserver(), getPhases(), and the overridable initializeInterceptors().""
+    },
+    {
+      ""pattern"": ""Chain of Responsibility"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""It constructs and executes a PhaseInterceptorChain and invokes chain.doIntercept(faultMessage), passing the message through a sequence of interceptors (handlers), which is characteristic of CoR.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""The code delegates message creation to exchange.getEndpoint().getBinding().createMessage(faultMessage) instead of instantiating directly, indicating use of a factory method provided by another component (Binding). This class is a client of that factory.""
+    }
+  ]
+}",29.107787
+DPD-cxf-AbstractFaultChainInitiatorObserver.java,observer,gpt-5,Factory Method,60,60,"The code delegates message creation to exchange.getEndpoint().getBinding().createMessage(faultMessage) instead of instantiating directly, indicating use of a factory method provided by another component (Binding). This class is a client of that factory.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 90,
+      ""adherence"": 90,
+      ""reason"": ""The class implements the MessageObserver interface and exposes onMessage as a callback that is invoked when a message arrives, fitting the observer pattern where the subject (message source/transport) notifies observers.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 95,
+      ""adherence"": 95,
+      ""reason"": ""onMessage defines the fixed algorithm for fault handling (construct fault message, set exchange state, build and run interceptor chain) while deferring specific steps to abstract hooks isOutboundObserver(), getPhases(), and the overridable initializeInterceptors().""
+    },
+    {
+      ""pattern"": ""Chain of Responsibility"",
+      ""confidence"": 85,
+      ""adherence"": 85,
+      ""reason"": ""It constructs and executes a PhaseInterceptorChain and invokes chain.doIntercept(faultMessage), passing the message through a sequence of interceptors (handlers), which is characteristic of CoR.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""The code delegates message creation to exchange.getEndpoint().getBinding().createMessage(faultMessage) instead of instantiating directly, indicating use of a factory method provided by another component (Binding). This class is a client of that factory.""
+    }
+  ]
+}",29.107787
+DPD-cxf-AbstractFaultChainInitiatorObserver.java,observer,gemini-3.0-pro,Observer,100,100,"The class implements the 'MessageObserver' interface and defines the 'onMessage' method. This structure corresponds to the Subscriber participant in the Observer pattern, where 'onMessage' is the update method invoked when the subject triggers an event.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Observer"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements the 'MessageObserver' interface and defines the 'onMessage' method. This structure corresponds to the Subscriber participant in the Observer pattern, where 'onMessage' is the update method invoked when the subject triggers an event.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 100,
+			""adherence"": 95,
+			""reason"": ""The 'onMessage' method acts as the template method. It defines a fixed algorithm skeleton for handling fault messages (setting contexts, processing the exchange, executing a chain). It defers specific steps of the algorithm to the abstract methods 'getPhases' and 'isOutboundObserver', and provides a hook method 'initializeInterceptors' for subclasses to extend.""
+		}
+	]
+}
+```",21.078694
+DPD-cxf-AbstractFaultChainInitiatorObserver.java,observer,gemini-3.0-pro,Template Method,100,95,"The 'onMessage' method acts as the template method. It defines a fixed algorithm skeleton for handling fault messages (setting contexts, processing the exchange, executing a chain). It defers specific steps of the algorithm to the abstract methods 'getPhases' and 'isOutboundObserver', and provides a hook method 'initializeInterceptors' for subclasses to extend.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Observer"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements the 'MessageObserver' interface and defines the 'onMessage' method. This structure corresponds to the Subscriber participant in the Observer pattern, where 'onMessage' is the update method invoked when the subject triggers an event.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 100,
+			""adherence"": 95,
+			""reason"": ""The 'onMessage' method acts as the template method. It defines a fixed algorithm skeleton for handling fault messages (setting contexts, processing the exchange, executing a chain). It defers specific steps of the algorithm to the abstract methods 'getPhases' and 'isOutboundObserver', and provides a hook method 'initializeInterceptors' for subclasses to extend.""
+		}
+	]
+}
+```",21.078694
+DPD-JavaDesignPatternExercises-IObserver.java,observer,gpt-5,Observer,70,55,"The interface IObserver with a single update(ISubject s) method matches the canonical Observer role, referencing a Subject type (ISubject). This suggests an Observer pattern skeleton. However, the snippet lacks the Subject interface/implementation (attach/detach/notify) and any concrete observers/subjects, so full adherence to the pattern cannot be verified.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 70,
+      ""adherence"": 55,
+      ""reason"": ""The interface IObserver with a single update(ISubject s) method matches the canonical Observer role, referencing a Subject type (ISubject). This suggests an Observer pattern skeleton. However, the snippet lacks the Subject interface/implementation (attach/detach/notify) and any concrete observers/subjects, so full adherence to the pattern cannot be verified.""
+    }
+  ]
+}",8.797843
+DPD-JavaDesignPatternExercises-IObserver.java,observer,gemini-3.0-pro,Observer,95,100,"The provided code defines an interface 'IObserver' containing an 'update' method that accepts an 'ISubject' as an argument. This structure strictly adheres to the definition of the Observer component within the Observer design pattern, establishing the necessary contract for a Subject to notify subscribers.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 95,
+		""adherence"": 100,
+		""reason"": ""The provided code defines an interface 'IObserver' containing an 'update' method that accepts an 'ISubject' as an argument. This structure strictly adheres to the definition of the Observer component within the Observer design pattern, establishing the necessary contract for a Subject to notify subscribers.""
+	}]
+}
+```",26.508029
+DPD-brightroom-AppHistoryObserver.java,observer,gpt-5,Observer,95,90,"The class both observes and registers observers. AppHistoryObserver implements HistoryObserver and reacts to history/navigation events fired by HistoryHandler (onPlaceChange, onHistoryChanged, onAppStarted). It also registers multiple event handlers on an EventBus (RoomListEntrySelectedEvent, ActionEvent with ActionNames.BACK, GauthEvent). Handlers are decoupled from publishers and managed via HandlerRegistration/HandlerRegistrationCollection, which is characteristic of the observer (publisher-subscriber) pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class both observes and registers observers. AppHistoryObserver implements HistoryObserver and reacts to history/navigation events fired by HistoryHandler (onPlaceChange, onHistoryChanged, onAppStarted). It also registers multiple event handlers on an EventBus (RoomListEntrySelectedEvent, ActionEvent with ActionNames.BACK, GauthEvent). Handlers are decoupled from publishers and managed via HandlerRegistration/HandlerRegistrationCollection, which is characteristic of the observer (publisher-subscriber) pattern.""
+    }
+  ]
+}",37.86326
+DPD-brightroom-AppHistoryObserver.java,observer,gemini-3.0-pro,Observer,100,100,"The class implements the 'HistoryObserver' interface and provides concrete implementations for callback methods like 'onPlaceChange' and 'onHistoryChanged', which are triggered upon state changes in the history system. Additionally, inside the 'bind' method, the class acts as a subscriber by registering specific handlers (anonymous inner classes) to the 'EventBus' to listen for and react to events such as 'RoomListEntrySelectedEvent' and 'ActionEvent'. This fits the definition of the Observer pattern (specifically the Publisher-Subscriber variation).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class implements the 'HistoryObserver' interface and provides concrete implementations for callback methods like 'onPlaceChange' and 'onHistoryChanged', which are triggered upon state changes in the history system. Additionally, inside the 'bind' method, the class acts as a subscriber by registering specific handlers (anonymous inner classes) to the 'EventBus' to listen for and react to events such as 'RoomListEntrySelectedEvent' and 'ActionEvent'. This fits the definition of the Observer pattern (specifically the Publisher-Subscriber variation).""
+	}]
+}
+```",19.126581
+DPD-UK-Ejemplos-Observer.java,observer,gpt-5,Observer,90,45,"Defines an Observer interface with a single update(Object) callback, which matches the observer's role of receiving notifications. However, there is no Subject/Observable, no attach/detach registration methods, and no notify mechanism shown. The use of a raw Object for the update payload also indicates a loosely typed, partial implementation.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 90,
+      ""adherence"": 45,
+      ""reason"": ""Defines an Observer interface with a single update(Object) callback, which matches the observer's role of receiving notifications. However, there is no Subject/Observable, no attach/detach registration methods, and no notify mechanism shown. The use of a raw Object for the update payload also indicates a loosely typed, partial implementation.""
+    }
+  ]
+}",13.347761
+DPD-UK-Ejemplos-Observer.java,observer,gemini-3.0-pro,Observer,95,20,"The code defines an interface specifically named 'Observer' containing an 'update' method that accepts an object (likely the state or the subject), which matches the standard definition of the Observer component in this pattern. However, adherence is low because the implementation is incomplete: the 'Subject' (or Observable) component, the mechanism for attaching/detaching observers, and the logic for triggering notifications are completely missing.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 95,
+		""adherence"": 20,
+		""reason"": ""The code defines an interface specifically named 'Observer' containing an 'update' method that accepts an object (likely the state or the subject), which matches the standard definition of the Observer component in this pattern. However, adherence is low because the implementation is incomplete: the 'Subject' (or Observable) component, the mechanism for attaching/detaching observers, and the logic for triggering notifications are completely missing.""
+	}]
+}
+```",18.630233
+DPD-arquillian_deprecated-ObserverImpl.java,observer,gpt-5,Observer,95,90,"ObserverImpl wraps a target and an annotated observer method, implements ObserverMethod, determines the observed event type via the first parameter (getType), and invokes the observer when an event is published (invoke). It orders observers by @Observes(precedence) and returns whether the invocation occurred, which is typical of an event bus/observer system. Although the subject/event dispatcher is not shown here, this class is a concrete observer participant.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""ObserverImpl wraps a target and an annotated observer method, implements ObserverMethod, determines the observed event type via the first parameter (getType), and invokes the observer when an event is published (invoke). It orders observers by @Observes(precedence) and returns whether the invocation occurred, which is typical of an event bus/observer system. Although the subject/event dispatcher is not shown here, this class is a concrete observer participant.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 68,
+      ""adherence"": 70,
+      ""reason"": ""The class adapts an arbitrary target object and a reflective Method into the ObserverMethod interface. It translates invoke(manager, event) into a reflective call on the target with resolved arguments, effectively adapting the method’s signature/annotation-based contract to the ObserverMethod protocol.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 65,
+      ""adherence"": 75,
+      ""reason"": ""resolveArguments pulls dependencies for non-event parameters at call time via manager.resolve(argumentType), which centralizes lookup of required services/resources. This pull-based resolution through a Manager is characteristic of the Service Locator pattern rather than push-based dependency injection.""
+    }
+  ]
+}",33.236368
+DPD-arquillian_deprecated-ObserverImpl.java,observer,gpt-5,Adapter,68,70,"The class adapts an arbitrary target object and a reflective Method into the ObserverMethod interface. It translates invoke(manager, event) into a reflective call on the target with resolved arguments, effectively adapting the method’s signature/annotation-based contract to the ObserverMethod protocol.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""ObserverImpl wraps a target and an annotated observer method, implements ObserverMethod, determines the observed event type via the first parameter (getType), and invokes the observer when an event is published (invoke). It orders observers by @Observes(precedence) and returns whether the invocation occurred, which is typical of an event bus/observer system. Although the subject/event dispatcher is not shown here, this class is a concrete observer participant.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 68,
+      ""adherence"": 70,
+      ""reason"": ""The class adapts an arbitrary target object and a reflective Method into the ObserverMethod interface. It translates invoke(manager, event) into a reflective call on the target with resolved arguments, effectively adapting the method’s signature/annotation-based contract to the ObserverMethod protocol.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 65,
+      ""adherence"": 75,
+      ""reason"": ""resolveArguments pulls dependencies for non-event parameters at call time via manager.resolve(argumentType), which centralizes lookup of required services/resources. This pull-based resolution through a Manager is characteristic of the Service Locator pattern rather than push-based dependency injection.""
+    }
+  ]
+}",33.236368
+DPD-arquillian_deprecated-ObserverImpl.java,observer,gpt-5,Service Locator,65,75,"resolveArguments pulls dependencies for non-event parameters at call time via manager.resolve(argumentType), which centralizes lookup of required services/resources. This pull-based resolution through a Manager is characteristic of the Service Locator pattern rather than push-based dependency injection.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""ObserverImpl wraps a target and an annotated observer method, implements ObserverMethod, determines the observed event type via the first parameter (getType), and invokes the observer when an event is published (invoke). It orders observers by @Observes(precedence) and returns whether the invocation occurred, which is typical of an event bus/observer system. Although the subject/event dispatcher is not shown here, this class is a concrete observer participant.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 68,
+      ""adherence"": 70,
+      ""reason"": ""The class adapts an arbitrary target object and a reflective Method into the ObserverMethod interface. It translates invoke(manager, event) into a reflective call on the target with resolved arguments, effectively adapting the method’s signature/annotation-based contract to the ObserverMethod protocol.""
+    },
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 65,
+      ""adherence"": 75,
+      ""reason"": ""resolveArguments pulls dependencies for non-event parameters at call time via manager.resolve(argumentType), which centralizes lookup of required services/resources. This pull-based resolution through a Manager is characteristic of the Service Locator pattern rather than push-based dependency injection.""
+    }
+  ]
+}",33.236368
+DPD-arquillian_deprecated-ObserverImpl.java,observer,gemini-3.0-pro,Observer,95,90,"The class is explicitly named `ObserverImpl` and implements `ObserverMethod`. It defines behavior to receive and process events (`invoke` method) and handles ordering based on `@Observes` annotations. It acts as the Subscriber/Observer component within an event-driven system, reacting to state changes passed by a Manager.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class is explicitly named `ObserverImpl` and implements `ObserverMethod`. It defines behavior to receive and process events (`invoke` method) and handles ordering based on `@Observes` annotations. It acts as the Subscriber/Observer component within an event-driven system, reacting to state changes passed by a Manager.""
+		},
+		{
+			""pattern"": ""Adapter"",
+			""confidence"": 90,
+			""adherence"": 95,
+			""reason"": ""The class acts as an Object Adapter. It wraps an arbitrary `target` Object and a `java.lang.reflect.Method` (the adaptees) and makes them conform to the `ObserverMethod` interface. The `invoke` method translates the interface request into a specific reflective call (`method.invoke`) on the wrapped object.""
+		},
+		{
+			""pattern"": ""Static Factory Method"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class provides a public static creation method `of(Object extension, Method observerMethod)` which encapsulates the instantiation logic and hides the package-private constructor.""
+		}
+	]
+}
+```",29.367697
+DPD-arquillian_deprecated-ObserverImpl.java,observer,gemini-3.0-pro,Adapter,90,95,The class acts as an Object Adapter. It wraps an arbitrary `target` Object and a `java.lang.reflect.Method` (the adaptees) and makes them conform to the `ObserverMethod` interface. The `invoke` method translates the interface request into a specific reflective call (`method.invoke`) on the wrapped object.,"```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class is explicitly named `ObserverImpl` and implements `ObserverMethod`. It defines behavior to receive and process events (`invoke` method) and handles ordering based on `@Observes` annotations. It acts as the Subscriber/Observer component within an event-driven system, reacting to state changes passed by a Manager.""
+		},
+		{
+			""pattern"": ""Adapter"",
+			""confidence"": 90,
+			""adherence"": 95,
+			""reason"": ""The class acts as an Object Adapter. It wraps an arbitrary `target` Object and a `java.lang.reflect.Method` (the adaptees) and makes them conform to the `ObserverMethod` interface. The `invoke` method translates the interface request into a specific reflective call (`method.invoke`) on the wrapped object.""
+		},
+		{
+			""pattern"": ""Static Factory Method"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class provides a public static creation method `of(Object extension, Method observerMethod)` which encapsulates the instantiation logic and hides the package-private constructor.""
+		}
+	]
+}
+```",29.367697
+DPD-arquillian_deprecated-ObserverImpl.java,observer,gemini-3.0-pro,Static Factory Method,100,100,"The class provides a public static creation method `of(Object extension, Method observerMethod)` which encapsulates the instantiation logic and hides the package-private constructor.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class is explicitly named `ObserverImpl` and implements `ObserverMethod`. It defines behavior to receive and process events (`invoke` method) and handles ordering based on `@Observes` annotations. It acts as the Subscriber/Observer component within an event-driven system, reacting to state changes passed by a Manager.""
+		},
+		{
+			""pattern"": ""Adapter"",
+			""confidence"": 90,
+			""adherence"": 95,
+			""reason"": ""The class acts as an Object Adapter. It wraps an arbitrary `target` Object and a `java.lang.reflect.Method` (the adaptees) and makes them conform to the `ObserverMethod` interface. The `invoke` method translates the interface request into a specific reflective call (`method.invoke`) on the wrapped object.""
+		},
+		{
+			""pattern"": ""Static Factory Method"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class provides a public static creation method `of(Object extension, Method observerMethod)` which encapsulates the instantiation logic and hides the package-private constructor.""
+		}
+	]
+}
+```",29.367697
+DPD-pcgen-svn-ShowMessageGuiObserver.java,observer,gpt-5,Observer,96,90,"The class implements java.util.Observer and overrides update(Observable, Object) to react to notifications from an Observable. It processes the notification payload (MessageWrapper) and updates the GUI accordingly. This is a direct use of Java’s built-in Observer/Observable mechanism, which models the GoF Observer pattern. The subject (Observable) is not shown here, but the observer role is correctly implemented.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 96,
+      ""adherence"": 90,
+      ""reason"": ""The class implements java.util.Observer and overrides update(Observable, Object) to react to notifications from an Observable. It processes the notification payload (MessageWrapper) and updates the GUI accordingly. This is a direct use of Java’s built-in Observer/Observable mechanism, which models the GoF Observer pattern. The subject (Observable) is not shown here, but the observer role is correctly implemented.""
+    }
+  ]
+}",15.80145
+DPD-pcgen-svn-ShowMessageGuiObserver.java,observer,gemini-3.0-pro,Observer,100,100,"The class explicitly implements the 'java.util.Observer' interface and overrides the 'update' method. It contains the logic to react to notifications (specifically 'MessageWrapper' objects) sent by an 'Observable' subject, which is the standard implementation of the Concrete Observer participant in Java.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Observer"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class explicitly implements the 'java.util.Observer' interface and overrides the 'update' method. It contains the logic to react to notifications (specifically 'MessageWrapper' objects) sent by an 'Observable' subject, which is the standard implementation of the Concrete Observer participant in Java.""
+	}]
+}
+```",13.421934
+DPD-AllBinary-Platform-ImageComparisonResultCacheSingleton.java,singleton,gpt-5,Singleton,93,88,"Maintains a single, globally accessible CacheInterface instance via a private static field initialized in a static block, a private constructor to prevent external instantiation, and a public static accessor. The eager static initialization is thread-safe; the only deviation from the textbook form is that getInstance returns the CacheInterface rather than the class itself.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 93,
+      ""adherence"": 88,
+      ""reason"": ""Maintains a single, globally accessible CacheInterface instance via a private static field initialized in a static block, a private constructor to prevent external instantiation, and a public static accessor. The eager static initialization is thread-safe; the only deviation from the textbook form is that getInstance returns the CacheInterface rather than the class itself.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""The cache instance is obtained via CacheInterfaceFactory.getInstance(...) with type and policy inputs, decoupling creation from use. Although this appears to be a static/simple factory rather than a subclass-overridden creator, it follows the factory method intent in this usage.""
+    }
+  ]
+}",43.6122
+DPD-AllBinary-Platform-ImageComparisonResultCacheSingleton.java,singleton,gpt-5,Factory Method,65,60,"The cache instance is obtained via CacheInterfaceFactory.getInstance(...) with type and policy inputs, decoupling creation from use. Although this appears to be a static/simple factory rather than a subclass-overridden creator, it follows the factory method intent in this usage.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 93,
+      ""adherence"": 88,
+      ""reason"": ""Maintains a single, globally accessible CacheInterface instance via a private static field initialized in a static block, a private constructor to prevent external instantiation, and a public static accessor. The eager static initialization is thread-safe; the only deviation from the textbook form is that getInstance returns the CacheInterface rather than the class itself.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""The cache instance is obtained via CacheInterfaceFactory.getInstance(...) with type and policy inputs, decoupling creation from use. Although this appears to be a static/simple factory rather than a subclass-overridden creator, it follows the factory method intent in this usage.""
+    }
+  ]
+}",43.6122
+DPD-AllBinary-Platform-ImageComparisonResultCacheSingleton.java,singleton,gemini-3.0-pro,Singleton,95,60,"The class explicitly enforces non-instantiability via a private constructor and provides a global point of access (`getInstance`). However, structurally, it acts as a 'Static Wrapper' or 'Holder' for a different type (`CacheInterface`) rather than managing and returning an instance of the class itself, which deviates from the standard GoF implementation where a Singleton returns an instance of its own class.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 95,
+		""adherence"": 60,
+		""reason"": ""The class explicitly enforces non-instantiability via a private constructor and provides a global point of access (`getInstance`). However, structurally, it acts as a 'Static Wrapper' or 'Holder' for a different type (`CacheInterface`) rather than managing and returning an instance of the class itself, which deviates from the standard GoF implementation where a Singleton returns an instance of its own class.""
+	}]
+}
+```",54.015017
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gpt-5,Singleton,95,50,"The class exposes a single static final instance (SINGLETON) and a getInstance() accessor, indicating a Singleton. However, there is no private constructor, so external code can still instantiate the class (default public constructor), which breaks the Singleton guarantee. Eager initialization is thread-safe.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 50,
+      ""reason"": ""The class exposes a single static final instance (SINGLETON) and a getInstance() accessor, indicating a Singleton. However, there is no private constructor, so external code can still instantiate the class (default public constructor), which breaks the Singleton guarantee. Eager initialization is thread-safe.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 80,
+      ""adherence"": 60,
+      ""reason"": ""Scaling behavior is delegated to a replaceable scalableListener with calls to scale(), getLeft(), and getTop(), allowing different scaling strategies. However, the field and setter are typed as BaseScalable instead of the ScalableListener interface, reducing substitutability and flexibility.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 85,
+      ""adherence"": 65,
+      ""reason"": ""The class publishes display change events via DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent) when internal state changes are queued and processed, decoupling the notifier from observers. The subject does not manage subscribers directly but uses a centralized event handler, which is a common Observer-style event bus.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 45,
+      ""adherence"": 50,
+      ""reason"": ""The code acquires an OperatingSystemInterface via OperatingSystemFactory.getInstance().getOperatingSystemInstance(), suggesting factory-based creation of OS-specific implementations. Details of the factory are not present in this snippet, so the identification is based on usage and naming, with limited evidence.""
+    }
+  ]
+}",76.903857
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gpt-5,Strategy,80,60,"Scaling behavior is delegated to a replaceable scalableListener with calls to scale(), getLeft(), and getTop(), allowing different scaling strategies. However, the field and setter are typed as BaseScalable instead of the ScalableListener interface, reducing substitutability and flexibility.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 50,
+      ""reason"": ""The class exposes a single static final instance (SINGLETON) and a getInstance() accessor, indicating a Singleton. However, there is no private constructor, so external code can still instantiate the class (default public constructor), which breaks the Singleton guarantee. Eager initialization is thread-safe.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 80,
+      ""adherence"": 60,
+      ""reason"": ""Scaling behavior is delegated to a replaceable scalableListener with calls to scale(), getLeft(), and getTop(), allowing different scaling strategies. However, the field and setter are typed as BaseScalable instead of the ScalableListener interface, reducing substitutability and flexibility.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 85,
+      ""adherence"": 65,
+      ""reason"": ""The class publishes display change events via DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent) when internal state changes are queued and processed, decoupling the notifier from observers. The subject does not manage subscribers directly but uses a centralized event handler, which is a common Observer-style event bus.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 45,
+      ""adherence"": 50,
+      ""reason"": ""The code acquires an OperatingSystemInterface via OperatingSystemFactory.getInstance().getOperatingSystemInstance(), suggesting factory-based creation of OS-specific implementations. Details of the factory are not present in this snippet, so the identification is based on usage and naming, with limited evidence.""
+    }
+  ]
+}",76.903857
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gpt-5,Observer,85,65,"The class publishes display change events via DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent) when internal state changes are queued and processed, decoupling the notifier from observers. The subject does not manage subscribers directly but uses a centralized event handler, which is a common Observer-style event bus.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 50,
+      ""reason"": ""The class exposes a single static final instance (SINGLETON) and a getInstance() accessor, indicating a Singleton. However, there is no private constructor, so external code can still instantiate the class (default public constructor), which breaks the Singleton guarantee. Eager initialization is thread-safe.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 80,
+      ""adherence"": 60,
+      ""reason"": ""Scaling behavior is delegated to a replaceable scalableListener with calls to scale(), getLeft(), and getTop(), allowing different scaling strategies. However, the field and setter are typed as BaseScalable instead of the ScalableListener interface, reducing substitutability and flexibility.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 85,
+      ""adherence"": 65,
+      ""reason"": ""The class publishes display change events via DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent) when internal state changes are queued and processed, decoupling the notifier from observers. The subject does not manage subscribers directly but uses a centralized event handler, which is a common Observer-style event bus.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 45,
+      ""adherence"": 50,
+      ""reason"": ""The code acquires an OperatingSystemInterface via OperatingSystemFactory.getInstance().getOperatingSystemInstance(), suggesting factory-based creation of OS-specific implementations. Details of the factory are not present in this snippet, so the identification is based on usage and naming, with limited evidence.""
+    }
+  ]
+}",76.903857
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gpt-5,Abstract Factory,45,50,"The code acquires an OperatingSystemInterface via OperatingSystemFactory.getInstance().getOperatingSystemInstance(), suggesting factory-based creation of OS-specific implementations. Details of the factory are not present in this snippet, so the identification is based on usage and naming, with limited evidence.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 50,
+      ""reason"": ""The class exposes a single static final instance (SINGLETON) and a getInstance() accessor, indicating a Singleton. However, there is no private constructor, so external code can still instantiate the class (default public constructor), which breaks the Singleton guarantee. Eager initialization is thread-safe.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 80,
+      ""adherence"": 60,
+      ""reason"": ""Scaling behavior is delegated to a replaceable scalableListener with calls to scale(), getLeft(), and getTop(), allowing different scaling strategies. However, the field and setter are typed as BaseScalable instead of the ScalableListener interface, reducing substitutability and flexibility.""
+    },
+    {
+      ""pattern"": ""Observer"",
+      ""confidence"": 85,
+      ""adherence"": 65,
+      ""reason"": ""The class publishes display change events via DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent) when internal state changes are queued and processed, decoupling the notifier from observers. The subject does not manage subscribers directly but uses a centralized event handler, which is a common Observer-style event bus.""
+    },
+    {
+      ""pattern"": ""Abstract Factory"",
+      ""confidence"": 45,
+      ""adherence"": 50,
+      ""reason"": ""The code acquires an OperatingSystemInterface via OperatingSystemFactory.getInstance().getOperatingSystemInstance(), suggesting factory-based creation of OS-specific implementations. Details of the factory are not present in this snippet, so the identification is based on usage and naming, with limited evidence.""
+    }
+  ]
+}",76.903857
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gemini-3.0-pro,Singleton,100,80,"The class follows the standard structure of the Singleton pattern by having a private static final instance of itself ('SINGLETON') and a public static method ('getInstance()') to access it. However, adherence is not 100% because the class does not explicitly define a private constructor; relying on the default compiler-generated constructor means the constructor is public, technically allowing other classes to instantiate it.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 100,
+			""adherence"": 80,
+			""reason"": ""The class follows the standard structure of the Singleton pattern by having a private static final instance of itself ('SINGLETON') and a public static method ('getInstance()') to access it. However, adherence is not 100% because the class does not explicitly define a private constructor; relying on the default compiler-generated constructor means the constructor is public, technically allowing other classes to instantiate it.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class acts as a subject (publisher) in two ways. First, it allows a 'BaseScalable' listener to be registered via 'setScalableListener', and notifies it (calls 'scale') when state changes in 'setLastSize'. Second, it queues changes and utilizes the 'DisplayChangeEventHandler' to 'fireEvent', effectively publishing events to subscribers of the display change system.""
+		}
+	]
+}
+```",26.119374
+DPD-AllBinary-Platform-DisplayInfoSingleton.java,singleton,gemini-3.0-pro,Observer,95,90,"The class acts as a subject (publisher) in two ways. First, it allows a 'BaseScalable' listener to be registered via 'setScalableListener', and notifies it (calls 'scale') when state changes in 'setLastSize'. Second, it queues changes and utilizes the 'DisplayChangeEventHandler' to 'fireEvent', effectively publishing events to subscribers of the display change system.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 100,
+			""adherence"": 80,
+			""reason"": ""The class follows the standard structure of the Singleton pattern by having a private static final instance of itself ('SINGLETON') and a public static method ('getInstance()') to access it. However, adherence is not 100% because the class does not explicitly define a private constructor; relying on the default compiler-generated constructor means the constructor is public, technically allowing other classes to instantiate it.""
+		},
+		{
+			""pattern"": ""Observer"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class acts as a subject (publisher) in two ways. First, it allows a 'BaseScalable' listener to be registered via 'setScalableListener', and notifies it (calls 'scale') when state changes in 'setLastSize'. Second, it queues changes and utilizes the 'DisplayChangeEventHandler' to 'fireEvent', effectively publishing events to subscribers of the display change system.""
+		}
+	]
+}
+```",26.119374
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gpt-5,Singleton,95,92,"TestingInputSingleton has a private static final instance, a private constructor, and a public static accessor (getInstance). This is a classic eager-initialized singleton, which is thread-safe via class loading. No extra concerns like cloning/serialization are present here.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 92,
+      ""reason"": ""TestingInputSingleton has a private static final instance, a private constructor, and a public static accessor (getInstance). This is a classic eager-initialized singleton, which is thread-safe via class loading. No extra concerns like cloning/serialization are present here.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 90,
+      ""adherence"": 88,
+      ""reason"": ""Each key is mapped to a GameInputProcessor anonymous class encapsulating an action (up/down/left/right/strafe). processInput acts as the invoker, iterating events and invoking process on the mapped command, while TestInputInterface is the receiver executing the actual behavior. Undo is not implemented (optional), and the event parameter is unused, but the core structure matches Command.""
+    },
+    {
+      ""pattern"": ""Null Object"",
+      ""confidence"": 90,
+      ""adherence"": 95,
+      ""reason"": ""paintable is initialized to NullPaintable.getInstance(), a do-nothing implementation of PaintableInterface. This avoids null checks and allows safe paint calls until a real TestInputInterface is provided.""
+    }
+  ]
+}",48.938428
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gpt-5,Command,90,88,"Each key is mapped to a GameInputProcessor anonymous class encapsulating an action (up/down/left/right/strafe). processInput acts as the invoker, iterating events and invoking process on the mapped command, while TestInputInterface is the receiver executing the actual behavior. Undo is not implemented (optional), and the event parameter is unused, but the core structure matches Command.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 92,
+      ""reason"": ""TestingInputSingleton has a private static final instance, a private constructor, and a public static accessor (getInstance). This is a classic eager-initialized singleton, which is thread-safe via class loading. No extra concerns like cloning/serialization are present here.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 90,
+      ""adherence"": 88,
+      ""reason"": ""Each key is mapped to a GameInputProcessor anonymous class encapsulating an action (up/down/left/right/strafe). processInput acts as the invoker, iterating events and invoking process on the mapped command, while TestInputInterface is the receiver executing the actual behavior. Undo is not implemented (optional), and the event parameter is unused, but the core structure matches Command.""
+    },
+    {
+      ""pattern"": ""Null Object"",
+      ""confidence"": 90,
+      ""adherence"": 95,
+      ""reason"": ""paintable is initialized to NullPaintable.getInstance(), a do-nothing implementation of PaintableInterface. This avoids null checks and allows safe paint calls until a real TestInputInterface is provided.""
+    }
+  ]
+}",48.938428
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gpt-5,Null Object,90,95,"paintable is initialized to NullPaintable.getInstance(), a do-nothing implementation of PaintableInterface. This avoids null checks and allows safe paint calls until a real TestInputInterface is provided.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 92,
+      ""reason"": ""TestingInputSingleton has a private static final instance, a private constructor, and a public static accessor (getInstance). This is a classic eager-initialized singleton, which is thread-safe via class loading. No extra concerns like cloning/serialization are present here.""
+    },
+    {
+      ""pattern"": ""Command"",
+      ""confidence"": 90,
+      ""adherence"": 88,
+      ""reason"": ""Each key is mapped to a GameInputProcessor anonymous class encapsulating an action (up/down/left/right/strafe). processInput acts as the invoker, iterating events and invoking process on the mapped command, while TestInputInterface is the receiver executing the actual behavior. Undo is not implemented (optional), and the event parameter is unused, but the core structure matches Command.""
+    },
+    {
+      ""pattern"": ""Null Object"",
+      ""confidence"": 90,
+      ""adherence"": 95,
+      ""reason"": ""paintable is initialized to NullPaintable.getInstance(), a do-nothing implementation of PaintableInterface. This avoids null checks and allows safe paint calls until a real TestInputInterface is provided.""
+    }
+  ]
+}",48.938428
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gemini-3.0-pro,Singleton,100,100,"The class implements the Singleton pattern using the eager initialization method. It possesses a private static final instance of itself, a private constructor to prevent external instantiation, and a public static accessor method ('getInstance') to provide global access to the instance.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements the Singleton pattern using the eager initialization method. It possesses a private static final instance of itself, a private constructor to prevent external instantiation, and a public static accessor method ('getInstance') to provide global access to the instance.""
+		},
+		{
+			""pattern"": ""Command"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class utilizes the Command pattern to handle input. The 'GameInputProcessor' anonymous inner classes act as Concrete Commands, encapsulating specific requests (e.g., 'testInputInterface.up()'). These are stored in the 'inputProcessorArray' and executed via the 'process' method, decoupling the object that invokes the operation from the one that knows how to perform it.""
+		},
+		{
+			""pattern"": ""Null Object"",
+			""confidence"": 90,
+			""adherence"": 100,
+			""reason"": ""The 'paintable' field is initialized with 'NullPaintable.getInstance()'. This allows the 'paint' method to call 'this.paintable.paint(graphics)' without explicitly checking if 'paintable' is null, adhering to the Null Object pattern to handle default behavior.""
+		}
+	]
+}
+```",23.342758
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gemini-3.0-pro,Command,95,90,"The class utilizes the Command pattern to handle input. The 'GameInputProcessor' anonymous inner classes act as Concrete Commands, encapsulating specific requests (e.g., 'testInputInterface.up()'). These are stored in the 'inputProcessorArray' and executed via the 'process' method, decoupling the object that invokes the operation from the one that knows how to perform it.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements the Singleton pattern using the eager initialization method. It possesses a private static final instance of itself, a private constructor to prevent external instantiation, and a public static accessor method ('getInstance') to provide global access to the instance.""
+		},
+		{
+			""pattern"": ""Command"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class utilizes the Command pattern to handle input. The 'GameInputProcessor' anonymous inner classes act as Concrete Commands, encapsulating specific requests (e.g., 'testInputInterface.up()'). These are stored in the 'inputProcessorArray' and executed via the 'process' method, decoupling the object that invokes the operation from the one that knows how to perform it.""
+		},
+		{
+			""pattern"": ""Null Object"",
+			""confidence"": 90,
+			""adherence"": 100,
+			""reason"": ""The 'paintable' field is initialized with 'NullPaintable.getInstance()'. This allows the 'paint' method to call 'this.paintable.paint(graphics)' without explicitly checking if 'paintable' is null, adhering to the Null Object pattern to handle default behavior.""
+		}
+	]
+}
+```",23.342758
+DPD-AllBinary-Platform-TestingInputSingleton.java,singleton,gemini-3.0-pro,Null Object,90,100,"The 'paintable' field is initialized with 'NullPaintable.getInstance()'. This allows the 'paint' method to call 'this.paintable.paint(graphics)' without explicitly checking if 'paintable' is null, adhering to the Null Object pattern to handle default behavior.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Singleton"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The class implements the Singleton pattern using the eager initialization method. It possesses a private static final instance of itself, a private constructor to prevent external instantiation, and a public static accessor method ('getInstance') to provide global access to the instance.""
+		},
+		{
+			""pattern"": ""Command"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class utilizes the Command pattern to handle input. The 'GameInputProcessor' anonymous inner classes act as Concrete Commands, encapsulating specific requests (e.g., 'testInputInterface.up()'). These are stored in the 'inputProcessorArray' and executed via the 'process' method, decoupling the object that invokes the operation from the one that knows how to perform it.""
+		},
+		{
+			""pattern"": ""Null Object"",
+			""confidence"": 90,
+			""adherence"": 100,
+			""reason"": ""The 'paintable' field is initialized with 'NullPaintable.getInstance()'. This allows the 'paint' method to call 'this.paintable.paint(graphics)' without explicitly checking if 'paintable' is null, adhering to the Null Object pattern to handle default behavior.""
+		}
+	]
+}
+```",23.342758
+DPD-CIDE-ScreenSingleton.java,singleton,gpt-5,Singleton,99,85,"Class has a private static instance, a private constructor, and a public static getInstance() with lazy initialization, ensuring a single globally accessible instance. It holds shared state via getters/setters. However, it lacks thread-safety and protections against multiple instantiation via serialization/reflection, so adherence is not maximal.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 99,
+      ""adherence"": 85,
+      ""reason"": ""Class has a private static instance, a private constructor, and a public static getInstance() with lazy initialization, ensuring a single globally accessible instance. It holds shared state via getters/setters. However, it lacks thread-safety and protections against multiple instantiation via serialization/reflection, so adherence is not maximal.""
+    }
+  ]
+}",16.278854
+DPD-CIDE-ScreenSingleton.java,singleton,gemini-3.0-pro,Singleton,100,90,"The class strictly follows the structure of the Singleton pattern. It declares a private static variable 'instance' to hold the unique object, a private constructor to prevent external instantiation, and a public static method 'getInstance()' to provide a global access point. While it uses lazy initialization, it lacks thread-safety synchronization, which prevents a 100% adherence score for a production-ready environment.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 100,
+		""adherence"": 90,
+		""reason"": ""The class strictly follows the structure of the Singleton pattern. It declares a private static variable 'instance' to hold the unique object, a private constructor to prevent external instantiation, and a public static method 'getInstance()' to provide a global access point. While it uses lazy initialization, it lacks thread-safety synchronization, which prevents a 100% adherence score for a production-ready environment.""
+	}]
+}
+```",14.836059
+DPD-AllBinary-Platform-UploadMediaSingleton.java,singleton,gpt-5,Singleton,99,85,"Class enforces a single instance via a private static field (uploadMedia), a private constructor, and a public static synchronized getInstance() that lazily initializes and returns the instance. This matches the Singleton pattern. Minor deviations: no protection against reflection/serialization creating additional instances, and synchronized accessor may have performance overhead compared to holder/enum approaches.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 99,
+      ""adherence"": 85,
+      ""reason"": ""Class enforces a single instance via a private static field (uploadMedia), a private constructor, and a public static synchronized getInstance() that lazily initializes and returns the instance. This matches the Singleton pattern. Minor deviations: no protection against reflection/serialization creating additional instances, and synchronized accessor may have performance overhead compared to holder/enum approaches.""
+    }
+  ]
+}",12.71145
+DPD-AllBinary-Platform-UploadMediaSingleton.java,singleton,gemini-3.0-pro,Singleton,100,100,"The class implements the Singleton pattern by declaring a private static field 'uploadMedia' to hold the instance, a private constructor to prevent external instantiation, and a public static synchronized method 'getInstance()' which creates the instance if it does not exist (lazy initialization) and provides global access to it.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class implements the Singleton pattern by declaring a private static field 'uploadMedia' to hold the instance, a private constructor to prevent external instantiation, and a public static synchronized method 'getInstance()' which creates the instance if it does not exist (lazy initialization) and provides global access to it.""
+	}]
+}
+```",15.154622
+DPD-openejb-SingletonEjbObjectHandler.java,singleton,gpt-5,Proxy,95,90,"The class is an invocation handler (extends EjbObjectProxyHandler) used with dynamically generated proxies (ProxyManager.getInvocationHandler). It mediates method calls (e.g., isIdentical, remove), encapsulating access to the underlying EJB object, which is characteristic of the Proxy pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Proxy"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class is an invocation handler (extends EjbObjectProxyHandler) used with dynamically generated proxies (ProxyManager.getInvocationHandler). It mediates method calls (e.g., isIdentical, remove), encapsulating access to the underlying EJB object, which is characteristic of the Proxy pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""Different EjbObjectProxyHandler subclasses (e.g., for singleton vs. other session types) encapsulate varying behaviors for operations like getPrimaryKey, remove, and invalidateReference. The framework can select the appropriate handler at runtime, varying the algorithm without changing the proxy client.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""This subclass overrides specific hook methods (getPrimaryKey, isIdentical, invalidateReference, remove), implying the superclass defines an algorithm skeleton that calls these hooks. The subclass customizes steps while the overall invocation flow is controlled by the base class.""
+    }
+  ]
+}",30.756891
+DPD-openejb-SingletonEjbObjectHandler.java,singleton,gpt-5,Strategy,65,60,"Different EjbObjectProxyHandler subclasses (e.g., for singleton vs. other session types) encapsulate varying behaviors for operations like getPrimaryKey, remove, and invalidateReference. The framework can select the appropriate handler at runtime, varying the algorithm without changing the proxy client.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Proxy"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class is an invocation handler (extends EjbObjectProxyHandler) used with dynamically generated proxies (ProxyManager.getInvocationHandler). It mediates method calls (e.g., isIdentical, remove), encapsulating access to the underlying EJB object, which is characteristic of the Proxy pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""Different EjbObjectProxyHandler subclasses (e.g., for singleton vs. other session types) encapsulate varying behaviors for operations like getPrimaryKey, remove, and invalidateReference. The framework can select the appropriate handler at runtime, varying the algorithm without changing the proxy client.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""This subclass overrides specific hook methods (getPrimaryKey, isIdentical, invalidateReference, remove), implying the superclass defines an algorithm skeleton that calls these hooks. The subclass customizes steps while the overall invocation flow is controlled by the base class.""
+    }
+  ]
+}",30.756891
+DPD-openejb-SingletonEjbObjectHandler.java,singleton,gpt-5,Template Method,55,55,"This subclass overrides specific hook methods (getPrimaryKey, isIdentical, invalidateReference, remove), implying the superclass defines an algorithm skeleton that calls these hooks. The subclass customizes steps while the overall invocation flow is controlled by the base class.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Proxy"",
+      ""confidence"": 95,
+      ""adherence"": 90,
+      ""reason"": ""The class is an invocation handler (extends EjbObjectProxyHandler) used with dynamically generated proxies (ProxyManager.getInvocationHandler). It mediates method calls (e.g., isIdentical, remove), encapsulating access to the underlying EJB object, which is characteristic of the Proxy pattern.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 65,
+      ""adherence"": 60,
+      ""reason"": ""Different EjbObjectProxyHandler subclasses (e.g., for singleton vs. other session types) encapsulate varying behaviors for operations like getPrimaryKey, remove, and invalidateReference. The framework can select the appropriate handler at runtime, varying the algorithm without changing the proxy client.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 55,
+      ""adherence"": 55,
+      ""reason"": ""This subclass overrides specific hook methods (getPrimaryKey, isIdentical, invalidateReference, remove), implying the superclass defines an algorithm skeleton that calls these hooks. The subclass customizes steps while the overall invocation flow is controlled by the base class.""
+    }
+  ]
+}",30.756891
+DPD-openejb-SingletonEjbObjectHandler.java,singleton,gemini-3.0-pro,Proxy,95,90,"The class extends `EjbObjectProxyHandler` and functions as an invocation handler. It intercepts method calls (e.g., `getPrimaryKey`, `isIdentical`) intended for an object to control access and modify behavior, which is the core intent of the Proxy pattern. While the actual Proxy object is likely generated dynamically, this class contains the specific proxying logic.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Proxy"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class extends `EjbObjectProxyHandler` and functions as an invocation handler. It intercepts method calls (e.g., `getPrimaryKey`, `isIdentical`) intended for an object to control access and modify behavior, which is the core intent of the Proxy pattern. While the actual Proxy object is likely generated dynamically, this class contains the specific proxying logic.""
+		},
+		{
+			""pattern"": ""Lazy Initialization"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The `getRegistryId` method explicitly implements this pattern. It checks if `registryId` is null; if so, it calculates and assigns the value using `createRegistryId` before returning it, ensuring the heavy lifting is done only on demand.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 85,
+			""adherence"": 85,
+			""reason"": ""The class inherits from `EjbObjectProxyHandler` and overrides specific protected methods (`getPrimaryKey`, `isIdentical`, `remove`). These methods function as hooks or specific steps within a general algorithm (likely the `invoke` method) defined in the parent class, allowing the subclass to provide specific implementations for Singleton EJBs while preserving the parent's control flow.""
+		}
+	]
+}
+```",38.601408
+DPD-openejb-SingletonEjbObjectHandler.java,singleton,gemini-3.0-pro,Lazy Initialization,100,100,"The `getRegistryId` method explicitly implements this pattern. It checks if `registryId` is null; if so, it calculates and assigns the value using `createRegistryId` before returning it, ensuring the heavy lifting is done only on demand.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Proxy"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class extends `EjbObjectProxyHandler` and functions as an invocation handler. It intercepts method calls (e.g., `getPrimaryKey`, `isIdentical`) intended for an object to control access and modify behavior, which is the core intent of the Proxy pattern. While the actual Proxy object is likely generated dynamically, this class contains the specific proxying logic.""
+		},
+		{
+			""pattern"": ""Lazy Initialization"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The `getRegistryId` method explicitly implements this pattern. It checks if `registryId` is null; if so, it calculates and assigns the value using `createRegistryId` before returning it, ensuring the heavy lifting is done only on demand.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 85,
+			""adherence"": 85,
+			""reason"": ""The class inherits from `EjbObjectProxyHandler` and overrides specific protected methods (`getPrimaryKey`, `isIdentical`, `remove`). These methods function as hooks or specific steps within a general algorithm (likely the `invoke` method) defined in the parent class, allowing the subclass to provide specific implementations for Singleton EJBs while preserving the parent's control flow.""
+		}
+	]
+}
+```",38.601408
+DPD-openejb-SingletonEjbObjectHandler.java,singleton,gemini-3.0-pro,Template Method,85,85,"The class inherits from `EjbObjectProxyHandler` and overrides specific protected methods (`getPrimaryKey`, `isIdentical`, `remove`). These methods function as hooks or specific steps within a general algorithm (likely the `invoke` method) defined in the parent class, allowing the subclass to provide specific implementations for Singleton EJBs while preserving the parent's control flow.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Proxy"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class extends `EjbObjectProxyHandler` and functions as an invocation handler. It intercepts method calls (e.g., `getPrimaryKey`, `isIdentical`) intended for an object to control access and modify behavior, which is the core intent of the Proxy pattern. While the actual Proxy object is likely generated dynamically, this class contains the specific proxying logic.""
+		},
+		{
+			""pattern"": ""Lazy Initialization"",
+			""confidence"": 100,
+			""adherence"": 100,
+			""reason"": ""The `getRegistryId` method explicitly implements this pattern. It checks if `registryId` is null; if so, it calculates and assigns the value using `createRegistryId` before returning it, ensuring the heavy lifting is done only on demand.""
+		},
+		{
+			""pattern"": ""Template Method"",
+			""confidence"": 85,
+			""adherence"": 85,
+			""reason"": ""The class inherits from `EjbObjectProxyHandler` and overrides specific protected methods (`getPrimaryKey`, `isIdentical`, `remove`). These methods function as hooks or specific steps within a general algorithm (likely the `invoke` method) defined in the parent class, allowing the subclass to provide specific implementations for Singleton EJBs while preserving the parent's control flow.""
+		}
+	]
+}
+```",38.601408
+DPD-alfresco-TransactionAwareSingleton.java,singleton,gpt-5,Observer,92,90,The class registers itself as a listener to the transaction manager (AlfrescoTransactionSupport.bindListener(this)) and reacts to lifecycle callbacks (afterCommit) to promote state. This is a classic subject (transaction manager) notifying observers (listeners) arrangement.,"{""design_patterns"": [{""pattern"": ""Observer"", ""confidence"": 92, ""adherence"": 90, ""reason"": ""The class registers itself as a listener to the transaction manager (AlfrescoTransactionSupport.bindListener(this)) and reacts to lifecycle callbacks (afterCommit) to promote state. This is a classic subject (transaction manager) notifying observers (listeners) arrangement.""}, {""pattern"": ""Read-Write Lock"", ""confidence"": 95, ""adherence"": 100, ""reason"": ""Concurrent access to the shared tenantSingletonValue is coordinated via ReentrantReadWriteLock, using the read lock for reads and the write lock for updates, allowing multiple concurrent readers and exclusive writers.""}, {""pattern"": ""Lazy Initialization"", ""confidence"": 80, ""adherence"": 85, ""reason"": ""Transaction-local storage and listener registration are created on first mutation within a transaction (in put): if no TransactionStorage is present, it is allocated and the listener is bound. Resources are thus initialized only when needed.""}]}",67.462602
+DPD-alfresco-TransactionAwareSingleton.java,singleton,gpt-5,Read-Write Lock,95,100,"Concurrent access to the shared tenantSingletonValue is coordinated via ReentrantReadWriteLock, using the read lock for reads and the write lock for updates, allowing multiple concurrent readers and exclusive writers.","{""design_patterns"": [{""pattern"": ""Observer"", ""confidence"": 92, ""adherence"": 90, ""reason"": ""The class registers itself as a listener to the transaction manager (AlfrescoTransactionSupport.bindListener(this)) and reacts to lifecycle callbacks (afterCommit) to promote state. This is a classic subject (transaction manager) notifying observers (listeners) arrangement.""}, {""pattern"": ""Read-Write Lock"", ""confidence"": 95, ""adherence"": 100, ""reason"": ""Concurrent access to the shared tenantSingletonValue is coordinated via ReentrantReadWriteLock, using the read lock for reads and the write lock for updates, allowing multiple concurrent readers and exclusive writers.""}, {""pattern"": ""Lazy Initialization"", ""confidence"": 80, ""adherence"": 85, ""reason"": ""Transaction-local storage and listener registration are created on first mutation within a transaction (in put): if no TransactionStorage is present, it is allocated and the listener is bound. Resources are thus initialized only when needed.""}]}",67.462602
+DPD-alfresco-TransactionAwareSingleton.java,singleton,gpt-5,Lazy Initialization,80,85,"Transaction-local storage and listener registration are created on first mutation within a transaction (in put): if no TransactionStorage is present, it is allocated and the listener is bound. Resources are thus initialized only when needed.","{""design_patterns"": [{""pattern"": ""Observer"", ""confidence"": 92, ""adherence"": 90, ""reason"": ""The class registers itself as a listener to the transaction manager (AlfrescoTransactionSupport.bindListener(this)) and reacts to lifecycle callbacks (afterCommit) to promote state. This is a classic subject (transaction manager) notifying observers (listeners) arrangement.""}, {""pattern"": ""Read-Write Lock"", ""confidence"": 95, ""adherence"": 100, ""reason"": ""Concurrent access to the shared tenantSingletonValue is coordinated via ReentrantReadWriteLock, using the read lock for reads and the write lock for updates, allowing multiple concurrent readers and exclusive writers.""}, {""pattern"": ""Lazy Initialization"", ""confidence"": 80, ""adherence"": 85, ""reason"": ""Transaction-local storage and listener registration are created on first mutation within a transaction (in put): if no TransactionStorage is present, it is allocated and the listener is bound. Resources are thus initialized only when needed.""}]}",67.462602
+DPD-alfresco-TransactionAwareSingleton.java,singleton,gemini-3.0-pro,Observer,98,100,"The class implements the Observer pattern (also known as Publisher-Subscriber). It acts as a subscriber by extending 'TransactionListenerAdapter' and explicitly registering itself to the 'AlfrescoTransactionSupport' (the publisher) using 'bindListener(this)'. The 'afterCommit' method serves as the update mechanism, which is invoked when the transaction completes.","```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Observer"",
+			""confidence"": 98,
+			""adherence"": 100,
+			""reason"": ""The class implements the Observer pattern (also known as Publisher-Subscriber). It acts as a subscriber by extending 'TransactionListenerAdapter' and explicitly registering itself to the 'AlfrescoTransactionSupport' (the publisher) using 'bindListener(this)'. The 'afterCommit' method serves as the update mechanism, which is invoked when the transaction completes.""
+		},
+		{
+			""pattern"": ""Proxy"",
+			""confidence"": 85,
+			""adherence"": 80,
+			""reason"": ""The class functions as a Proxy (specifically a Smart Reference) for the underlying generic object 'T'. The 'get()' and 'put()' methods intercept access to the data to inject additional logic: they check for active transactions via 'AlfrescoTransactionSupport' and manage concurrency using 'ReentrantReadWriteLock' before accessing or modifying the actual stored value.""
+		}
+	]
+}
+```",38.82393
+DPD-alfresco-TransactionAwareSingleton.java,singleton,gemini-3.0-pro,Proxy,85,80,The class functions as a Proxy (specifically a Smart Reference) for the underlying generic object 'T'. The 'get()' and 'put()' methods intercept access to the data to inject additional logic: they check for active transactions via 'AlfrescoTransactionSupport' and manage concurrency using 'ReentrantReadWriteLock' before accessing or modifying the actual stored value.,"```json
+{
+	""design_patterns"": [{
+			""pattern"": ""Observer"",
+			""confidence"": 98,
+			""adherence"": 100,
+			""reason"": ""The class implements the Observer pattern (also known as Publisher-Subscriber). It acts as a subscriber by extending 'TransactionListenerAdapter' and explicitly registering itself to the 'AlfrescoTransactionSupport' (the publisher) using 'bindListener(this)'. The 'afterCommit' method serves as the update mechanism, which is invoked when the transaction completes.""
+		},
+		{
+			""pattern"": ""Proxy"",
+			""confidence"": 85,
+			""adherence"": 80,
+			""reason"": ""The class functions as a Proxy (specifically a Smart Reference) for the underlying generic object 'T'. The 'get()' and 'put()' methods intercept access to the data to inject additional logic: they check for active transactions via 'AlfrescoTransactionSupport' and manage concurrency using 'ReentrantReadWriteLock' before accessing or modifying the actual stored value.""
+		}
+	]
+}
+```",38.82393
+DPD-AllBinary-Platform-ConstrainedMotionRectanglesResultsCacheSingleton.java,singleton,gpt-5,Singleton,95,88,"The class enforces a single, globally accessible instance of a CacheInterface via a private static field initialized in a static block, a private constructor to prevent instantiation, and a public static getInstance() accessor. Java static initialization ensures thread safety. While the singleton instance is of CacheInterface (not this class), the class acts as a singleton provider. Minor deviation: if the static block throws, getInstance() may return null, slightly weakening robustness.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 88,
+      ""reason"": ""The class enforces a single, globally accessible instance of a CacheInterface via a private static field initialized in a static block, a private constructor to prevent instantiation, and a public static getInstance() accessor. Java static initialization ensures thread safety. While the singleton instance is of CacheInterface (not this class), the class acts as a singleton provider. Minor deviation: if the static block throws, getInstance() may return null, slightly weakening robustness.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 60,
+      ""adherence"": 65,
+      ""reason"": ""Object creation is delegated to CacheInterfaceFactory.getInstance(...) using parameters from CacheTypeFactory and CachePolicyFactory. This decouples the client from concrete cache implementations and selection logic, consistent with factory usage. However, this class only uses the factories; it does not implement the factory pattern itself, and without the factory implementations present, the exact variant (simple factory vs. factory method/abstract factory) cannot be confirmed.""
+    }
+  ]
+}",55.877681
+DPD-AllBinary-Platform-ConstrainedMotionRectanglesResultsCacheSingleton.java,singleton,gpt-5,Factory Method,60,65,"Object creation is delegated to CacheInterfaceFactory.getInstance(...) using parameters from CacheTypeFactory and CachePolicyFactory. This decouples the client from concrete cache implementations and selection logic, consistent with factory usage. However, this class only uses the factories; it does not implement the factory pattern itself, and without the factory implementations present, the exact variant (simple factory vs. factory method/abstract factory) cannot be confirmed.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 95,
+      ""adherence"": 88,
+      ""reason"": ""The class enforces a single, globally accessible instance of a CacheInterface via a private static field initialized in a static block, a private constructor to prevent instantiation, and a public static getInstance() accessor. Java static initialization ensures thread safety. While the singleton instance is of CacheInterface (not this class), the class acts as a singleton provider. Minor deviation: if the static block throws, getInstance() may return null, slightly weakening robustness.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 60,
+      ""adherence"": 65,
+      ""reason"": ""Object creation is delegated to CacheInterfaceFactory.getInstance(...) using parameters from CacheTypeFactory and CachePolicyFactory. This decouples the client from concrete cache implementations and selection logic, consistent with factory usage. However, this class only uses the factories; it does not implement the factory pattern itself, and without the factory implementations present, the exact variant (simple factory vs. factory method/abstract factory) cannot be confirmed.""
+    }
+  ]
+}",55.877681
+DPD-AllBinary-Platform-ConstrainedMotionRectanglesResultsCacheSingleton.java,singleton,gemini-3.0-pro,Singleton,100,90,"The class explicitly implements the Singleton pattern mechanics: it has a private constructor to prevent external instantiation, a private static field (`cacheInterface`) to hold the single instance, and a public static accessor method (`getInstance()`) to provide global access to that instance. While the return type is an interface (`CacheInterface`) rather than the class type itself, the structural enforcement of a single shared resource is identical to the pattern definition.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 100,
+		""adherence"": 90,
+		""reason"": ""The class explicitly implements the Singleton pattern mechanics: it has a private constructor to prevent external instantiation, a private static field (`cacheInterface`) to hold the single instance, and a public static accessor method (`getInstance()`) to provide global access to that instance. While the return type is an interface (`CacheInterface`) rather than the class type itself, the structural enforcement of a single shared resource is identical to the pattern definition.""
+	}]
+}
+```",17.205782
+DPD-AllBinary-Platform-PrimitiveLongSingleton.java,singleton,gpt-5,Singleton,92,30,"Class holds a private static final instance and exposes a public static getInstance(), indicating Singleton intent. However, there is no private constructor (default constructor is public), allowing external instantiation and breaking uniqueness. The class is not final, enabling subclassing to create more instances, and no safeguards against cloning/serialization. Eager static initialization is thread-safe, but core enforcement is missing.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 92,
+      ""adherence"": 30,
+      ""reason"": ""Class holds a private static final instance and exposes a public static getInstance(), indicating Singleton intent. However, there is no private constructor (default constructor is public), allowing external instantiation and breaking uniqueness. The class is not final, enabling subclassing to create more instances, and no safeguards against cloning/serialization. Eager static initialization is thread-safe, but core enforcement is missing.""
+    }
+  ]
+}",22.015551
+DPD-AllBinary-Platform-PrimitiveLongSingleton.java,singleton,gemini-3.0-pro,Singleton,98,50,"The code exhibits the intent and partial structure of the Singleton pattern (specifically Eager Initialization) by including a 'private static final' instance and a 'public static' accessor method (getInstance). However, the pattern adherence is significantly compromised because the class fails to define a private constructor. Since no constructor is defined, Java provides a default public constructor, which allows external classes to instantiate new objects using 'new PrimitiveLongSingleton()', thereby violating the core restriction of the pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 98,
+		""adherence"": 50,
+		""reason"": ""The code exhibits the intent and partial structure of the Singleton pattern (specifically Eager Initialization) by including a 'private static final' instance and a 'public static' accessor method (getInstance). However, the pattern adherence is significantly compromised because the class fails to define a private constructor. Since no constructor is defined, Java provides a default public constructor, which allows external classes to instantiate new objects using 'new PrimitiveLongSingleton()', thereby violating the core restriction of the pattern.""
+	}]
+}
+```",19.035432
+DPD-AllBinary-Platform-GameConfigurationPersistanceSingleton.java,singleton,gpt-5,Singleton,98,85,"Implements a classic eager-initialized singleton: a private static instance (GAME_PERSISTANCE) is created at class load time, a public static getInstance() returns it, and the constructor is private to prevent external instantiation. This ensures a single global instance and is thread-safe due to class initialization semantics. Minor deviations: the instance field is not final, the class is not final, and there are no protections against reflection/serialization/cloning creating additional instances.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 98,
+      ""adherence"": 85,
+      ""reason"": ""Implements a classic eager-initialized singleton: a private static instance (GAME_PERSISTANCE) is created at class load time, a public static getInstance() returns it, and the constructor is private to prevent external instantiation. This ensures a single global instance and is thread-safe due to class initialization semantics. Minor deviations: the instance field is not final, the class is not final, and there are no protections against reflection/serialization/cloning creating additional instances.""
+    }
+  ]
+}",18.693831
+DPD-AllBinary-Platform-GameConfigurationPersistanceSingleton.java,singleton,gemini-3.0-pro,Singleton,100,100,"The class implements the Singleton pattern using the Eager Initialization approach. It contains a private static instance of itself, a private constructor to prevent external instantiation, and a public static method ('getInstance') to provide a global access point to that specific instance.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class implements the Singleton pattern using the Eager Initialization approach. It contains a private static instance of itself, a private constructor to prevent external instantiation, and a public static method ('getInstance') to provide a global access point to that specific instance.""
+	}]
+}
+```",17.050363
+DPD-AllBinary-Platform-InputAutomationModuleConfigurationsSingletonFactory.java,factory,gpt-5,Singleton,90,70,"A single instance is created eagerly in a static field and exposed via a static getInstance(); the constructor is private to prevent instantiation of the provider class. This matches a thread-safe eager Singleton provider. Adherence is reduced because the singleton instance is of a different class (InputAutomationModuleConfigurations), so that class itself does not enforce single instantiation and could be instantiated elsewhere.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Singleton"",
+      ""confidence"": 90,
+      ""adherence"": 70,
+      ""reason"": ""A single instance is created eagerly in a static field and exposed via a static getInstance(); the constructor is private to prevent instantiation of the provider class. This matches a thread-safe eager Singleton provider. Adherence is reduced because the singleton instance is of a different class (InputAutomationModuleConfigurations), so that class itself does not enforce single instantiation and could be instantiated elsewhere.""
+    }
+  ]
+}",50.53129
+DPD-AllBinary-Platform-InputAutomationModuleConfigurationsSingletonFactory.java,factory,gemini-3.0-pro,Singleton,100,95,"The class implements the Singleton pattern using the Eager Initialization strategy. It defines a private constructor to prevent direct instantiation and maintains a private static instance of the `InputAutomationModuleConfigurations` object, which is initialized when the class is loaded. The public static `getInstance()` method provides a global point of access to this specific instance.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Singleton"",
+		""confidence"": 100,
+		""adherence"": 95,
+		""reason"": ""The class implements the Singleton pattern using the Eager Initialization strategy. It defines a private constructor to prevent direct instantiation and maintains a private static instance of the `InputAutomationModuleConfigurations` object, which is initialized when the class is loaded. The public static `getInstance()` method provides a global point of access to this specific instance.""
+	}]
+}
+```",33.380747
+DPD-pcgen-svn-CampaignInfoFactory.java,factory,gpt-5,Strategy,68,70,"The interface defines a contract for an algorithm (producing HTML info for a campaign) that can vary by implementation. Clients can supply different CampaignInfoFactory implementations to change the behavior without modifying client code. Despite the name 'Factory', it does not create objects/families; it returns a String and serves as an interchangeable behavior provider, aligning with Strategy rather than Factory/Abstract Factory.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 68,
+      ""adherence"": 70,
+      ""reason"": ""The interface defines a contract for an algorithm (producing HTML info for a campaign) that can vary by implementation. Clients can supply different CampaignInfoFactory implementations to change the behavior without modifying client code. Despite the name 'Factory', it does not create objects/families; it returns a String and serves as an interchangeable behavior provider, aligning with Strategy rather than Factory/Abstract Factory.""
+    }
+  ]
+}",14.730103
+DPD-pcgen-svn-CampaignInfoFactory.java,factory,gemini-3.0-pro,None,0,0,No pattern detected or parse error,"```json
+{
+	""design_patterns"": []
+}
+```",39.643696
+DPD-dozer-BaseSampleBeanFactory.java,factory,gpt-5,None,0,0,No pattern detected or parse error,"{""design_patterns"": []}",16.48539
+DPD-dozer-BaseSampleBeanFactory.java,factory,gemini-3.0-pro,None,0,0,No pattern detected or parse error,"```json
+{
+  ""design_patterns"": []
+}
+```",49.863987
+DPD-jbehave-core-PicoStepsFactory.java,factory,gpt-5,Service Locator,85,90,"The class queries a PicoContainer to retrieve components by type (getComponent) and to enumerate available components (getComponentAdapters). This central registry lookup decouples clients from concrete creation and wiring, which is characteristic of the Service Locator pattern.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The class queries a PicoContainer to retrieve components by type (getComponent) and to enumerate available components (getComponentAdapters). This central registry lookup decouples clients from concrete creation and wiring, which is characteristic of the Service Locator pattern.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 72,
+      ""adherence"": 80,
+      ""reason"": ""Creation of step instances is deferred to an overridable method (createInstanceOfType). The superclass defines the contract, while this subclass customizes how instances are produced (delegating to PicoContainer), which is a typical Factory Method usage.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 65,
+      ""adherence"": 75,
+      ""reason"": ""The subclass overrides primitive operations (stepsTypes and createInstanceOfType), suggesting the superclass (AbstractStepsFactory) defines the algorithm’s skeleton and calls these hooks to discover types and instantiate them. This aligns with Template Method, even though the template is in the unseen superclass.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 55,
+      ""adherence"": 65,
+      ""reason"": ""PicoStepsFactory is one interchangeable implementation of an InjectableStepsFactory, providing a specific strategy (PicoContainer-backed) for locating and instantiating steps. Clients can swap this with other factories to change behavior at runtime.""
+    }
+  ]
+}",37.444825
+DPD-jbehave-core-PicoStepsFactory.java,factory,gpt-5,Factory Method,72,80,"Creation of step instances is deferred to an overridable method (createInstanceOfType). The superclass defines the contract, while this subclass customizes how instances are produced (delegating to PicoContainer), which is a typical Factory Method usage.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The class queries a PicoContainer to retrieve components by type (getComponent) and to enumerate available components (getComponentAdapters). This central registry lookup decouples clients from concrete creation and wiring, which is characteristic of the Service Locator pattern.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 72,
+      ""adherence"": 80,
+      ""reason"": ""Creation of step instances is deferred to an overridable method (createInstanceOfType). The superclass defines the contract, while this subclass customizes how instances are produced (delegating to PicoContainer), which is a typical Factory Method usage.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 65,
+      ""adherence"": 75,
+      ""reason"": ""The subclass overrides primitive operations (stepsTypes and createInstanceOfType), suggesting the superclass (AbstractStepsFactory) defines the algorithm’s skeleton and calls these hooks to discover types and instantiate them. This aligns with Template Method, even though the template is in the unseen superclass.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 55,
+      ""adherence"": 65,
+      ""reason"": ""PicoStepsFactory is one interchangeable implementation of an InjectableStepsFactory, providing a specific strategy (PicoContainer-backed) for locating and instantiating steps. Clients can swap this with other factories to change behavior at runtime.""
+    }
+  ]
+}",37.444825
+DPD-jbehave-core-PicoStepsFactory.java,factory,gpt-5,Template Method,65,75,"The subclass overrides primitive operations (stepsTypes and createInstanceOfType), suggesting the superclass (AbstractStepsFactory) defines the algorithm’s skeleton and calls these hooks to discover types and instantiate them. This aligns with Template Method, even though the template is in the unseen superclass.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The class queries a PicoContainer to retrieve components by type (getComponent) and to enumerate available components (getComponentAdapters). This central registry lookup decouples clients from concrete creation and wiring, which is characteristic of the Service Locator pattern.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 72,
+      ""adherence"": 80,
+      ""reason"": ""Creation of step instances is deferred to an overridable method (createInstanceOfType). The superclass defines the contract, while this subclass customizes how instances are produced (delegating to PicoContainer), which is a typical Factory Method usage.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 65,
+      ""adherence"": 75,
+      ""reason"": ""The subclass overrides primitive operations (stepsTypes and createInstanceOfType), suggesting the superclass (AbstractStepsFactory) defines the algorithm’s skeleton and calls these hooks to discover types and instantiate them. This aligns with Template Method, even though the template is in the unseen superclass.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 55,
+      ""adherence"": 65,
+      ""reason"": ""PicoStepsFactory is one interchangeable implementation of an InjectableStepsFactory, providing a specific strategy (PicoContainer-backed) for locating and instantiating steps. Clients can swap this with other factories to change behavior at runtime.""
+    }
+  ]
+}",37.444825
+DPD-jbehave-core-PicoStepsFactory.java,factory,gpt-5,Strategy,55,65,"PicoStepsFactory is one interchangeable implementation of an InjectableStepsFactory, providing a specific strategy (PicoContainer-backed) for locating and instantiating steps. Clients can swap this with other factories to change behavior at runtime.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Service Locator"",
+      ""confidence"": 85,
+      ""adherence"": 90,
+      ""reason"": ""The class queries a PicoContainer to retrieve components by type (getComponent) and to enumerate available components (getComponentAdapters). This central registry lookup decouples clients from concrete creation and wiring, which is characteristic of the Service Locator pattern.""
+    },
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 72,
+      ""adherence"": 80,
+      ""reason"": ""Creation of step instances is deferred to an overridable method (createInstanceOfType). The superclass defines the contract, while this subclass customizes how instances are produced (delegating to PicoContainer), which is a typical Factory Method usage.""
+    },
+    {
+      ""pattern"": ""Template Method"",
+      ""confidence"": 65,
+      ""adherence"": 75,
+      ""reason"": ""The subclass overrides primitive operations (stepsTypes and createInstanceOfType), suggesting the superclass (AbstractStepsFactory) defines the algorithm’s skeleton and calls these hooks to discover types and instantiate them. This aligns with Template Method, even though the template is in the unseen superclass.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 55,
+      ""adherence"": 65,
+      ""reason"": ""PicoStepsFactory is one interchangeable implementation of an InjectableStepsFactory, providing a specific strategy (PicoContainer-backed) for locating and instantiating steps. Clients can swap this with other factories to change behavior at runtime.""
+    }
+  ]
+}",37.444825
+DPD-jbehave-core-PicoStepsFactory.java,factory,gemini-3.0-pro,Adapter,95,90,"The class acts as an Object Adapter. It holds a reference to an external component ('PicoContainer', the adaptee) and adapts it to the 'AbstractStepsFactory' interface (the target). It translates the 'createInstanceOfType' request into the container's specific 'getComponent' method, bridging the gap between JBehave's expected interface and the PicoContainer API.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Adapter"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class acts as an Object Adapter. It holds a reference to an external component ('PicoContainer', the adaptee) and adapts it to the 'AbstractStepsFactory' interface (the target). It translates the 'createInstanceOfType' request into the container's specific 'getComponent' method, bridging the gap between JBehave's expected interface and the PicoContainer API.""
+		},
+		{
+			""pattern"": ""Factory Method"",
+			""confidence"": 90,
+			""adherence"": 95,
+			""reason"": ""The class extends 'AbstractStepsFactory' and overrides the 'createInstanceOfType' method. This structure delegates the logic of instantiation (or in this case, retrieval) to the subclass, allowing the parent class to define the workflow while the subclass provides the concrete implementation of how the object is obtained.""
+		}
+	]
+}
+```",26.355314
+DPD-jbehave-core-PicoStepsFactory.java,factory,gemini-3.0-pro,Factory Method,90,95,"The class extends 'AbstractStepsFactory' and overrides the 'createInstanceOfType' method. This structure delegates the logic of instantiation (or in this case, retrieval) to the subclass, allowing the parent class to define the workflow while the subclass provides the concrete implementation of how the object is obtained.","```json
+{
+	""design_patterns"": [
+		{
+			""pattern"": ""Adapter"",
+			""confidence"": 95,
+			""adherence"": 90,
+			""reason"": ""The class acts as an Object Adapter. It holds a reference to an external component ('PicoContainer', the adaptee) and adapts it to the 'AbstractStepsFactory' interface (the target). It translates the 'createInstanceOfType' request into the container's specific 'getComponent' method, bridging the gap between JBehave's expected interface and the PicoContainer API.""
+		},
+		{
+			""pattern"": ""Factory Method"",
+			""confidence"": 90,
+			""adherence"": 95,
+			""reason"": ""The class extends 'AbstractStepsFactory' and overrides the 'createInstanceOfType' method. This structure delegates the logic of instantiation (or in this case, retrieval) to the subclass, allowing the parent class to define the workflow while the subclass provides the concrete implementation of how the object is obtained.""
+		}
+	]
+}
+```",26.355314
+DPD-dozer-JAXBBeanFactory.java,factory,gpt-5,Factory Method,90,88,"JAXBBeanFactory implements the BeanFactory interface and overrides createBean to decide how to instantiate the requested type. Clients depend on the BeanFactory interface, while this concrete factory encapsulates the instantiation logic (deriving the ObjectFactory class, choosing the createX method by name, and invoking it via reflection). This aligns with Factory Method where subclasses/implementations determine the concrete creation.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 90,
+      ""adherence"": 88,
+      ""reason"": ""JAXBBeanFactory implements the BeanFactory interface and overrides createBean to decide how to instantiate the requested type. Clients depend on the BeanFactory interface, while this concrete factory encapsulates the instantiation logic (deriving the ObjectFactory class, choosing the createX method by name, and invoking it via reflection). This aligns with Factory Method where subclasses/implementations determine the concrete creation.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 68,
+      ""adherence"": 72,
+      ""reason"": ""The class adapts Dozer's BeanFactory SPI to JAXB's generated ObjectFactory API. It takes a beanId expected by Dozer and translates it into calls to JAXB's ObjectFactory.create<SimpleName>() method, effectively bridging two incompatible interfaces without exposing JAXB details to the caller.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""BeanFactory defines a family of interchangeable object-creation behaviors, and JAXBBeanFactory is one concrete implementation that can be swapped for others. While the selection mechanism is not shown here, the use of an interface and pluggable implementation suggests the Strategy pattern for creation behavior.""
+    }
+  ]
+}",30.0168
+DPD-dozer-JAXBBeanFactory.java,factory,gpt-5,Adapter,68,72,"The class adapts Dozer's BeanFactory SPI to JAXB's generated ObjectFactory API. It takes a beanId expected by Dozer and translates it into calls to JAXB's ObjectFactory.create<SimpleName>() method, effectively bridging two incompatible interfaces without exposing JAXB details to the caller.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 90,
+      ""adherence"": 88,
+      ""reason"": ""JAXBBeanFactory implements the BeanFactory interface and overrides createBean to decide how to instantiate the requested type. Clients depend on the BeanFactory interface, while this concrete factory encapsulates the instantiation logic (deriving the ObjectFactory class, choosing the createX method by name, and invoking it via reflection). This aligns with Factory Method where subclasses/implementations determine the concrete creation.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 68,
+      ""adherence"": 72,
+      ""reason"": ""The class adapts Dozer's BeanFactory SPI to JAXB's generated ObjectFactory API. It takes a beanId expected by Dozer and translates it into calls to JAXB's ObjectFactory.create<SimpleName>() method, effectively bridging two incompatible interfaces without exposing JAXB details to the caller.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""BeanFactory defines a family of interchangeable object-creation behaviors, and JAXBBeanFactory is one concrete implementation that can be swapped for others. While the selection mechanism is not shown here, the use of an interface and pluggable implementation suggests the Strategy pattern for creation behavior.""
+    }
+  ]
+}",30.0168
+DPD-dozer-JAXBBeanFactory.java,factory,gpt-5,Strategy,60,60,"BeanFactory defines a family of interchangeable object-creation behaviors, and JAXBBeanFactory is one concrete implementation that can be swapped for others. While the selection mechanism is not shown here, the use of an interface and pluggable implementation suggests the Strategy pattern for creation behavior.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 90,
+      ""adherence"": 88,
+      ""reason"": ""JAXBBeanFactory implements the BeanFactory interface and overrides createBean to decide how to instantiate the requested type. Clients depend on the BeanFactory interface, while this concrete factory encapsulates the instantiation logic (deriving the ObjectFactory class, choosing the createX method by name, and invoking it via reflection). This aligns with Factory Method where subclasses/implementations determine the concrete creation.""
+    },
+    {
+      ""pattern"": ""Adapter"",
+      ""confidence"": 68,
+      ""adherence"": 72,
+      ""reason"": ""The class adapts Dozer's BeanFactory SPI to JAXB's generated ObjectFactory API. It takes a beanId expected by Dozer and translates it into calls to JAXB's ObjectFactory.create<SimpleName>() method, effectively bridging two incompatible interfaces without exposing JAXB details to the caller.""
+    },
+    {
+      ""pattern"": ""Strategy"",
+      ""confidence"": 60,
+      ""adherence"": 60,
+      ""reason"": ""BeanFactory defines a family of interchangeable object-creation behaviors, and JAXBBeanFactory is one concrete implementation that can be swapped for others. While the selection mechanism is not shown here, the use of an interface and pluggable implementation suggests the Strategy pattern for creation behavior.""
+    }
+  ]
+}",30.0168
+DPD-dozer-JAXBBeanFactory.java,factory,gemini-3.0-pro,Factory,100,100,"The class 'JAXBBeanFactory' implements the 'BeanFactory' interface and encapsulates the logic required to create instances of JAXB objects. It hides the complexity of instantiation (which involves string manipulation to handle inner classes, dynamic class loading of a delegate 'ObjectFactory', and reflection-based method invocation) from the client, strictly adhering to the Creational Factory pattern.","```json
+{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory"",
+      ""confidence"": 100,
+      ""adherence"": 100,
+      ""reason"": ""The class 'JAXBBeanFactory' implements the 'BeanFactory' interface and encapsulates the logic required to create instances of JAXB objects. It hides the complexity of instantiation (which involves string manipulation to handle inner classes, dynamic class loading of a delegate 'ObjectFactory', and reflection-based method invocation) from the client, strictly adhering to the Creational Factory pattern.""
+    }
+  ]
+}
+```",31.01208
+DPD-magic-config-DecoratorFactory.java,factory,gpt-5,Factory Method,68,50,"The interface defines a creation method (createDecorator) that returns a product type (Decorator) and defers instantiation to implementors, which aligns with the Factory Method intent. However, this snippet alone lacks concrete creator implementations and concrete product classes to fully demonstrate the pattern, and the presence of a discriminator parameter (decoratorType: String) leans toward a parameterized/simple factory approach rather than letting subclasses decide purely by overriding, reducing adherence.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 68,
+      ""adherence"": 50,
+      ""reason"": ""The interface defines a creation method (createDecorator) that returns a product type (Decorator) and defers instantiation to implementors, which aligns with the Factory Method intent. However, this snippet alone lacks concrete creator implementations and concrete product classes to fully demonstrate the pattern, and the presence of a discriminator parameter (decoratorType: String) leans toward a parameterized/simple factory approach rather than letting subclasses decide purely by overriding, reducing adherence.""
+    }
+  ]
+}",14.844849
+DPD-magic-config-DecoratorFactory.java,factory,gemini-3.0-pro,Factory,98,100,"The code defines an interface named `DecoratorFactory` with a method `createDecorator` responsible for instantiating and returning `Decorator` objects. This structure encapsulates object creation and decouples the client from specific concrete implementations, which is the exact definition of the Factory pattern (specifically acting as the Abstract Factory or Creator interface).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Factory"",
+		""confidence"": 98,
+		""adherence"": 100,
+		""reason"": ""The code defines an interface named `DecoratorFactory` with a method `createDecorator` responsible for instantiating and returning `Decorator` objects. This structure encapsulates object creation and decouples the client from specific concrete implementations, which is the exact definition of the Factory pattern (specifically acting as the Abstract Factory or Creator interface).""
+	}]
+}
+```",29.28608
+DPD-SamyGo-Android-Remote-CSeriesKeyCodeSenderFactory.java,factory,gpt-5,Factory Method,85,95,"CSeriesKeyCodeSenderFactory extends SenderFactory and overrides a factory method (create) to instantiate and return a concrete product (new CSeriesSender). The creation logic is encapsulated in the subclass and depends on runtime data (host, MAC address), which aligns with the Factory Method pattern where subclasses decide which concrete product to create.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 85,
+      ""adherence"": 95,
+      ""reason"": ""CSeriesKeyCodeSenderFactory extends SenderFactory and overrides a factory method (create) to instantiate and return a concrete product (new CSeriesSender). The creation logic is encapsulated in the subclass and depends on runtime data (host, MAC address), which aligns with the Factory Method pattern where subclasses decide which concrete product to create.""
+    }
+  ]
+}",11.666533
+DPD-SamyGo-Android-Remote-CSeriesKeyCodeSenderFactory.java,factory,gemini-3.0-pro,Factory Method,100,100,"The class 'CSeriesKeyCodeSenderFactory' (Concrete Creator) extends 'SenderFactory' (Creator) and overrides the 'create' method. Inside this method, it encapsulates the complex logic required to instantiate a specific object, 'CSeriesSender' (Concrete Product), while returning it as the abstract type 'Sender' (Product). This allows the instantiation logic to be deferred to the subclass, which is the definition of the Factory Method pattern.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Factory Method"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class 'CSeriesKeyCodeSenderFactory' (Concrete Creator) extends 'SenderFactory' (Creator) and overrides the 'create' method. Inside this method, it encapsulates the complex logic required to instantiate a specific object, 'CSeriesSender' (Concrete Product), while returning it as the abstract type 'Sender' (Product). This allows the instantiation logic to be deferred to the subclass, which is the definition of the Factory Method pattern.""
+	}]
+}
+```",20.99646
+DPD-swing-mvc-demo-EnvironmentBindingFactory.java,factory,gpt-5,Factory Method,92,90,"The class implements the BindingFactory interface and overrides newBinding to create and return a concrete Binding (EnvironmentBinding). The object-creation logic is encapsulated, including parsing the expression and using reflection, which is characteristic of the Factory Method pattern.","{""design_patterns"": [{""pattern"": ""Factory Method"", ""confidence"": 92, ""adherence"": 90, ""reason"": ""The class implements the BindingFactory interface and overrides newBinding to create and return a concrete Binding (EnvironmentBinding). The object-creation logic is encapsulated, including parsing the expression and using reflection, which is characteristic of the Factory Method pattern.""}, {""pattern"": ""Dependency Injection"", ""confidence"": 80, ""adherence"": 85, ""reason"": ""Dependencies (Environment and PropertyConduitSource) are provided via constructor injection rather than being created internally, demonstrating inversion of control and promoting decoupling and testability.""}, {""pattern"": ""Strategy"", ""confidence"": 58, ""adherence"": 60, ""reason"": ""BindingFactory serves as a pluggable interface for different algorithms to produce bindings from expressions. EnvironmentBindingFactory provides one such algorithm focused on environment-based bindings. While typical in frameworks like Tapestry, the code snippet alone only partially evidences interchangeable strategies.""}]}",46.257563
+DPD-swing-mvc-demo-EnvironmentBindingFactory.java,factory,gpt-5,Dependency Injection,80,85,"Dependencies (Environment and PropertyConduitSource) are provided via constructor injection rather than being created internally, demonstrating inversion of control and promoting decoupling and testability.","{""design_patterns"": [{""pattern"": ""Factory Method"", ""confidence"": 92, ""adherence"": 90, ""reason"": ""The class implements the BindingFactory interface and overrides newBinding to create and return a concrete Binding (EnvironmentBinding). The object-creation logic is encapsulated, including parsing the expression and using reflection, which is characteristic of the Factory Method pattern.""}, {""pattern"": ""Dependency Injection"", ""confidence"": 80, ""adherence"": 85, ""reason"": ""Dependencies (Environment and PropertyConduitSource) are provided via constructor injection rather than being created internally, demonstrating inversion of control and promoting decoupling and testability.""}, {""pattern"": ""Strategy"", ""confidence"": 58, ""adherence"": 60, ""reason"": ""BindingFactory serves as a pluggable interface for different algorithms to produce bindings from expressions. EnvironmentBindingFactory provides one such algorithm focused on environment-based bindings. While typical in frameworks like Tapestry, the code snippet alone only partially evidences interchangeable strategies.""}]}",46.257563
+DPD-swing-mvc-demo-EnvironmentBindingFactory.java,factory,gpt-5,Strategy,58,60,"BindingFactory serves as a pluggable interface for different algorithms to produce bindings from expressions. EnvironmentBindingFactory provides one such algorithm focused on environment-based bindings. While typical in frameworks like Tapestry, the code snippet alone only partially evidences interchangeable strategies.","{""design_patterns"": [{""pattern"": ""Factory Method"", ""confidence"": 92, ""adherence"": 90, ""reason"": ""The class implements the BindingFactory interface and overrides newBinding to create and return a concrete Binding (EnvironmentBinding). The object-creation logic is encapsulated, including parsing the expression and using reflection, which is characteristic of the Factory Method pattern.""}, {""pattern"": ""Dependency Injection"", ""confidence"": 80, ""adherence"": 85, ""reason"": ""Dependencies (Environment and PropertyConduitSource) are provided via constructor injection rather than being created internally, demonstrating inversion of control and promoting decoupling and testability.""}, {""pattern"": ""Strategy"", ""confidence"": 58, ""adherence"": 60, ""reason"": ""BindingFactory serves as a pluggable interface for different algorithms to produce bindings from expressions. EnvironmentBindingFactory provides one such algorithm focused on environment-based bindings. While typical in frameworks like Tapestry, the code snippet alone only partially evidences interchangeable strategies.""}]}",46.257563
+DPD-swing-mvc-demo-EnvironmentBindingFactory.java,factory,gemini-3.0-pro,Factory Method,100,100,"The class `EnvironmentBindingFactory` explicitly implements an interface `BindingFactory` which defines a contract for creating objects. The `newBinding` method encapsulates the complex logic (parsing expressions, reflection, and dependency lookups) required to instantiate and return a specific concrete product (`EnvironmentBinding`), while the return type is the interface `Binding`. This effectively decouples the client code from the specific class instantiation.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Factory Method"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class `EnvironmentBindingFactory` explicitly implements an interface `BindingFactory` which defines a contract for creating objects. The `newBinding` method encapsulates the complex logic (parsing expressions, reflection, and dependency lookups) required to instantiate and return a specific concrete product (`EnvironmentBinding`), while the return type is the interface `Binding`. This effectively decouples the client code from the specific class instantiation.""
+	}]
+}
+```",15.38683
+DPD-dozer-UserBeanFactory.java,factory,gpt-5,Factory Method,88,85,"UserBeanFactory implements the BeanFactory interface and overrides createBean to encapsulate object instantiation. It decides which concrete class to instantiate based on the target type (using isAssignableFrom checks) and falls back to reflective instantiation (Class.forName + newInstance). This aligns with Factory Method: the framework calls a factory interface, and the concrete factory determines the product class. It is not Abstract Factory (no family of products with multiple creation methods), nor Service Locator (no registry), nor Observer.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 88,
+      ""adherence"": 85,
+      ""reason"": ""UserBeanFactory implements the BeanFactory interface and overrides createBean to encapsulate object instantiation. It decides which concrete class to instantiate based on the target type (using isAssignableFrom checks) and falls back to reflective instantiation (Class.forName + newInstance). This aligns with Factory Method: the framework calls a factory interface, and the concrete factory determines the product class. It is not Abstract Factory (no family of products with multiple creation methods), nor Service Locator (no registry), nor Observer.""
+    }
+  ]
+}",23.785585
+DPD-dozer-UserBeanFactory.java,factory,gemini-3.0-pro,Factory Method,100,100,"The class 'UserBeanFactory' implements an interface 'BeanFactory' and defines a method 'createBean' responsible for object creation. It encapsulates the instantiation logic by determining which concrete class (e.g., 'UserImpl', 'UserGroupImpl') to create based on the input parameters (target bean ID or class type). This decouples the client code from the specific concrete classes being instantiated.","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Factory Method"",
+		""confidence"": 100,
+		""adherence"": 100,
+		""reason"": ""The class 'UserBeanFactory' implements an interface 'BeanFactory' and defines a method 'createBean' responsible for object creation. It encapsulates the instantiation logic by determining which concrete class (e.g., 'UserImpl', 'UserGroupImpl') to create based on the input parameters (target bean ID or class type). This decouples the client code from the specific concrete classes being instantiated.""
+	}]
+}
+```",28.968655
+DPD-orion.server-ResourceShapeFactory.java,factory,gpt-5,Factory Method,72,58,"ResourceShapeFactory centralizes creation/selection of ResourceShape via the static createResourceShape method, encapsulating decision logic (default vs. query-based) and hiding reflection details (getResourceShape, getDefaultResourceShape). However, it does not use subclassing or overrideable factory methods; instead it is a static/simple factory that retrieves existing instances from fields via reflection, so it only loosely adheres to the classic GoF Factory Method.","{
+  ""design_patterns"": [
+    {
+      ""pattern"": ""Factory Method"",
+      ""confidence"": 72,
+      ""adherence"": 58,
+      ""reason"": ""ResourceShapeFactory centralizes creation/selection of ResourceShape via the static createResourceShape method, encapsulating decision logic (default vs. query-based) and hiding reflection details (getResourceShape, getDefaultResourceShape). However, it does not use subclassing or overrideable factory methods; instead it is a static/simple factory that retrieves existing instances from fields via reflection, so it only loosely adheres to the classic GoF Factory Method.""
+    }
+  ]
+}",51.316859
+DPD-orion.server-ResourceShapeFactory.java,factory,gemini-3.0-pro,Simple Factory,95,90,"The class contains a static method `createResourceShape` that encapsulates the logic for instantiating or retrieving a `ResourceShape` object based on input parameters (the resource class and selection query). It hides the complexity of parsing the query, checking annotations, and using reflection to find the specific field, which is the primary definition of the Simple Factory idiom (also known as a Static Factory Method).","```json
+{
+	""design_patterns"": [{
+		""pattern"": ""Simple Factory"",
+		""confidence"": 95,
+		""adherence"": 90,
+		""reason"": ""The class contains a static method `createResourceShape` that encapsulates the logic for instantiating or retrieving a `ResourceShape` object based on input parameters (the resource class and selection query). It hides the complexity of parsing the query, checking annotations, and using reflection to find the specific field, which is the primary definition of the Simple Factory idiom (also known as a Static Factory Method).""
+	}]
+}
+```",20.344027
