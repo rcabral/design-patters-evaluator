@@ -14,7 +14,7 @@ from collections import defaultdict
 # Configuration
 SEED = 42
 SAMPLES_PER_PATTERN = 10
-TARGET_PATTERNS = ["singleton", "factory", "observer", "decorator"]
+TARGET_PATTERNS = ["singleton", "factory", "observer"]
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent

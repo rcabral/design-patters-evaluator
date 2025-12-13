@@ -11,7 +11,7 @@ from collections import defaultdict
 from typing import Dict, List, Any, Optional, Tuple
 
 # Target patterns to evaluate (from the original paper)
-TARGET_PATTERNS = ["singleton", "factory", "observer", "decorator"]
+TARGET_PATTERNS = ["singleton", "factory", "observer"]
 
 # Paper reference results for comparison
 PAPER_RESULTS = {

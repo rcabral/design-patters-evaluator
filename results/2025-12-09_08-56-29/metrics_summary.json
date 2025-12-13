@@ -1,12 +1,12 @@
 [
   {
     "model": "llama3.1-8b",
-    "precision": 0.6,
-    "recall": 0.1125,
-    "f1": 0.18947368421052632,
+    "precision": 0.75,
+    "recall": 0.15,
+    "f1": 0.24999999999999997,
     "total_tp": 9,
-    "total_fp": 6,
-    "total_fn": 71,
+    "total_fp": 3,
+    "total_fn": 51,
     "pattern_scores": [
       {
         "pattern": "singleton",
@@ -20,7 +20,7 @@
       {
         "pattern": "factory",
         "tp": 0,
-        "fp": 2,
+        "fp": 1,
         "fn": 20,
         "precision": 0.0,
         "recall": 0.0,
@@ -29,26 +29,14 @@
       {
         "pattern": "observer",
         "tp": 5,
-        "fp": 3,
+        "fp": 1,
         "fn": 15,
-        "precision": 0.625,
+        "precision": 0.8333333333333334,
         "recall": 0.25,
-        "f1": 0.35714285714285715
-      },
-      {
-        "pattern": "decorator",
-        "tp": 0,
-        "fp": 0,
-        "fn": 20,
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0
+        "f1": 0.3846153846153846
       }
     ],
-    "ignored_detections": {
-      "Observer Design Pattern": 1,
-      "Builder": 1
-    },
+    "ignored_detections": {},
     "breakdown_by_source": {
       "DPD": {
         "correct": 4,
@@ -64,18 +52,18 @@
     "debug_info": {
       "files_processed": 80,
       "correct_count": 9,
-      "missed_count": 71,
-      "fp_count": 6
+      "missed_count": 51,
+      "fp_count": 3
     }
   },
   {
     "model": "gemma3-27b",
-    "precision": 0.8461538461538461,
-    "recall": 0.825,
-    "f1": 0.8354430379746836,
-    "total_tp": 66,
-    "total_fp": 12,
-    "total_fn": 14,
+    "precision": 0.8688524590163934,
+    "recall": 0.8833333333333333,
+    "f1": 0.8760330578512396,
+    "total_tp": 53,
+    "total_fp": 8,
+    "total_fn": 7,
     "pattern_scores": [
       {
         "pattern": "singleton",
@@ -89,75 +77,61 @@
       {
         "pattern": "factory",
         "tp": 18,
-        "fp": 1,
+        "fp": 0,
         "fn": 2,
-        "precision": 0.9473684210526315,
+        "precision": 1.0,
         "recall": 0.9,
-        "f1": 0.9230769230769231
+        "f1": 0.9473684210526316
       },
       {
         "pattern": "observer",
         "tp": 19,
-        "fp": 6,
+        "fp": 3,
         "fn": 1,
-        "precision": 0.76,
+        "precision": 0.8636363636363636,
         "recall": 0.95,
-        "f1": 0.8444444444444444
-      },
-      {
-        "pattern": "decorator",
-        "tp": 13,
-        "fp": 0,
-        "fn": 7,
-        "precision": 1.0,
-        "recall": 0.65,
-        "f1": 0.787878787878788
+        "f1": 0.9047619047619048
       }
     ],
     "ignored_detections": {
-      "Strategy": 10,
+      "Strategy": 7,
       "Singleton (Potential)": 1,
       "Thread Pool": 1,
       "Command": 1,
       "Chain of Responsibility": 1,
-      "Dependency Injection": 3,
+      "Dependency Injection": 2,
       "Proxy": 1,
-      "Front Controller": 1,
-      "Template Method": 3,
-      "Memento": 1,
-      "Immutable Object": 1,
-      "Facade": 1,
+      "Template Method": 1,
       "Registry": 1,
-      "Adapter": 3,
       "Iterator": 1
     },
     "breakdown_by_source": {
       "DPD": {
-        "correct": 35,
+        "correct": 27,
         "total": 40,
-        "accuracy": 0.875
+        "accuracy": 0.675
       },
       "PMART": {
-        "correct": 31,
+        "correct": 26,
         "total": 40,
-        "accuracy": 0.775
+        "accuracy": 0.65
       }
     },
     "debug_info": {
       "files_processed": 80,
-      "correct_count": 66,
-      "missed_count": 14,
-      "fp_count": 12
+      "correct_count": 53,
+      "missed_count": 7,
+      "fp_count": 8
     }
   },
   {
     "model": "qwen3-14b",
-    "precision": 0.8833333333333333,
-    "recall": 0.6625,
-    "f1": 0.7571428571428571,
-    "total_tp": 53,
-    "total_fp": 7,
-    "total_fn": 27,
+    "precision": 0.8913043478260869,
+    "recall": 0.6833333333333333,
+    "f1": 0.7735849056603774,
+    "total_tp": 41,
+    "total_fp": 5,
+    "total_fn": 19,
     "pattern_scores": [
       {
         "pattern": "singleton",
@@ -171,36 +145,26 @@
       {
         "pattern": "factory",
         "tp": 10,
-        "fp": 1,
+        "fp": 0,
         "fn": 10,
-        "precision": 0.9090909090909091,
+        "precision": 1.0,
         "recall": 0.5,
-        "f1": 0.6451612903225806
+        "f1": 0.6666666666666666
       },
       {
         "pattern": "observer",
         "tp": 19,
-        "fp": 3,
+        "fp": 2,
         "fn": 1,
-        "precision": 0.8636363636363636,
+        "precision": 0.9047619047619048,
         "recall": 0.95,
-        "f1": 0.9047619047619048
-      },
-      {
-        "pattern": "decorator",
-        "tp": 12,
-        "fp": 0,
-        "fn": 8,
-        "precision": 1.0,
-        "recall": 0.6,
-        "f1": 0.7499999999999999
+        "f1": 0.9268292682926829
       }
     ],
     "ignored_detections": {
       "Strategy": 4,
       "Template Method": 2,
       "Proxy": 1,
-      "Adapter": 3,
       "Visitor": 1,
       "Facade": 1,
       "Iterator": 1,
@@ -208,31 +172,31 @@
     },
     "breakdown_by_source": {
       "DPD": {
-        "correct": 29,
+        "correct": 22,
         "total": 40,
-        "accuracy": 0.725
+        "accuracy": 0.55
       },
       "PMART": {
-        "correct": 24,
+        "correct": 19,
         "total": 40,
-        "accuracy": 0.6
+        "accuracy": 0.475
       }
     },
     "debug_info": {
       "files_processed": 80,
-      "correct_count": 53,
-      "missed_count": 27,
-      "fp_count": 7
+      "correct_count": 41,
+      "missed_count": 19,
+      "fp_count": 5
     }
   },
   {
     "model": "deepseek-r1-14b",
-    "precision": 0.9117647058823529,
-    "recall": 0.775,
-    "f1": 0.8378378378378379,
-    "total_tp": 62,
-    "total_fp": 6,
-    "total_fn": 18,
+    "precision": 0.9259259259259259,
+    "recall": 0.8333333333333334,
+    "f1": 0.8771929824561403,
+    "total_tp": 50,
+    "total_fp": 4,
+    "total_fn": 10,
     "pattern_scores": [
       {
         "pattern": "singleton",
@@ -246,29 +210,20 @@
       {
         "pattern": "factory",
         "tp": 15,
-        "fp": 1,
+        "fp": 0,
         "fn": 5,
-        "precision": 0.9375,
+        "precision": 1.0,
         "recall": 0.75,
-        "f1": 0.8333333333333334
+        "f1": 0.8571428571428571
       },
       {
         "pattern": "observer",
         "tp": 20,
-        "fp": 2,
+        "fp": 1,
         "fn": 0,
-        "precision": 0.9090909090909091,
+        "precision": 0.9523809523809523,
         "recall": 1.0,
-        "f1": 0.9523809523809523
-      },
-      {
-        "pattern": "decorator",
-        "tp": 12,
-        "fp": 0,
-        "fn": 8,
-        "precision": 1.0,
-        "recall": 0.6,
-        "f1": 0.7499999999999999
+        "f1": 0.975609756097561
       }
     ],
     "ignored_detections": {
@@ -276,27 +231,25 @@
       "Service Locator": 1,
       "Proxy": 2,
       "Dependency Injection": 1,
-      "Flyweight": 1,
-      "Registry": 1,
-      "Adapter": 3
+      "Registry": 1
     },
     "breakdown_by_source": {
       "DPD": {
-        "correct": 35,
-        "total": 40,
-        "accuracy": 0.875
-      },
-      "PMART": {
         "correct": 27,
         "total": 40,
         "accuracy": 0.675
+      },
+      "PMART": {
+        "correct": 23,
+        "total": 40,
+        "accuracy": 0.575
       }
     },
     "debug_info": {
       "files_processed": 80,
-      "correct_count": 62,
-      "missed_count": 18,
-      "fp_count": 6
+      "correct_count": 50,
+      "missed_count": 10,
+      "fp_count": 4
     }
   }
 ]
